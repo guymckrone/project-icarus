@@ -24,21 +24,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
 
-    int ice;
+
     final ProjectOdyssey game;
-    int[] inventory = new int[10];
     private Stage stage;
     private AssetManager menuManager = new AssetManager();
     private BitmapFont font = new BitmapFont();
     private SpriteBatch batch;
     private ImageButton playButton;
     private Texture logo;
-
     OrthographicCamera camera;
 
     public MainMenuScreen(final ProjectOdyssey game) {
         this.game = game;
-        ice = 0;
         stage = new Stage();
         batch = new SpriteBatch();
 
@@ -69,7 +66,6 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new GameScreen(game)); // Switch screen to game state
-                //ice++;
                 playButton.setDisabled(true);
 
             }
@@ -100,10 +96,9 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-
         game.font.draw(game.batch, "Welcome to your Odyssey", 100, 150);
-        game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
         game.batch.end();
+
         batch.begin();
         playButton.draw(batch, 1);
         batch.end();
@@ -112,7 +107,7 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
             //game.setScreen(new GameScreen(game));
             dispose();
         }
-        System.out.println(ice);
+
         camera.update();
     }
 
