@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.InputMultiplexer;
@@ -78,7 +79,6 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             }
         });
         stage.addActor(iceButton);
-
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
         // Button skin
@@ -90,7 +90,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         marketButtonStyle.imageUp = marketButtonSkin.getDrawable("marketButton"); // Unpressed
         marketButtonStyle.imageDown = marketButtonSkin.getDrawable("marketButton"); // Pressed
 
-        // Play button
+        // Market button
         marketButton = new ImageButton(marketButtonStyle);
         int buttonSize2 = (int) (100 * Gdx.graphics.getDensity());
         marketButton.setSize(buttonSize2, buttonSize2);
@@ -104,11 +104,12 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Market(game));
+                game.setScreen(new MainMenuScreen(game));
                 //marketButton.setDisabled(false);
 
             }
         });
+        marketButton.setTouchable(Touchable.disabled);
         stage.addActor(marketButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
@@ -139,6 +140,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         camera.update();
 
         if(ice >= 10) {
+            marketButton.setTouchable(Touchable.enabled);
             batch.begin();
             marketButton.draw(batch, 1);
             batch.end();
