@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.concurrent.Task;
 
@@ -20,6 +21,12 @@ public class ProjectOdyssey extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	//Texture img;
+
+    Timer t = new Timer(); //declare the timer for the upgrades method
+
+    int upgradeOne = 1;
+    int upgradeTwo = 1;
+
 
 	String marketEvent = ""; //Text of market event
 
@@ -77,22 +84,50 @@ public class ProjectOdyssey extends Game {
 		//batch.draw(img, 0, 0);
 		batch.end();
 
-		System.out.println(" --------------- Price "); //Break line to read the market easier
+		upgrades();
 
-		Timer.schedule(new Task(){ //idk the syntax https://stackoverflow.com/questions/21781161/how-can-i-do-something-every-second-libgdx
-						   @Override
-						   public void run() {
-							   callEverything();
-						   }
-					   }
-				, 10       //    (delay)
-				, 30     //    (seconds)
-		);
+
 
 		//final prices for the day
 
 		super.render();
 	}
+
+	public void upgrades(){
+
+	    if (upgradeOne == 1) {
+	        upgradeOne = 0;
+            t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+                                      @Override
+                                      public void run() { //Called each time when 1000 milliseconds (1 second) (the period parameter)
+                                          callEverything();
+                                      }
+                                  },
+                    0, //Set how long before to start calling the TimerTask (in milliseconds)
+                    5000);  //Set the amount of time between each execution (in milliseconds)
+        }
+
+        if (upgradeTwo == 1) {
+            upgradeTwo = 0;
+            t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+                                      @Override
+                                      public void run() { //Called each time when 1000 milliseconds (1 second) (the period parameter)
+                                          System.out.println("Price RUNS AT THE SAME TIME YES");
+                                      }
+                                  },
+                    0, //Set how long before to start calling the TimerTask (in milliseconds)
+                    5000);  //Set the amount of time between each execution (in milliseconds)
+        }
+
+
+
+
+
+
+    }
+
+
+
 
 	@Override
 	public void dispose () {
@@ -112,6 +147,8 @@ public class ProjectOdyssey extends Game {
 		snowManChange();
 
 		checkForEvent();
+
+        System.out.println(" --------------- Price "); //Break line to read the market easier
 	}
 
 	public void checkForEvent() {
