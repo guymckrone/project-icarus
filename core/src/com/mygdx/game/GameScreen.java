@@ -1,45 +1,20 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.TimeUtils;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.input.GestureDetector;
-import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.math.collision.BoundingBox;
-import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
-import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
 
 /**
  * Created by guymc on 11/29/2017.
@@ -52,15 +27,21 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     private BitmapFont font = new BitmapFont();
     private SpriteBatch batch;
     private ImageButton iceButton;
+    private ImageButton marketButton;
     public int ice;
     OrthographicCamera camera;
     float playTime;
+    int playIntSec;
+    int playIntHour;
+    String gameClock;
 
 
     public GameScreen(final ProjectOdyssey game) {
         this.game = game;
         Gdx.graphics.getDeltaTime();
         playTime = 0;
+        playIntSec = 0;
+        playIntHour = 0;
         ice = 0;
         stage = new Stage();
         batch = new SpriteBatch();
@@ -92,22 +73,62 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 ice++;
-                //iceButton.setDisabled(true);
+                //iceButton.setDisabled(false);
 
             }
         });
         stage.addActor(iceButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin marketButtonSkin = new Skin();
+        marketButtonSkin.add("marketButton", new Texture("buttons/market_arrow.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle marketButtonStyle = new ImageButton.ImageButtonStyle();
+        marketButtonStyle.imageUp = marketButtonSkin.getDrawable("marketButton"); // Unpressed
+        marketButtonStyle.imageDown = marketButtonSkin.getDrawable("marketButton"); // Pressed
+
+        // Play button
+        marketButton = new ImageButton(marketButtonStyle);
+        int buttonSize2 = (int) (100 * Gdx.graphics.getDensity());
+        marketButton.setSize(buttonSize2, buttonSize2);
+        int width2 = (int) ((Gdx.graphics.getWidth() - marketButton.getWidth())/2);
+        int height2 = (int) ((Gdx.graphics.getHeight() - marketButton.getHeight())/2);
+        marketButton.setBounds(width2, height2, marketButton.getWidth(), marketButton.getHeight());
+        marketButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new Market(game));
+                //marketButton.setDisabled(false);
+
+            }
+        });
+        stage.addActor(marketButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
     }
+
     @Override
     public void render(float delta) {
+        playTime = playTime + Gdx.graphics.getDeltaTime();
+        playIntSec = (int)playTime;
+        /*if(playIntSec == 60){
+            playIntSec = 0;
+            playIntHour++;
+        }*/
         Gdx.gl.glClearColor(0, 0, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-
+        //game.font.draw(game.batch, "Time: " + playIntHour + ":" + playIntSec, 100, 200);
         game.font.draw(game.batch, "Welcome to your Odyssey", 100, 150);
         game.font.draw(game.batch, "You have " + ice + " ice.", 100, 100);
         game.batch.end();
@@ -117,8 +138,17 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.end();
         camera.update();
 
-        playTime = playTime + Gdx.graphics.getDeltaTime();
-        System.out.println(playTime);
+        if(ice >= 10) {
+            batch.begin();
+            marketButton.draw(batch, 1);
+            batch.end();
+        }
+
+
+
+    }
+
+    public void inventory(){
 
     }
 

@@ -73,13 +73,6 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
         stage.addActor(playButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
-
-
-
-        System.out.println("Testing102");
-        //this.game = game;
-        //camera = new OrthographicCamera();
-        //camera.setToOrtho(false, 800, 480);
     }
 
     @Override
