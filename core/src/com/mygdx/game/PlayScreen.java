@@ -16,10 +16,8 @@ public class PlayScreen extends Game implements GestureDetector.GestureListener,
     }
 
 
-
     @Override
     public void create() {
-
     }
 
     @Override

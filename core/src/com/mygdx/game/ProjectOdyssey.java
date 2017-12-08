@@ -10,6 +10,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 
+import java.util.prefs.Preferences;
+
+import sun.applet.Main;
+
 public class ProjectOdyssey extends Game {
 	float money; //total amount of money that the player has
 	SpriteBatch batch;
@@ -23,7 +27,6 @@ public class ProjectOdyssey extends Game {
 	@Override
 	public void render(){
 		Gdx.gl.glClearColor(1, 1, 1, 1); //White background color
-
 	}
 
 	@Override
@@ -37,6 +40,10 @@ public class ProjectOdyssey extends Game {
 //		moneyCounter = new TextField("Money: " + money, counterSkin);
 //		moneyCounter.setOrigin(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);
 //		moneyCounter.moveBy(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()/2);
+	}
+
+	public void PlayScreen(){
+		render();
 	}
 
 

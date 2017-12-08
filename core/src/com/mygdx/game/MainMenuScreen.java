@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -27,6 +28,7 @@ public class MainMenuScreen extends Game implements Screen {
 
     @Override
     public void create() {
+
         mainMenuStage = new Stage();
 
         Gdx.input.setInputProcessor(mainMenuStage);
@@ -67,7 +69,6 @@ public class MainMenuScreen extends Game implements Screen {
 
     @Override
     public void show() {
-
      }
 
     @Override
@@ -76,11 +77,6 @@ public class MainMenuScreen extends Game implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
-    }
-
-    @Override
-    public void pause() {
 
     }
 
