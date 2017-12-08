@@ -12,9 +12,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javafx.concurrent.Task;
-
-
 public class ProjectOdyssey extends Game {
 	public AssetManager assets;
 	//GameScreen.setupAssetManager(assets)
