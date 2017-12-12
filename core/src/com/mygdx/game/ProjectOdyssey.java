@@ -14,6 +14,7 @@ import java.util.TimerTask;
 
 import javafx.concurrent.Task;
 
+// COLORS: good ice blue: #90f5ff
 
 public class ProjectOdyssey extends Game {
 	public AssetManager assets;
