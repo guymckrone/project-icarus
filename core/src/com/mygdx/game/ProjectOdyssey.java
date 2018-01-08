@@ -9,10 +9,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ProjectOdyssey extends Game {
+	public static int ice = 0;
 	public AssetManager assets;
 	//GameScreen.setupAssetManager(assets)
 	public SpriteBatch batch;
 	public BitmapFont font;
+
 	//Texture img;
 
     Timer t = new Timer(); //declare the timer for the upgrades method
