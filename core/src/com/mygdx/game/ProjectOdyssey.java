@@ -1,11 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -44,9 +40,9 @@ public class ProjectOdyssey extends Game {
 	int shovelMin = 25;
 	int shovelMax = 49;
 
-	int dryIcePrice = 0;
-	int dryIceMin = 56;
-	int dryIceMax = 108;
+	int iceCreamPrice = 0;
+	int iceCreamMin = 56;
+	int iceCreamMax = 108;
 
 	int snowFlakePrice = 0;
 	int snowFlakeMin = 112;
@@ -138,7 +134,7 @@ public class ProjectOdyssey extends Game {
 		snowBallChange();
 		bucketChange();
 		shovelChange();
-		dryIceChange();
+		iceCreamChange();
 		snowFlakeChange();
 		icicleChange();
 		snowManChange();
@@ -156,7 +152,7 @@ public class ProjectOdyssey extends Game {
 			snowBallPrice = snowBallMin;
 			bucketPrice = bucketMin;
 			shovelPrice = shovelMin;
-			dryIcePrice = dryIceMin;
+			iceCreamPrice = iceCreamMin;
 			snowFlakePrice = snowFlakeMin;
 			iciclePrice = icicleMin;
 			snowManPrice = snowManMin;
@@ -319,16 +315,16 @@ public class ProjectOdyssey extends Game {
 		System.out.println("Shovel Price:" + shovelPrice);
 	}
 
-	public void dryIceChange(){
-		if (dryIcePrice == dryIceMin){ //If the price of the item have hit the bottom, have there be a 50% chance chance the values stays there, otherwise increase by a random amount.
+	public void iceCreamChange(){
+		if (iceCreamPrice == iceCreamMin){ //If the price of the item have hit the bottom, have there be a 50% chance chance the values stays there, otherwise increase by a random amount.
 			int random = (int) (Math.random() * 2 + 1);
 			if (random == 2) {
-				dryIcePrice = dryIcePrice + (random = (int) (Math.random() * 18 + 1));
+				iceCreamPrice = iceCreamPrice + (random = (int) (Math.random() * 18 + 1));
 			}
 		}
-		else if (dryIcePrice == dryIceMax){//If the price is at a high, drop it a random amount.
+		else if (iceCreamPrice == iceCreamMax){//If the price is at a high, drop it a random amount.
 			int random = (int) (Math.random() * 18 + 1);
-			dryIcePrice = dryIcePrice - random;
+			iceCreamPrice = iceCreamPrice - random;
 		}
 		else{ //If the price is not neither max or min:
 			int random = (int) (Math.random() * 4 + 1);
@@ -338,20 +334,20 @@ public class ProjectOdyssey extends Game {
 			else{
 				random = (int) (Math.random() * 2 + 1); //If it does not stay the same, 50% chance it goes up, 50% chance it goes down.
 				if (random == 2) {
-					dryIcePrice = dryIcePrice + (random = (int) (Math.random() * 12 + 1));
+					iceCreamPrice = iceCreamPrice + (random = (int) (Math.random() * 12 + 1));
 				}
 				else {
-					dryIcePrice = dryIcePrice - (random = (int) (Math.random() * 12 + 1));
+					iceCreamPrice = iceCreamPrice - (random = (int) (Math.random() * 12 + 1));
 				}
 			}
 		}
-		if (dryIcePrice > dryIceMax){ //This makes sure the price of the item never exceeds its designated max price
-			dryIcePrice = dryIceMax;
+		if (iceCreamPrice > iceCreamMax){ //This makes sure the price of the item never exceeds its designated max price
+			iceCreamPrice = iceCreamMax;
 		}
-		if (dryIcePrice < dryIceMin){
-			dryIcePrice = dryIceMin;
+		if (iceCreamPrice < iceCreamMin){
+			iceCreamPrice = iceCreamMin;
 		}
-		System.out.println("DryIce Price:" + dryIcePrice);
+		System.out.println("IceCream Price:" + iceCreamPrice);
 	}
 
 	public void snowFlakeChange(){
