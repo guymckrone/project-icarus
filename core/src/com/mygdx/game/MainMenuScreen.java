@@ -22,6 +22,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
  * Created by guymc on 11/29/2017.
  */
 
+//Main menu Obviously
+
 public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
 
 
@@ -32,9 +34,13 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
     private SpriteBatch batch;
     private ImageButton playButton;
     private Texture logo;
+    public static int width;
+    public static int height;
     OrthographicCamera camera;
 
     public MainMenuScreen(final ProjectOdyssey game) {
+        width = Gdx.graphics.getWidth();
+        height = Gdx.graphics.getHeight();
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();

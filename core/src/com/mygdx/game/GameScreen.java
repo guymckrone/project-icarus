@@ -21,6 +21,8 @@ import com.badlogic.gdx.math.Vector2;
  * Created by guymc on 11/29/2017.
  */
 
+//Office
+
 public class GameScreen implements Screen, GestureDetector.GestureListener {
     final ProjectOdyssey game;
     private Stage stage;
@@ -29,7 +31,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     private SpriteBatch batch;
     private ImageButton iceButton;
     private ImageButton marketButton;
-    public int ice;
+    private ImageButton lobbyButton;
+    //public static int ice;
     OrthographicCamera camera;
     float playTime;
     int playIntSec;
@@ -43,7 +46,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         playTime = 0;
         playIntSec = 0;
         playIntHour = 0;
-        ice = 0;
+
         stage = new Stage();
         batch = new SpriteBatch();
 
@@ -51,13 +54,13 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         camera.setToOrtho(false, 800, 480);
 
         // Button skin
-        Skin playButtonSkin = new Skin();
-        playButtonSkin.add("iceButton", new Texture("buttons/ice_cube.png"));
+        Skin iceButtonSkin = new Skin();
+        iceButtonSkin.add("iceButton", new Texture("buttons/ice_cube.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle playButtonStyle = new ImageButton.ImageButtonStyle();
-        playButtonStyle.imageUp = playButtonSkin.getDrawable("iceButton"); // Unpressed
-        playButtonStyle.imageDown = playButtonSkin.getDrawable("iceButton"); // Pressed
+        playButtonStyle.imageUp = iceButtonSkin.getDrawable("iceButton"); // Unpressed
+        playButtonStyle.imageDown = iceButtonSkin.getDrawable("iceButton"); // Pressed
 
         // Play button
         iceButton = new ImageButton(playButtonStyle);
@@ -73,7 +76,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                ice++;
+                ProjectOdyssey.ice++;
                 //iceButton.setDisabled(false);
 
             }
@@ -104,7 +107,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new MainMenuScreen(game));
+                game.setScreen(new Market(game));
                 //marketButton.setDisabled(false);
 
             }
@@ -114,7 +117,40 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
+        /*// Button skin
+        Skin lobbyButtonSkin = new Skin();
+        lobbyButtonSkin.add("lobbyButton", new Texture("buttons/market_arrow.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle lobbyButtonStyle = new ImageButton.ImageButtonStyle();
+        lobbyButtonStyle.imageUp = lobbyButtonSkin.getDrawable("lobbyButton"); // Unpressed
+        lobbyButtonStyle.imageDown = lobbyButtonSkin.getDrawable("lobbyButton"); // Pressed
+
+        // Market button
+        lobbyButton = new ImageButton(marketButtonStyle);
+        int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
+        lobbyButton.setSize(buttonSize2, buttonSize2);
+        int width3 = (int) ((Gdx.graphics.getWidth() - lobbyButton.getWidth())/2);
+        int height3 = (int) ((Gdx.graphics.getHeight() - lobbyButton.getHeight())/2);
+        lobbyButton.setBounds(width3, height3, lobbyButton.getWidth(), lobbyButton.getHeight());
+        lobbyButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new Market(game));
+                //marketButton.setDisabled(false);
+
+            }
+        });
+        lobbyButton.setTouchable(Touchable.disabled);
+        stage.addActor(lobbyButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));*/
     }
+
 
     @Override
     public void render(float delta) {
@@ -124,7 +160,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             playIntSec = 0;
             playIntHour++;
         }*/
-        System.out.println(ice);
+        System.out.println(ProjectOdyssey.ice);
         Gdx.gl.glClearColor(0, 0, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
@@ -132,7 +168,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         game.batch.begin();
         //game.font.draw(game.batch, "Time: " + playIntHour + ":" + playIntSec, 100, 200);
         game.font.draw(game.batch, "Welcome to your Odyssey", 100, 150);
-        game.font.draw(game.batch, "You have " + ice + " ice.", 100, 100);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
         game.batch.end();
 
         batch.begin();
@@ -140,7 +176,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.end();
         camera.update();
 
-        if(ice >= 10) {
+        if(ProjectOdyssey.ice >= 10) {
             marketButton.setTouchable(Touchable.enabled);
             batch.begin();
             marketButton.draw(batch, 1);
