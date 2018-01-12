@@ -55,7 +55,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         // Button skin
         Skin iceButtonSkin = new Skin();
-        iceButtonSkin.add("iceButton", new Texture("buttons/ice_cube.png"));
+        iceButtonSkin.add("iceButton", new Texture("MainScreen/IceMachine.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle playButtonStyle = new ImageButton.ImageButtonStyle();
