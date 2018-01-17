@@ -154,6 +154,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
     @Override
     public void render(float delta) {
+        System.out.println("marketshow" + ProjectOdyssey.marketShow);
         playTime = playTime + Gdx.graphics.getDeltaTime();
         playIntSec = (int)playTime;
         /*if(playIntSec == 60){
@@ -176,11 +177,12 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.end();
         camera.update();
 
-        if(ProjectOdyssey.ice >= 10) {
+        if(ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
             batch.begin();
             marketButton.draw(batch, 1);
             batch.end();
+            ProjectOdyssey.marketShow = true;
         }
 
 

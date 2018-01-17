@@ -8,11 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-import javafx.concurrent.Task;
-
 // COLORS: good ice blue: #90f5ff
-
 
 public class ProjectOdyssey extends Game {
 	public static int ice = 0;
@@ -20,6 +16,8 @@ public class ProjectOdyssey extends Game {
 	//GameScreen.setupAssetManager(assets)
 	public SpriteBatch batch;
 	public BitmapFont font;
+	public static boolean marketShow;
+	public static int moneys;
 
 	//Texture img;
 
