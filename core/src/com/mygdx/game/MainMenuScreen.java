@@ -97,7 +97,7 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "Welcome to your Odyssey", 100, 150);
+        game.font.draw(game.batch, "Welcome to your Odyssey", 150, 100);
         game.batch.end();
 
         batch.begin();

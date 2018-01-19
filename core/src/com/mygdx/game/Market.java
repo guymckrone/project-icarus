@@ -32,7 +32,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private SpriteBatch batch;
     private ImageButton sellIce;
     private ImageButton gameButton;
-    int moneys;
+
 
 
     private Texture logo;
@@ -73,7 +73,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if (ProjectOdyssey.ice > 0){//prevents from selling into negatives
                     ProjectOdyssey.ice--;//subtracts one ice each touchup
-                    moneys = moneys + ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
                 }
                // System.out.println(ProjectOdyssey.ice);//debug code, prints ice value
                 sellIce.setDisabled(true);//disables after each press so it does not repeat
@@ -131,7 +131,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, "You have " + moneys + " money.", 100, 150);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.moneys + " money.", 100, 150);
         game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
         game.batch.end();
         batch.begin();
