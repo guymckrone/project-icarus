@@ -38,7 +38,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     int playIntSec;
     int playIntHour;
     String gameClock;
-
+    
 
     public GameScreen(final ProjectOdyssey game) {
         this.game = game;
@@ -53,14 +53,17 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 800, 480);
 
-        // Button skin
+
+        // IceButton skin
         Skin iceButtonSkin = new Skin();
         iceButtonSkin.add("iceButton", new Texture("MainScreen/IceMachine.png"));
 
-        // Create button style
+        // Create IceButton style
         ImageButton.ImageButtonStyle playButtonStyle = new ImageButton.ImageButtonStyle();
         playButtonStyle.imageUp = iceButtonSkin.getDrawable("iceButton"); // Unpressed
         playButtonStyle.imageDown = iceButtonSkin.getDrawable("iceButton"); // Pressed
+
+
 
         // Play button
         iceButton = new ImageButton(playButtonStyle);
