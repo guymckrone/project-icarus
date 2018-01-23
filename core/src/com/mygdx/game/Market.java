@@ -40,12 +40,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton bucketButton;
     private ImageButton shovelButton;
     private ImageButton sellModeButton;
+    private ImageButton buyModeButton;
     private ImageButton creamButton;
     private ImageButton flakeButton;
     private ImageButton snowManButton;
 
     private Table marketTable;
-
+    private boolean sellMode = false;
 
 
 
@@ -263,11 +264,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new GameScreen(game)); // Switch screen to game state
-                sellModeButton.setDisabled(true);
+                sellMode = !sellMode;
+
+
 
             }
         });
+        sellModeButton.setDisabled(true);
         stage.addActor(sellModeButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
@@ -293,6 +296,12 @@ public class Market implements Screen, GestureDetector.GestureListener{
         game.batch.end();
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
+        if (sellMode = true){
+            sellModeButton.setDisabled(false);
+        }
+        else{
+            sellModeButton.setDisabled(true);
+        }
         //gameButton.draw(batch, 1);
         sbButton.draw(batch, 1);
         bucketButton.draw(batch, 1);
