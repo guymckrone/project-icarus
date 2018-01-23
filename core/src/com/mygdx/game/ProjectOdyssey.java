@@ -11,13 +11,21 @@ import java.util.TimerTask;
 // COLORS: good ice blue: #90f5ff
 
 public class ProjectOdyssey extends Game {
-	public static int ice = 0;
+	public static int ice = 10;//ice variable used in every class
+	public static int snowBall = 0;
+	public static int bucket = 0;
+	public static int shovel = 0;
+	public static int iceCream = 0;
+	public static int snowFlake = 0;
+	public static int icicle = 0;
+	public static int snowMan = 0;
 	public AssetManager assets;
 	//GameScreen.setupAssetManager(assets)
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public static boolean marketShow;
 	public static int moneys;
+	public static int scale = 1;
 
 	//Texture img;
 
@@ -29,32 +37,32 @@ public class ProjectOdyssey extends Game {
 
 	String marketEvent = ""; //Text of market event
 
-	static int iceCubePrice = 0; //current price of item
+	public static int iceCubePrice = 0; //current price of item
 	int iceCubeMin = 3; //minimum possible price in the algorithm
 	int iceCubeMax = 5; //maximum possible price in the algorithm
 
-	int snowBallPrice = 0;
+	public static int snowBallPrice = 0;
 	int snowBallMin = 8;
 	int snowBallMax = 15;
 
-	int bucketPrice = 0;
+	public static int bucketPrice = 0;
 	int bucketMin = 16;
 	int bucketMax = 33;
 
 
-	int shovelPrice = 0;
+	public static int shovelPrice = 0;
 	int shovelMin = 25;
 	int shovelMax = 49;
 
-	int iceCreamPrice = 0;
+	public static int iceCreamPrice = 0;
 	int iceCreamMin = 56;
 	int iceCreamMax = 108;
 
-	int snowFlakePrice = 0;
+	public static int snowFlakePrice = 0;
 	int snowFlakeMin = 112;
 	int snowFlakeMax = 187;
 
-	int iciclePrice = 0;
+	public static int iciclePrice = 0;
 	int icicleMin = 188;
 	int icicleMax = 354;
 
