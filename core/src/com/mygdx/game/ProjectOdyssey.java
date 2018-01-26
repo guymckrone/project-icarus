@@ -10,6 +10,7 @@ import java.util.TimerTask;
 
 // COLORS: good ice blue: #90f5ff
 
+
 public class ProjectOdyssey extends Game {
 	public static int ice = 10;//ice variable used in every class
 	public static int snowBall = 0;
