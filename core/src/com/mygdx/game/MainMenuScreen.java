@@ -41,6 +41,7 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
     public MainMenuScreen(final ProjectOdyssey game) {
         width = Gdx.graphics.getWidth();
         height = Gdx.graphics.getHeight();
+
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();

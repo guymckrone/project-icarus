@@ -25,7 +25,7 @@ public class ProjectOdyssey extends Game {
 	public BitmapFont font;
 	public static boolean marketShow;
 	public static int moneys;
-	public static int scale = 1;
+	public static float scale = 1;
 
 	//Texture img;
 
@@ -75,7 +75,6 @@ public class ProjectOdyssey extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		//img = new Texture("badlogic.jpg");
 		font = new BitmapFont();
 		this.setScreen(new MainMenuScreen(this));
 	}

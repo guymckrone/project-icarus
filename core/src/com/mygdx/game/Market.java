@@ -50,6 +50,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
 
 
+
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
