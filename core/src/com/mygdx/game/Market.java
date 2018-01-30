@@ -268,6 +268,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 sellMode = true;
                 sellModeButton.setTouchable(Touchable.disabled);
                 buyModeButton.setTouchable((Touchable.enabled));
+                System.out.println("buy");
 
 
 
@@ -304,7 +305,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 sellMode = false;
                 buyModeButton.setTouchable(Touchable.disabled);
                 sellModeButton.setTouchable((Touchable.enabled));
-
+                System.out.println("sell");
 
             }
         });
