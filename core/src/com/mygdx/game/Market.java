@@ -46,7 +46,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton snowManButton;
 
     private Table marketTable;
-    private boolean sellMode = false;
+    private boolean sellMode = true;
 
 
 
@@ -244,19 +244,19 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin sellModeButtonSkin = new Skin();
-        sellModeButtonSkin.add("playButton", new Texture("buttons/play_button.png"));
+        sellModeButtonSkin.add("sellModeButton", new Texture("Market/SellOn.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle sellModeButtonStyle = new ImageButton.ImageButtonStyle();
-        sellModeButtonStyle.imageUp = sellModeButtonSkin.getDrawable("playButton"); // Unpressed
-        sellModeButtonStyle.imageDown = sellModeButtonSkin.getDrawable("playButton"); // Pressed
+        sellModeButtonStyle.imageUp = sellModeButtonSkin.getDrawable("sellModeButton"); // Unpressed
+        sellModeButtonStyle.imageDown = sellModeButtonSkin.getDrawable("sellModeButton"); // Pressed
 
         // Play button
         sellModeButton = new ImageButton(sellModeButtonStyle);
         int buttonSize6 = (int) (100 * Gdx.graphics.getDensity());
         sellModeButton.setSize(buttonSize6, buttonSize6);
         int width6 = (int) ((Gdx.graphics.getWidth() - sellModeButton.getWidth())/2);
-        int height6 = (int) ((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4);
+        int height6 = (int) (((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4));
         sellModeButton.setBounds(width6, height6, sellModeButton.getWidth(), sellModeButton.getHeight());
         sellModeButton.addListener(new InputListener() {
             @Override
@@ -265,14 +265,52 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                sellMode = !sellMode;
-
+                sellMode = true;
+                System.out.println("1" + sellMode);
+                sellModeButton.setDisabled(true);
+                buyModeButton.setDisabled(false);
 
 
             }
         });
-        sellModeButton.setDisabled(true);
+
         stage.addActor(sellModeButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin buyModeButtonSkin = new Skin();
+        buyModeButtonSkin.add("buyModeButton", new Texture("Market/BuyOn.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle buyModeButtonStyle = new ImageButton.ImageButtonStyle();
+        buyModeButtonStyle.imageUp = buyModeButtonSkin.getDrawable("buyModeButton"); // Unpressed
+        buyModeButtonStyle.imageDown = buyModeButtonSkin.getDrawable("buyModeButton"); // Pressed
+
+        // Play button
+        buyModeButton = new ImageButton(buyModeButtonStyle);
+        int buttonSize7 = (int) (100 * Gdx.graphics.getDensity());
+        buyModeButton.setSize(buttonSize7, buttonSize7);
+        int width7 = (int) ((Gdx.graphics.getWidth() - buyModeButton.getWidth())/2);
+        int height7 = (int) (((Gdx.graphics.getHeight() - buyModeButton.getHeight())/4));
+        buyModeButton.setBounds(width7, height7, buyModeButton.getWidth(), buyModeButton.getHeight());
+        buyModeButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                sellMode = false;
+                System.out.println("2" + sellMode);
+                sellModeButton.setDisabled(false);
+                buyModeButton.setDisabled(true);
+
+
+            }
+        });
+
+        stage.addActor(buyModeButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
@@ -297,11 +335,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
         game.batch.end();
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
-        if (sellMode = true){
-            sellModeButton.setDisabled(false);
+        if (sellMode == true){
+            System.out.println("3" + sellMode);
+            sellModeButton.draw(batch,1);
         }
-        else{
-            sellModeButton.setDisabled(true);
+        if (sellMode == false){
+            System.out.println("4" + sellMode);
+            buyModeButton.draw(batch,1);
         }
         //gameButton.draw(batch, 1);
         sbButton.draw(batch, 1);
