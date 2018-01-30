@@ -127,7 +127,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             }
         });
-        //gameButton.setTouchable(Touchable.disabled);
+        gameButton.setTouchable(Touchable.disabled);
         stage.addActor(gameButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
@@ -145,7 +145,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sbButton = new ImageButton(sbButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         sbButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() - (2*sbButton.getWidth()))/4)*1);
+        int width3 = (int) (((Gdx.graphics.getWidth() - (2*sbButton.getWidth()))/6)*2);
         int height3 = (int) (((Gdx.graphics.getHeight() - (sbButton.getHeight()))/4)*3);
         sbButton.setBounds(width3, height3, sbButton.getWidth(), sbButton.getHeight());
         sbButton.addListener(new InputListener() {
@@ -155,7 +155,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.moneys > ProjectOdyssey.snowBallPrice){//prevents from selling into negatives
+                if (ProjectOdyssey.moneys > ProjectOdyssey.snowBallPrice && sellMode == true){//prevents from selling into negatives
                     ProjectOdyssey.snowBall++;
                     ProjectOdyssey.moneys = ProjectOdyssey.moneys-ProjectOdyssey.snowBallPrice;
                 }
@@ -193,7 +193,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.moneys > ProjectOdyssey.bucketPrice){//prevents from selling into negatives
+                if (ProjectOdyssey.moneys > ProjectOdyssey.bucketPrice && sellMode == true){//prevents from selling into negatives
                     ProjectOdyssey.bucket++;
                     ProjectOdyssey.moneys = ProjectOdyssey.moneys-ProjectOdyssey.bucketPrice;
                 }
@@ -266,9 +266,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 sellMode = true;
-                System.out.println("1" + sellMode);
-                sellModeButton.setDisabled(true);
-                buyModeButton.setDisabled(false);
+                sellModeButton.setTouchable(Touchable.disabled);
+                buyModeButton.setTouchable((Touchable.enabled));
+
 
 
             }
@@ -302,9 +302,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 sellMode = false;
-                System.out.println("2" + sellMode);
-                sellModeButton.setDisabled(false);
-                buyModeButton.setDisabled(true);
+                buyModeButton.setTouchable(Touchable.disabled);
+                sellModeButton.setTouchable((Touchable.enabled));
 
 
             }
@@ -336,11 +335,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
         if (sellMode == true){
-            System.out.println("3" + sellMode);
             sellModeButton.draw(batch,1);
         }
         if (sellMode == false){
-            System.out.println("4" + sellMode);
             buyModeButton.draw(batch,1);
         }
         //gameButton.draw(batch, 1);
