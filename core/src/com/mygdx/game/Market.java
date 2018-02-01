@@ -72,8 +72,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Play button
         sellIce = new ImageButton(sellIceStyle);//creates button
-        int buttonSize = (int) (100 * Gdx.graphics.getDensity());//sets variables for future button size
-        sellIce.setSize(buttonSize, buttonSize);//uses variables to set size
+        int buttonSize = (int) (Gdx.graphics.getDensity());//sets variables for future button size
+        sellIce.setSize(100*buttonSize, 100*buttonSize);//uses variables to set size
         int width = (int) ((Gdx.graphics.getWidth() - sellIce.getWidth())/2);//Finding width of button for later use
         int height = (int) ((Gdx.graphics.getHeight() - sellIce.getHeight())/2);//Finding height of button for later use
         sellIce.setBounds(width, height, sellIce.getWidth(), sellIce.getHeight());//
@@ -82,16 +82,17 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
-                //We dont want touch down to do anything, as touch up is better to use the touch up
+                //We dont want touch down to do anything, as touch up is better to use
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("SellIce???");
                 if (ProjectOdyssey.ice > 0){//prevents from selling into negatives
                     ProjectOdyssey.ice--;//subtracts one ice each touchup
                     ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
                 }
                // System.out.println(ProjectOdyssey.ice);//debug code, prints ice value
-                sellIce.setDisabled(true);//disables after each press so it does not repeat
+                //sellIce.setDisabled(true);//disables after each press so it does not repeat
 
             }
         });
@@ -99,7 +100,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));//creates the gesture detector, without this you cannot have a button press
 
-        // Button skin
+        /*// Button skin
         Skin gameButtonSkin = new Skin();
         gameButtonSkin.add("gameButton", new Texture("buttons/ArrowRight.png"));
 
@@ -128,7 +129,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
         });
         gameButton.setTouchable(Touchable.disabled);
-        stage.addActor(gameButton);
+        stage.addActor(gameButton);*/
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
@@ -143,8 +144,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Market button
         sbButton = new ImageButton(sbButtonStyle);
-        int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
-        sbButton.setSize(buttonSize3, buttonSize3);
+        int buttonSize3 = (int) (Gdx.graphics.getDensity());
+        sbButton.setSize(100*buttonSize3, 100*buttonSize3);
         int width3 = (int) (((Gdx.graphics.getWidth() - (2*sbButton.getWidth()))/6)*2);
         int height3 = (int) (((Gdx.graphics.getHeight() - (sbButton.getHeight()))/4)*3);
         sbButton.setBounds(width3, height3, sbButton.getWidth(), sbButton.getHeight());
@@ -182,7 +183,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         bucketButton = new ImageButton(bucketButtonStyle);
         int buttonSize4 = (int) (100 * Gdx.graphics.getDensity());
         bucketButton.setSize(buttonSize4, buttonSize4);
-        int width4 = (int) (((Gdx.graphics.getWidth() - (2*bucketButton.getWidth()))/4)*3);
+        int width4 = (int) (((Gdx.graphics.getWidth() - bucketButton.getWidth()))/6)*4;
         int height4 = (int) (((Gdx.graphics.getHeight() - bucketButton.getHeight())/4)*3);
         bucketButton.setBounds(width4, height4, bucketButton.getWidth(), bucketButton.getHeight());
 
@@ -265,7 +266,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                sellMode = true;
+                sellMode = false;
                 sellModeButton.setTouchable(Touchable.disabled);
                 buyModeButton.setTouchable((Touchable.enabled));
                 System.out.println("buy");
@@ -302,7 +303,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                sellMode = false;
+
                 buyModeButton.setTouchable(Touchable.disabled);
                 sellModeButton.setTouchable((Touchable.enabled));
                 System.out.println("sell");
