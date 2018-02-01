@@ -2,9 +2,11 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -27,7 +29,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     final ProjectOdyssey game;
     private Stage stage;
     int[] inventory = new int[10];
-    private BitmapFont font = new BitmapFont();
+    private BitmapFont moneyCounter = new BitmapFont();
     private SpriteBatch batch;
     private ImageButton iceButton;
     private ImageButton marketButton;
@@ -41,6 +43,14 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     
 
     public GameScreen(final ProjectOdyssey game) {
+
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 80;
+        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?: ";
+        moneyCounter = generator.generateFont(parameter); // font size 80 pixels
+        generator.dispose(); // don't forget to dispose to avoid memory leaks!
+
         this.game = game;
         Gdx.graphics.getDeltaTime();
         playTime = 0;
@@ -169,11 +179,11 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
 
-        game.batch.begin();
-        //game.font.draw(game.batch, "Time: " + playIntHour + ":" + playIntSec, 100, 200);
-        game.font.draw(game.batch, "Welcome to your Odyssey", 100, 150);
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
-        game.batch.end();
+        batch.begin();
+        moneyCounter.setColor(Color.TEAL);
+        moneyCounter.draw(batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
+        batch.end();
+
 
         batch.begin();
         iceButton.draw(batch, 1);
