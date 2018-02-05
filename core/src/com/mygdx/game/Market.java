@@ -5,11 +5,13 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -19,6 +21,9 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+
+import static com.badlogic.gdx.graphics.g3d.particles.ParticleShader.Setters.screenWidth;
+import static com.mygdx.game.ProjectOdyssey.moneys;
 
 /**
  * Created by guymc on 11/30/2017.
@@ -48,8 +53,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private Table marketTable;
     private boolean sellMode = true;
 
-
-
+    private BitmapFont moneyCounter = new BitmapFont(); //For drawing text
+    private int screenWidth = Gdx.graphics.getWidth(); //Variable with screen width in it
 
     private Texture logo;
     OrthographicCamera camera;
@@ -57,6 +62,14 @@ public class Market implements Screen, GestureDetector.GestureListener{
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
+
+        //This is for creating the text on the screen
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 80;
+        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
+        moneyCounter = generator.generateFont(parameter); // font size 80 pixels
+        generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
         camera = new OrthographicCamera();//creates camera
         camera.setToOrtho(false, 800, 480);//creates viewport
@@ -224,7 +237,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin shovelButtonSkin = new Skin();
-        shovelButtonSkin.add("shovelButton", new Texture("buttons/market_arrow.png"));
+        shovelButtonSkin.add("shovelButton", new Texture("Market/Shovel.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle shovelButtonStyle = new ImageButton.ImageButtonStyle();
@@ -338,16 +351,33 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 1, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
-        game.batch.begin();
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.shovel + " shovels.", 100, 200);
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.snowBall + " snowballs.", 100, 175);
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.bucket + " buckets.", 100, 150);
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.moneys + " money.", 100, 125);
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
-        game.batch.end();
+        batch.begin(); //Begin printing money counter
+        moneyCounter.setColor(Color.BLACK); //money counter text color
+        if (moneys < 10) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), 1750); //Position of money counter when x<10
+        }
+        else if (moneys > 999999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), 1750); //Position of money counter when x>999999
+        }
+        else if (moneys > 99999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), 1750); //Position of money counter when x>99999
+        }
+        else if (moneys > 9999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), 1750); //Position of money counter when x>9999
+        }
+        else if (moneys > 999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), 1750); //Position of money counter when x>999
+        }
+        else if (moneys > 99) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), 1750); //Position of money counter when x>99
+        }
+        else if (moneys > 9) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), 1750); //Position of money counter when x>9
+        }
+        batch.end();
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
         if (sellMode == true){
