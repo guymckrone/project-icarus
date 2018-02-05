@@ -19,6 +19,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 
+import static com.mygdx.game.ProjectOdyssey.moneys;
+
 /**
  * Created by guymc on 11/29/2017.
  */
@@ -34,6 +36,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     private ImageButton iceButton;
     private ImageButton marketButton;
     private ImageButton lobbyButton;
+    private int screenWidth = Gdx.graphics.getWidth();
     //public static int ice;
     OrthographicCamera camera;
     float playTime;
@@ -43,11 +46,11 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     
 
     public GameScreen(final ProjectOdyssey game) {
-
+        System.out.println(screenWidth + "HERE");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 80;
-        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?: ";
+        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
@@ -99,7 +102,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         // Button skin
         Skin marketButtonSkin = new Skin();
-        marketButtonSkin.add("marketButton", new Texture("buttons/market_arrow.png"));
+        marketButtonSkin.add("marketButton", new Texture("buttons/ArrowLeft.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle marketButtonStyle = new ImageButton.ImageButtonStyle();
@@ -175,13 +178,37 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             playIntHour++;
         }*/
         System.out.println(ProjectOdyssey.ice);
-        Gdx.gl.glClearColor(0, 0, 1, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
 
-        batch.begin();
-        moneyCounter.setColor(Color.TEAL);
-        moneyCounter.draw(batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
+        batch.begin(); //Begin printing money counter
+        moneyCounter.setColor(Color.BLACK); //money counter text color
+        if (moneys < 10) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), 1750); //Position of money counter when x<10
+        }
+        else if (moneys > 999999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), 1750); //Position of money counter when x>999999
+        }
+        else if (moneys > 99999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), 1750); //Position of money counter when x>99999
+        }
+        else if (moneys > 9999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), 1750); //Position of money counter when x>9999
+        }
+        else if (moneys > 999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), 1750); //Position of money counter when x>999
+        }
+        else if (moneys > 99) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), 1750); //Position of money counter when x>99
+        }
+        else if (moneys > 9) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), 1750); //Position of money counter when x>9
+        }
+
+
+
+
         batch.end();
 
 

@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 
 public class ProjectOdyssey extends Game {
-	public static int ice = 10;//ice variable used in every class
+	public static int ice = 0;//ice variable used in every class
 	public static int snowBall = 0;
 	public static int bucket = 0;
 	public static int shovel = 0;
@@ -25,7 +25,7 @@ public class ProjectOdyssey extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public static boolean marketShow;
-	public static int moneys;
+	public static int moneys = 7869; //changing for testing - natty
 	public static float scale = 1;
 
 	//Texture img;
