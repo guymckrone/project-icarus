@@ -354,6 +354,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
+<<<<<<< .merge_file_a04072
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) {
@@ -378,6 +379,15 @@ public class Market implements Screen, GestureDetector.GestureListener{
             moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), 1750); //Position of money counter when x>9
         }
         batch.end();
+=======
+        game.batch.begin();
+       /* game.font.draw(game.batch, "You have " + ProjectOdyssey.shovel + " shovels.", 100, 200);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.snowBall + " snowballs.", 100, 175);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.bucket + " buckets.", 100, 150);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.moneys + " money.", 100, 125);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);*/
+        game.batch.end();
+>>>>>>> .merge_file_a05124
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
         if (sellMode == true){
