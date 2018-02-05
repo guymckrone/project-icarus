@@ -224,7 +224,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin shovelButtonSkin = new Skin();
-        shovelButtonSkin.add("shovelButton", new Texture("buttons/market_arrow.png"));
+        shovelButtonSkin.add("shovelButton", new Texture("Market/Shovel.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle shovelButtonStyle = new ImageButton.ImageButtonStyle();
