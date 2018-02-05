@@ -145,8 +145,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sbButton = new ImageButton(sbButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         sbButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() - (2*sbButton.getWidth()))/6)*2);
-        int height3 = (int) (((Gdx.graphics.getHeight() - (sbButton.getHeight()))/4)*3);
+        int width3 = (int) (((Gdx.graphics.getWidth() * .6)));
+        int height3 = (int) (((Gdx.graphics.getHeight() * .6)));
         sbButton.setBounds(width3, height3, sbButton.getWidth(), sbButton.getHeight());
         sbButton.addListener(new InputListener() {
             @Override
@@ -182,8 +182,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         bucketButton = new ImageButton(bucketButtonStyle);
         int buttonSize4 = (int) (100 * Gdx.graphics.getDensity());
         bucketButton.setSize(buttonSize4, buttonSize4);
-        int width4 = (int) (((Gdx.graphics.getWidth() - (2*bucketButton.getWidth()))/4)*3);
-        int height4 = (int) (((Gdx.graphics.getHeight() - bucketButton.getHeight())/4)*3);
+        int width4 = (int) (((Gdx.graphics.getWidth() *.1)));
+        int height4 = (int) (((Gdx.graphics.getHeight() * .3)));
         bucketButton.setBounds(width4, height4, bucketButton.getWidth(), bucketButton.getHeight());
 
         bucketButton.addListener(new InputListener() {
@@ -211,7 +211,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin shovelButtonSkin = new Skin();
-        shovelButtonSkin.add("shovelButton", new Texture("buttons/market_arrow.png"));
+        shovelButtonSkin.add("shovelButton", new Texture("Market/Shovel.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle shovelButtonStyle = new ImageButton.ImageButtonStyle();
@@ -222,8 +222,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         shovelButton = new ImageButton(shovelButtonStyle);
         int buttonSize5 = (int) (100 * Gdx.graphics.getDensity());
         shovelButton.setSize(buttonSize5, buttonSize5);
-        int width5 = (int) ((Gdx.graphics.getWidth() - shovelButton.getWidth())/2);
-        int height5 = (int) ((Gdx.graphics.getHeight() - shovelButton.getHeight())/2);
+        int width5 = (int) ((Gdx.graphics.getWidth() * .6));
+        int height5 = (int) ((Gdx.graphics.getHeight() * .3));
         shovelButton.setBounds(width5, height5, shovelButton.getWidth(), shovelButton.getHeight());
         shovelButton.addListener(new InputListener() {
             @Override
@@ -346,6 +346,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         //gameButton.draw(batch, 1);
         sbButton.draw(batch, 1);
         bucketButton.draw(batch, 1);
+        shovelButton.draw(batch, 1);
         batch.end();
     }
 
