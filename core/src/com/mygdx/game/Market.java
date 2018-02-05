@@ -338,15 +338,15 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 1, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.shovel + " shovels.", 100, 200);
+       /* game.font.draw(game.batch, "You have " + ProjectOdyssey.shovel + " shovels.", 100, 200);
         game.font.draw(game.batch, "You have " + ProjectOdyssey.snowBall + " snowballs.", 100, 175);
         game.font.draw(game.batch, "You have " + ProjectOdyssey.bucket + " buckets.", 100, 150);
         game.font.draw(game.batch, "You have " + ProjectOdyssey.moneys + " money.", 100, 125);
-        game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);
+        game.font.draw(game.batch, "You have " + ProjectOdyssey.ice + " ice.", 100, 100);*/
         game.batch.end();
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
