@@ -54,6 +54,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
+        System.out.println("SellIce???");
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
@@ -86,10 +87,14 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("SellIce???");
-                if (ProjectOdyssey.ice > 0){//prevents from selling into negatives
+
+                if (sellMode == true && ProjectOdyssey.ice > 0){//prevents from selling into negatives
                     ProjectOdyssey.ice--;//subtracts one ice each touchup
                     ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iceCubePrice ){//prevents from selling into negatives
+                    ProjectOdyssey.ice++;
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
                 }
                // System.out.println(ProjectOdyssey.ice);//debug code, prints ice value
                 //sellIce.setDisabled(true);//disables after each press so it does not repeat
@@ -100,7 +105,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));//creates the gesture detector, without this you cannot have a button press
 
-        /*// Button skin
+        // Button skin
         Skin gameButtonSkin = new Skin();
         gameButtonSkin.add("gameButton", new Texture("buttons/ArrowRight.png"));
 
@@ -128,8 +133,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             }
         });
-        gameButton.setTouchable(Touchable.disabled);
-        stage.addActor(gameButton);*/
+        //gameButton.setTouchable(Touchable.disabled);
+        stage.addActor(gameButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
@@ -156,9 +161,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.moneys > ProjectOdyssey.snowBallPrice && sellMode == true){//prevents from selling into negatives
+                if (sellMode == true && ProjectOdyssey.snowBall > 0){//prevents from selling into negatives
+                    ProjectOdyssey.snowBall--;//subtracts one ice each touchup
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.snowBallPrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowBallPrice ){//prevents from selling into negatives
                     ProjectOdyssey.snowBall++;
-                    ProjectOdyssey.moneys = ProjectOdyssey.moneys-ProjectOdyssey.snowBallPrice;
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.snowBallPrice;//adds iceprice amount of moneys each time you click button
                 }
                 //marketButton.setDisabled(false);
 
@@ -194,11 +203,15 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.moneys > ProjectOdyssey.bucketPrice && sellMode == true){//prevents from selling into negatives
-                    ProjectOdyssey.bucket++;
-                    ProjectOdyssey.moneys = ProjectOdyssey.moneys-ProjectOdyssey.bucketPrice;
+                if (sellMode == true && ProjectOdyssey.bucket > 0){//prevents from selling into negatives
+                    ProjectOdyssey.bucket--;//subtracts one ice each touchup
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.bucketPrice;//adds iceprice amount of moneys each time you click button
                 }
-
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.bucketPrice ){//prevents from selling into negatives
+                    ProjectOdyssey.bucket++;
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.bucketPrice;//adds iceprice amount of moneys each time you click button
+                }
+                //ProjectOdyssey.bucket++;
                 //game.setScreen(new MainMenuScreen(game));
                 //marketButton.setDisabled(false);
 
@@ -234,11 +247,11 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new Market(game));
-                //marketButton.setDisabled(false);
+
 
             }
         });
-        //shovelButton.setTouchable(Touchable.disabled);
+        shovelButton.setTouchable(Touchable.disabled);
         stage.addActor(shovelButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
@@ -303,7 +316,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-
+                sellMode = true;
                 buyModeButton.setTouchable(Touchable.disabled);
                 sellModeButton.setTouchable((Touchable.enabled));
                 System.out.println("sell");
