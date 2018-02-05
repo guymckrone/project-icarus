@@ -87,8 +87,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sellIce = new ImageButton(sellIceStyle);//creates button
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());//sets variables for future button size
         sellIce.setSize(buttonSize, buttonSize);//uses variables to set size
-        int width = (int) ((Gdx.graphics.getWidth() * .1));//Finding width of button for later use
-        int height = (int) ((Gdx.graphics.getHeight() * .6));//Finding height of button for later use
+        int width = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize/2));//Finding height of button for later use
         sellIce.setBounds(width, height, sellIce.getWidth(), sellIce.getHeight());//
         //Next few lines set the function of the bot
         sellIce.addListener(new InputListener() {
@@ -163,8 +163,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sbButton = new ImageButton(sbButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         sbButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() * .6)));
-        int height3 = (int) (((Gdx.graphics.getHeight() * .6)));
+        int width3 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize3/2));
+        int height3 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize3/2));
         sbButton.setBounds(width3, height3, sbButton.getWidth(), sbButton.getHeight());
         sbButton.addListener(new InputListener() {
             @Override
@@ -204,8 +204,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         bucketButton = new ImageButton(bucketButtonStyle);
         int buttonSize4 = (int) (100 * Gdx.graphics.getDensity());
         bucketButton.setSize(buttonSize4, buttonSize4);
-        int width4 = (int) (((Gdx.graphics.getWidth() *.1)));
-        int height4 = (int) (((Gdx.graphics.getHeight() * .3)));
+        int width4 = (int) (((Gdx.graphics.getWidth() *.3)) - (buttonSize4/2));
+        int height4 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize4/2));
         bucketButton.setBounds(width4, height4, bucketButton.getWidth(), bucketButton.getHeight());
 
         bucketButton.addListener(new InputListener() {
@@ -248,8 +248,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         shovelButton = new ImageButton(shovelButtonStyle);
         int buttonSize5 = (int) (100 * Gdx.graphics.getDensity());
         shovelButton.setSize(buttonSize5, buttonSize5);
-        int width5 = (int) ((Gdx.graphics.getWidth() * .6));
-        int height5 = (int) ((Gdx.graphics.getHeight() * .3));
+        int width5 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize5/2));
+        int height5 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize5/2));
         shovelButton.setBounds(width5, height5, shovelButton.getWidth(), shovelButton.getHeight());
         shovelButton.addListener(new InputListener() {
             @Override
@@ -283,8 +283,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sellModeButton.setSize(buttonSize6, buttonSize6);
         /*int width6 = (int) ((Gdx.graphics.getWidth() - sellModeButton.getWidth())/2);
         int height6 = (int) (((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4)); */
-        int width6 = (int) ((Gdx.graphics.getWidth() *.03));
-        int height6 = (int) (((Gdx.graphics.getHeight() * .85)));
+        int width6 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize6/2));
+        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize6/2));
         sellModeButton.setBounds(width6, height6, sellModeButton.getWidth(), sellModeButton.getHeight());
         sellModeButton.addListener(new InputListener() {
             @Override
@@ -320,8 +320,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         buyModeButton = new ImageButton(buyModeButtonStyle);
         int buttonSize7 = (int) (120 * Gdx.graphics.getDensity());
         buyModeButton.setSize(buttonSize7, buttonSize7);
-        int width7 = (int) ((Gdx.graphics.getWidth() *.03));
-        int height7 = (int) (((Gdx.graphics.getHeight() * .85)));
+        int width7 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize7/2));
+        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize7/2));
         buyModeButton.setBounds(width7, height7, buyModeButton.getWidth(), buyModeButton.getHeight());
         buyModeButton.addListener(new InputListener() {
             @Override
