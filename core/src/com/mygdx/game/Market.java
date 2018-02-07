@@ -58,6 +58,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
+        sellMode = !sellMode;
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
