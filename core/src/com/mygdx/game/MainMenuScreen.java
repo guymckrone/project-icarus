@@ -24,7 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 //Main menu Obviously
 
-public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
+public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
 
 
     final ProjectOdyssey game;
@@ -62,14 +62,15 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
         playButton = new ImageButton(playButtonStyle);
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());
         playButton.setSize(buttonSize, buttonSize);
-        int width = (int) ((Gdx.graphics.getWidth() - playButton.getWidth())/2);
-        int height = (int) ((Gdx.graphics.getHeight() - playButton.getHeight())/4);
+        int width = (int) ((Gdx.graphics.getWidth() - playButton.getWidth()) / 2);
+        int height = (int) ((Gdx.graphics.getHeight() - playButton.getHeight()) / 4);
         playButton.setBounds(width, height, playButton.getWidth(), playButton.getHeight());
         playButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new GameScreen(game)); // Switch screen to game state
@@ -104,12 +105,6 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
         batch.begin();
         playButton.draw(batch, 1);
         batch.end();
-
-        if (Gdx.input.isTouched()) {
-            //game.setScreen(new GameScreen(game));
-            dispose();
-        }
-
         camera.update();
     }
 

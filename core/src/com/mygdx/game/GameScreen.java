@@ -43,7 +43,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     int playIntSec;
     int playIntHour;
     String gameClock;
-    
+
 
     public GameScreen(final ProjectOdyssey game) {
         System.out.println(screenWidth + "HERE");
@@ -77,19 +77,19 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         playButtonStyle.imageDown = iceButtonSkin.getDrawable("iceButton"); // Pressed
 
 
-
         // Play button
         iceButton = new ImageButton(playButtonStyle);
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());
         iceButton.setSize(buttonSize, buttonSize);
-        int width = (int) ((Gdx.graphics.getWidth() - iceButton.getWidth())/2);
-        int height = (int) ((Gdx.graphics.getHeight() - iceButton.getHeight())/4);
+        int width = (int) ((Gdx.graphics.getWidth() - iceButton.getWidth()) / 2);
+        int height = (int) ((Gdx.graphics.getHeight() - iceButton.getHeight()) / 4);
         iceButton.setBounds(width, height, iceButton.getWidth(), iceButton.getHeight());
         iceButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 ProjectOdyssey.ice++;
@@ -114,14 +114,15 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         lobbyButton = new ImageButton(lobbyButtonStyle);
         int buttonSize2 = (int) (75 * Gdx.graphics.getDensity());
         lobbyButton.setSize(buttonSize2, buttonSize2);
-        int width2 = (int) (((Gdx.graphics.getWidth() - lobbyButton.getWidth())/4)*3);
-        int height2 = (int) ((Gdx.graphics.getHeight() - lobbyButton.getHeight())/10);
+        int width2 = (int) (((Gdx.graphics.getWidth() - lobbyButton.getWidth()) / 4) * 3);
+        int height2 = (int) ((Gdx.graphics.getHeight() - lobbyButton.getHeight()) / 10);
         lobbyButton.setBounds(width2, height2, lobbyButton.getWidth(), lobbyButton.getHeight());
         lobbyButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 //game.setScreen(new lobby(game));
@@ -146,14 +147,15 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         marketButton = new ImageButton(marketButtonStyle);
         int buttonSize3 = (int) (75 * Gdx.graphics.getDensity());
         marketButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() - marketButton.getWidth())/4));
-        int height3 = (int) (((Gdx.graphics.getHeight() - marketButton.getHeight())/10));
+        int width3 = (int) (((Gdx.graphics.getWidth() - marketButton.getWidth()) / 4));
+        int height3 = (int) (((Gdx.graphics.getHeight() - marketButton.getHeight()) / 10));
         marketButton.setBounds(width3, height3, marketButton.getWidth(), marketButton.getHeight());
         marketButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new Market(game));
@@ -171,7 +173,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     public void render(float delta) {
         System.out.println("marketshow" + ProjectOdyssey.marketShow);
         playTime = playTime + Gdx.graphics.getDeltaTime();
-        playIntSec = (int)playTime;
+        playIntSec = (int) playTime;
         /*if(playIntSec == 60){
             playIntSec = 0;
             playIntHour++;
@@ -184,28 +186,20 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), 1750); //Position of money counter when x<10
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.9 * screenWidth)), 1750); //Position of money counter when x<10
+        } else if (moneys > 999999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.62 * screenWidth)), 1750); //Position of money counter when x>999999
+        } else if (moneys > 99999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.67 * screenWidth)), 1750); //Position of money counter when x>99999
+        } else if (moneys > 9999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.71 * screenWidth)), 1750); //Position of money counter when x>9999
+        } else if (moneys > 999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.76 * screenWidth)), 1750); //Position of money counter when x>999
+        } else if (moneys > 99) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.81 * screenWidth)), 1750); //Position of money counter when x>99
+        } else if (moneys > 9) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.85 * screenWidth)), 1750); //Position of money counter when x>9
         }
-        else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), 1750); //Position of money counter when x>999999
-        }
-        else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), 1750); //Position of money counter when x>99999
-        }
-        else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), 1750); //Position of money counter when x>9999
-        }
-        else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), 1750); //Position of money counter when x>999
-        }
-        else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), 1750); //Position of money counter when x>99
-        }
-        else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), 1750); //Position of money counter when x>9
-        }
-
-
 
 
         batch.end();
@@ -216,22 +210,21 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.end();
         camera.update();
 
-        if(ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
+        if (ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
             batch.begin();
             marketButton.draw(batch, 1);
             batch.end();
             ProjectOdyssey.marketShow = true;
         }
-        if(ProjectOdyssey.lobbyUnlock == true){
+        if (ProjectOdyssey.lobbyUnlock == true) {
             lobbyButton.draw(batch, 1);
         }
 
 
-
     }
 
-    public void inventory(){
+    public void inventory() {
 
     }
 

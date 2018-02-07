@@ -29,7 +29,7 @@ import static com.mygdx.game.ProjectOdyssey.moneys;
 
 //Sell and Buy
 
-public class Market implements Screen, GestureDetector.GestureListener{
+public class Market implements Screen, GestureDetector.GestureListener {
 
     final ProjectOdyssey game;
     private Stage stage;
@@ -57,7 +57,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
     private Texture logo;
     OrthographicCamera camera;
-    public Market(final ProjectOdyssey game){
+
+    public Market(final ProjectOdyssey game) {
         sellMode = !sellMode;
         this.game = game;
         stage = new Stage();
@@ -87,8 +88,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sellIce = new ImageButton(sellIceStyle);//creates button
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());//sets variables for future button size
         sellIce.setSize(buttonSize, buttonSize);//uses variables to set size
-        int width = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
-        int height = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize/2));//Finding height of button for later use
+        int width = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize / 2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize / 2));//Finding height of button for later use
         sellIce.setBounds(width, height, sellIce.getWidth(), sellIce.getHeight());//
         //Next few lines set the function of the bot
         sellIce.addListener(new InputListener() {
@@ -97,18 +98,19 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 return true;
                 //We dont want touch down to do anything, as touch up is better to use
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
-                if (sellMode == true && ProjectOdyssey.ice > 0){//prevents from selling into negatives
+                if (sellMode == true && ProjectOdyssey.ice > 0) {//prevents from selling into negatives
                     ProjectOdyssey.ice--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iceCubePrice ){//prevents from selling into negatives
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iceCubePrice) {//prevents from selling into negatives
                     ProjectOdyssey.ice++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.iceCubePrice;//adds iceprice amount of moneys each time you click button
                 }
-               // System.out.println(ProjectOdyssey.ice);//debug code, prints ice value
+                // System.out.println(ProjectOdyssey.ice);//debug code, prints ice value
                 //sellIce.setDisabled(true);//disables after each press so it does not repeat
 
             }
@@ -130,23 +132,24 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sbButton = new ImageButton(sbButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         sbButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize3/2));
-        int height3 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize3/2));
+        int width3 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize3 / 2));
+        int height3 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize3 / 2));
         sbButton.setBounds(width3, height3, sbButton.getWidth(), sbButton.getHeight());
         sbButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (sellMode == true && ProjectOdyssey.snowBall > 0){//prevents from selling into negatives
+                if (sellMode == true && ProjectOdyssey.snowBall > 0) {//prevents from selling into negatives
                     ProjectOdyssey.snowBall--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.snowBallPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.snowBallPrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowBallPrice ){//prevents from selling into negatives
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowBallPrice) {//prevents from selling into negatives
                     ProjectOdyssey.snowBall++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.snowBallPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.snowBallPrice;//adds iceprice amount of moneys each time you click button
                 }
                 //marketButton.setDisabled(false);
 
@@ -171,8 +174,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         bucketButton = new ImageButton(bucketButtonStyle);
         int buttonSize4 = (int) (100 * Gdx.graphics.getDensity());
         bucketButton.setSize(buttonSize4, buttonSize4);
-        int width4 = (int) (((Gdx.graphics.getWidth() *.3)) - (buttonSize4/2));
-        int height4 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize4/2));
+        int width4 = (int) (((Gdx.graphics.getWidth() * .3)) - (buttonSize4 / 2));
+        int height4 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize4 / 2));
         bucketButton.setBounds(width4, height4, bucketButton.getWidth(), bucketButton.getHeight());
 
         bucketButton.addListener(new InputListener() {
@@ -180,15 +183,16 @@ public class Market implements Screen, GestureDetector.GestureListener{
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (sellMode == true && ProjectOdyssey.bucket > 0){//prevents from selling into negatives
+                if (sellMode == true && ProjectOdyssey.bucket > 0) {//prevents from selling into negatives
                     ProjectOdyssey.bucket--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.bucketPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.bucketPrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.bucketPrice ){//prevents from selling into negatives
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.bucketPrice) {//prevents from selling into negatives
                     ProjectOdyssey.bucket++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.bucketPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.bucketPrice;//adds iceprice amount of moneys each time you click button
                 }
                 //ProjectOdyssey.bucket++;
                 //game.setScreen(new MainMenuScreen(game));
@@ -215,23 +219,24 @@ public class Market implements Screen, GestureDetector.GestureListener{
         shovelButton = new ImageButton(shovelButtonStyle);
         int buttonSize5 = (int) (100 * Gdx.graphics.getDensity());
         shovelButton.setSize(buttonSize5, buttonSize5);
-        int width5 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize5/2));
-        int height5 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize5/2));
+        int width5 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize5 / 2));
+        int height5 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize5 / 2));
         shovelButton.setBounds(width5, height5, shovelButton.getWidth(), shovelButton.getHeight());
         shovelButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (sellMode == true && ProjectOdyssey.shovel > 0){//prevents from selling into negatives
+                if (sellMode == true && ProjectOdyssey.shovel > 0) {//prevents from selling into negatives
                     ProjectOdyssey.shovel--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.shovelPrice ){//prevents from selling into negatives
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.shovelPrice) {//prevents from selling into negatives
                     ProjectOdyssey.shovel++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
                 }
 
 
@@ -257,21 +262,21 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sellModeButton.setSize(buttonSize6, buttonSize6);
         /*int width6 = (int) ((Gdx.graphics.getWidth() - sellModeButton.getWidth())/2);
         int height6 = (int) (((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4)); */
-        int width6 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize6/2));
-        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize6/2));
+        int width6 = (int) ((Gdx.graphics.getWidth() * .2) - (buttonSize6 / 2));
+        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize6 / 2));
         sellModeButton.setBounds(width6, height6, sellModeButton.getWidth(), sellModeButton.getHeight());
         sellModeButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 sellMode = false;
                 sellModeButton.setTouchable(Touchable.disabled);
                 buyModeButton.setTouchable((Touchable.enabled));
                 System.out.println("buy");
-
 
 
             }
@@ -294,14 +299,15 @@ public class Market implements Screen, GestureDetector.GestureListener{
         buyModeButton = new ImageButton(buyModeButtonStyle);
         int buttonSize7 = (int) (120 * Gdx.graphics.getDensity());
         buyModeButton.setSize(buttonSize7, buttonSize7);
-        int width7 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize7/2));
-        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize7/2));
+        int width7 = (int) ((Gdx.graphics.getWidth() * .2) - (buttonSize7 / 2));
+        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize7 / 2));
         buyModeButton.setBounds(width7, height7, buyModeButton.getWidth(), buyModeButton.getHeight());
         buyModeButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 sellMode = true;
@@ -329,14 +335,15 @@ public class Market implements Screen, GestureDetector.GestureListener{
         gameButton = new ImageButton(gameButtonStyle);
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         gameButton.setSize(buttonSize8, buttonSize8);
-        int width8 = (int) (((Gdx.graphics.getWidth() - gameButton.getWidth())/4)*3);
-        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/10);
+        int width8 = (int) (((Gdx.graphics.getWidth() - gameButton.getWidth()) / 4) * 3);
+        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight()) / 10);
         gameButton.setBounds(width8, height8, gameButton.getWidth(), gameButton.getHeight());
         gameButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new GameScreen(game));
@@ -361,14 +368,15 @@ public class Market implements Screen, GestureDetector.GestureListener{
         marketTwoButton = new ImageButton(marketTwoButtonStyle);
         int buttonSize9 = (int) (75 * Gdx.graphics.getDensity());
         marketTwoButton.setSize(buttonSize9, buttonSize9);
-        int width9 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth())/4));
-        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/10));
+        int width9 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth()) / 4));
+        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight()) / 10));
         marketTwoButton.setBounds(width9, height9, marketTwoButton.getWidth(), marketTwoButton.getHeight());
         marketTwoButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 //game.setScreen(new GameScreen(game));
@@ -397,34 +405,28 @@ public class Market implements Screen, GestureDetector.GestureListener{
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), 1750); //Position of money counter when x<10
-        }
-        else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), 1750); //Position of money counter when x>999999
-        }
-        else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), 1750); //Position of money counter when x>99999
-        }
-        else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), 1750); //Position of money counter when x>9999
-        }
-        else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), 1750); //Position of money counter when x>999
-        }
-        else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), 1750); //Position of money counter when x>99
-        }
-        else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), 1750); //Position of money counter when x>9
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.9 * screenWidth)), 1750); //Position of money counter when x<10
+        } else if (moneys > 999999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.62 * screenWidth)), 1750); //Position of money counter when x>999999
+        } else if (moneys > 99999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.67 * screenWidth)), 1750); //Position of money counter when x>99999
+        } else if (moneys > 9999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.71 * screenWidth)), 1750); //Position of money counter when x>9999
+        } else if (moneys > 999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.76 * screenWidth)), 1750); //Position of money counter when x>999
+        } else if (moneys > 99) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.81 * screenWidth)), 1750); //Position of money counter when x>99
+        } else if (moneys > 9) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.85 * screenWidth)), 1750); //Position of money counter when x>9
         }
         batch.end();
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
-        if (sellMode == true){
-            sellModeButton.draw(batch,1);
+        if (sellMode == true) {
+            sellModeButton.draw(batch, 1);
         }
-        if (sellMode == false){
-            buyModeButton.draw(batch,1);
+        if (sellMode == false) {
+            buyModeButton.draw(batch, 1);
         }
         gameButton.draw(batch, 1);
 
