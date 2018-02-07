@@ -37,6 +37,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     private ImageButton marketButton;
     private ImageButton lobbyButton;
     private int screenWidth = Gdx.graphics.getWidth();
+    private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
     //public static int ice;
     OrthographicCamera camera;
     float playTime;
@@ -185,25 +186,25 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), 1750); //Position of money counter when x<10
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
         }
         else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), 1750); //Position of money counter when x>999999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
         }
         else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), 1750); //Position of money counter when x>99999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
         }
         else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), 1750); //Position of money counter when x>9999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
         }
         else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), 1750); //Position of money counter when x>999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
         }
         else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), 1750); //Position of money counter when x>99
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
         }
         else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), 1750); //Position of money counter when x>9
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
 
 
