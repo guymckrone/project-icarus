@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -22,7 +21,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import static com.badlogic.gdx.graphics.g3d.particles.ParticleShader.Setters.screenWidth;
 import static com.mygdx.game.ProjectOdyssey.moneys;
 
 /**
@@ -46,6 +44,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton shovelButton;
     private ImageButton sellModeButton;
     private ImageButton buyModeButton;
+    private ImageButton marketTwoButton;
     private ImageButton creamButton;
     private ImageButton flakeButton;
     private ImageButton snowManButton;
@@ -59,6 +58,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
+        sellMode = !sellMode;
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
@@ -116,39 +116,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
         stage.addActor(sellIce);//adds button to stage
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));//creates the gesture detector, without this you cannot have a button press
-
-        // Button skin
-        Skin gameButtonSkin = new Skin();
-        gameButtonSkin.add("gameButton", new Texture("buttons/ArrowRight.png"));
-
-        // Create button style
-        ImageButton.ImageButtonStyle gameButtonStyle = new ImageButton.ImageButtonStyle();
-        gameButtonStyle.imageUp = gameButtonSkin.getDrawable("gameButton"); // Unpressed
-        gameButtonStyle.imageDown = gameButtonSkin.getDrawable("gameButton"); // Pressed
-
-        // Market button
-        gameButton = new ImageButton(gameButtonStyle);
-        int buttonSize2 = (int) (100 * Gdx.graphics.getDensity());
-        gameButton.setSize(buttonSize2, buttonSize2);
-        int width2 = (int) ((Gdx.graphics.getWidth() - gameButton.getWidth())/3);
-        int height2 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/2);
-        gameButton.setBounds(width2, height2, gameButton.getWidth(), gameButton.getHeight());
-        gameButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //game.setScreen(new GameScreen(game));
-                //gameButton.setDisabled(false);
-
-            }
-        });
-        //gameButton.setTouchable(Touchable.disabled);
-        stage.addActor(gameButton);
-
-        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
         // Button skin
         Skin sbButtonSkin = new Skin();
@@ -258,12 +225,19 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Market(game));
+                if (sellMode == true && ProjectOdyssey.shovel > 0){//prevents from selling into negatives
+                    ProjectOdyssey.shovel--;//subtracts one ice each touchup
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.shovelPrice ){//prevents from selling into negatives
+                    ProjectOdyssey.shovel++;
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
+                }
 
 
             }
         });
-        shovelButton.setTouchable(Touchable.disabled);
+        //shovelButton.setTouchable(Touchable.disabled);
         stage.addActor(shovelButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
@@ -339,6 +313,72 @@ public class Market implements Screen, GestureDetector.GestureListener{
         });
 
         stage.addActor(buyModeButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin gameButtonSkin = new Skin();
+        gameButtonSkin.add("gameButton", new Texture("buttons/ArrowRight.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle gameButtonStyle = new ImageButton.ImageButtonStyle();
+        gameButtonStyle.imageUp = gameButtonSkin.getDrawable("gameButton"); // Unpressed
+        gameButtonStyle.imageDown = gameButtonSkin.getDrawable("gameButton"); // Pressed
+
+        // Market button
+        gameButton = new ImageButton(gameButtonStyle);
+        int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
+        gameButton.setSize(buttonSize8, buttonSize8);
+        int width8 = (int) (((Gdx.graphics.getWidth() - gameButton.getWidth())/4)*3);
+        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/10);
+        gameButton.setBounds(width8, height8, gameButton.getWidth(), gameButton.getHeight());
+        gameButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new GameScreen(game));
+                //marketButton.setDisabled(false);
+
+            }
+        });
+        stage.addActor(gameButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin marketTwoButtonSkin = new Skin();
+        marketTwoButtonSkin.add("marketTwoButton", new Texture("buttons/ArrowLeft.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle marketTwoButtonStyle = new ImageButton.ImageButtonStyle();
+        marketTwoButtonStyle.imageUp = marketTwoButtonSkin.getDrawable("marketTwoButton"); // Unpressed
+        marketTwoButtonStyle.imageDown = marketTwoButtonSkin.getDrawable("marketTwoButton"); // Pressed
+
+        // Market button
+        marketTwoButton = new ImageButton(marketTwoButtonStyle);
+        int buttonSize9 = (int) (75 * Gdx.graphics.getDensity());
+        marketTwoButton.setSize(buttonSize9, buttonSize9);
+        int width9 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth())/4));
+        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/10));
+        marketTwoButton.setBounds(width9, height9, marketTwoButton.getWidth(), marketTwoButton.getHeight());
+        marketTwoButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                //game.setScreen(new GameScreen(game));
+                //game.setScreen(new MarketTwo(game));
+                //marketButton.setDisabled(false);
+
+            }
+        });
+        marketTwoButton.setTouchable(Touchable.disabled);
+        stage.addActor(marketTwoButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
@@ -515,10 +555,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
         if (sellMode == false){
             buyModeButton.draw(batch,1);
         }
-        //gameButton.draw(batch, 1);
+        gameButton.draw(batch, 1);
+
         sbButton.draw(batch, 1);
         bucketButton.draw(batch, 1);
         shovelButton.draw(batch, 1);
+        gameButton.draw(batch, 1);
+        marketTwoButton.draw(batch, 1);
         batch.end();
     }
 
