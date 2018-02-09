@@ -4,7 +4,6 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -12,9 +11,11 @@ import java.util.TimerTask;
 
 
 public class ProjectOdyssey extends Game {
-	public static int ice = 0;//ice variable used in every class
-	public static int snowBall = 0;
-	public static int bucket = 0;
+
+
+	public static int ice = 10;//ice variable used in every class
+	public static int snowBall = 10;
+	public static int bucket = 5;
 	public static int shovel = 0;
 	public static int iceCream = 0;
 	public static int snowFlake = 0;
@@ -112,7 +113,7 @@ public class ProjectOdyssey extends Game {
                                       }
                                   },
                     0, //Set how long before to start calling the TimerTask (in milliseconds)
-                    5000);  //Set the amount of time between each execution (in milliseconds)
+                    10000);  //Set the amount of time between each execution (in milliseconds)
         }
 
         if (upgradeTwo == 1) {
