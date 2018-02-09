@@ -26,7 +26,7 @@ public class ProjectOdyssey extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public static boolean marketShow;
-	public static int moneys = 7869; //changing for testing - natty
+	public static int moneys = 999; //changing for testing - natty
 	public static float scale = 1;
 	public static boolean lobbyUnlock = false;
 

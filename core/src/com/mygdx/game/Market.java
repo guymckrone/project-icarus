@@ -64,7 +64,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         batch = new SpriteBatch();
 
         //This is for creating the text on the screen
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 80;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
@@ -397,25 +397,25 @@ public class Market implements Screen, GestureDetector.GestureListener{
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) { //position money counter
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.9 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.88 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
         }
         else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.62 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.58 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
         }
         else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.67 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.63 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
         }
         else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.71 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.68 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
         }
         else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.76 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.73 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
         }
         else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.81 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.78 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
         }
         else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.85 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
 
         //Placing # of iceCubes based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
