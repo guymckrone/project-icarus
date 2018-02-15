@@ -54,7 +54,12 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton sellModeButton;
     private ImageButton buyModeButton;
     private ImageButton marketTwoButton;
-
+    private ImageButton unlockButton;
+    private ImageButton unlockSellBuyButton;
+    private ImageButton unlockSnowBallButton;
+    private ImageButton unlockBucketButton;
+    private ImageButton unlockShovelButton;
+    private ImageButton unlockMarketTwoButton;
 
     private boolean sellMode = true;
     private boolean sellBuyBought = false;
@@ -148,8 +153,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         sbButton = new ImageButton(sbButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         sbButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize3/2));
-        int height3 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize3/2));
+        final int width3 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize3/2));
+        final int height3 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize3/2));
         sbButton.setBounds(width3, height3, sbButton.getWidth(), sbButton.getHeight());
         sbButton.addListener(new InputListener() {
             @Override
@@ -401,10 +406,197 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             }
         });
-        marketTwoButton.setTouchable(Touchable.disabled);
+        //marketTwoButton.setTouchable(Touchable.disabled);
         stage.addActor(marketTwoButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin unlockButtonSkin = new Skin();
+        unlockButtonSkin.add("playButton", new Texture("buttons/Upgrad.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle unlockButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockButtonStyle.imageUp = unlockButtonSkin.getDrawable("playButton"); // Unpressed
+        unlockButtonStyle.imageDown = unlockButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        unlockButton = new ImageButton(unlockButtonStyle);
+        int buttonSize10 = (int) (100 * Gdx.graphics.getDensity());
+        unlockButton.setSize(buttonSize10, buttonSize10);
+        int width10 = (int) (((Gdx.graphics.getWidth() *.3)) - (buttonSize10/2));
+        int height10 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize10/2));
+        unlockButton.setBounds(width10, height10, unlockButton.getWidth(), unlockButton.getHeight());
+        unlockButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+
+            }
+        });
+        stage.addActor(unlockButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin unlockSellBuyButtonSkin = new Skin();
+        unlockSellBuyButtonSkin.add("playButton", new Texture("buttons/Upgrad.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle unlockSellBuyButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockSellBuyButtonStyle.imageUp = unlockSellBuyButtonSkin.getDrawable("playButton"); // Unpressed
+        unlockSellBuyButtonStyle.imageDown = unlockSellBuyButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        unlockSellBuyButton = new ImageButton(unlockSellBuyButtonStyle);
+        int buttonSize11 = (int) (100 * Gdx.graphics.getDensity());
+        unlockSellBuyButton.setSize(buttonSize11, buttonSize11);
+        int width11 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize11/2));
+        int height11 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize11/2));
+        unlockSellBuyButton.setBounds(width11, height11, unlockSellBuyButton.getWidth(), unlockSellBuyButton.getHeight());
+        unlockSellBuyButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+
+            }
+        });
+        stage.addActor(unlockSellBuyButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin unlockSnowBallButtonSkin = new Skin();
+        unlockSnowBallButtonSkin.add("playButton", new Texture("buttons/Upgrad.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle unlockSnowBallButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockSnowBallButtonStyle.imageUp = unlockSnowBallButtonSkin.getDrawable("playButton"); // Unpressed
+        unlockSnowBallButtonStyle.imageDown = unlockSnowBallButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        unlockSnowBallButton = new ImageButton(unlockSnowBallButtonStyle);
+        int buttonSize12 = (int) (100 * Gdx.graphics.getDensity());
+        unlockSnowBallButton.setSize(buttonSize12, buttonSize12);
+        final int width12 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize12/2));
+        final int height12 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize12/2));
+        unlockSnowBallButton.setBounds(width12, height12, unlockSnowBallButton.getWidth(), unlockSnowBallButton.getHeight());
+        unlockSnowBallButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+
+            }
+        });
+        stage.addActor(unlockSnowBallButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin unlockBucketButtonSkin = new Skin();
+        unlockBucketButtonSkin.add("playButton", new Texture("buttons/Upgrad.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle unlockBucketButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockBucketButtonStyle.imageUp = unlockBucketButtonSkin.getDrawable("playButton"); // Unpressed
+        unlockBucketButtonStyle.imageDown = unlockBucketButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        unlockBucketButton = new ImageButton(unlockBucketButtonStyle);
+        int buttonSize13 = (int) (100 * Gdx.graphics.getDensity());
+        unlockBucketButton.setSize(buttonSize13, buttonSize13);
+        int width13 = (int)((Gdx.graphics.getWidth() - unlockBucketButton.getWidth()) / 2);
+        int height13 = (int)((Gdx.graphics.getHeight() - unlockBucketButton.getHeight()) / 2);
+        unlockBucketButton.setBounds(width13, height13, unlockBucketButton.getWidth(), unlockBucketButton.getHeight());
+        unlockBucketButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+
+            }
+        });
+        stage.addActor(unlockBucketButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin unlockShovelButtonSkin = new Skin();
+        unlockShovelButtonSkin.add("playButton", new Texture("buttons/Upgrad.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle unlockShovelButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockShovelButtonStyle.imageUp = unlockShovelButtonSkin.getDrawable("playButton"); // Unpressed
+        unlockShovelButtonStyle.imageDown = unlockShovelButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        unlockShovelButton = new ImageButton(unlockShovelButtonStyle);
+        int buttonSize14 = (int) (100 * Gdx.graphics.getDensity());
+        unlockShovelButton.setSize(buttonSize14, buttonSize14);
+        int width14 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize14/2));
+        int height14 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize14/2));
+        unlockShovelButton.setBounds(width14, height14, unlockShovelButton.getWidth(), unlockShovelButton.getHeight());
+        unlockShovelButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+
+            }
+        });
+        stage.addActor(unlockShovelButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin unlockMarketTwoButtonSkin = new Skin();
+        unlockMarketTwoButtonSkin.add("playButton", new Texture("buttons/Upgrad.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle unlockMarketTwoButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockMarketTwoButtonStyle.imageUp = unlockMarketTwoButtonSkin.getDrawable("playButton"); // Unpressed
+        unlockMarketTwoButtonStyle.imageDown = unlockMarketTwoButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        unlockMarketTwoButton = new ImageButton(unlockMarketTwoButtonStyle);
+        int buttonSize15 = (int) (100 * Gdx.graphics.getDensity());
+        unlockMarketTwoButton.setSize(buttonSize15, buttonSize15);
+        int width15 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth())/4));
+        int height15 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/10));
+        unlockMarketTwoButton.setBounds(width15, height15, unlockMarketTwoButton.getWidth(), unlockMarketTwoButton.getHeight());
+        unlockMarketTwoButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+
+            }
+        });
+        stage.addActor(unlockMarketTwoButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
     }
 
 
@@ -580,6 +772,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         if(bucketBought == true){
             bucketButton.draw(batch, 1);
         }
+        unlockButton.draw(batch, 1);
         gameButton.draw(batch, 1);
         batch.end();
     }
