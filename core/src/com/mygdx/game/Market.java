@@ -767,11 +767,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
         }*/
         sellIce.draw(batch, 1);//draw button, opacity
         if(sellBuyBought == true) {
-            if (sellMode == true /*&& firstDraw == true*/) {
+            if (sellMode == true) {
                 sellModeButton.draw(batch, 1);
+                unlockSellBuyButton.setTouchable(Touchable.disabled);
             }
-            if (sellMode == false /*&& firstDraw == true*/) {
+            if (sellMode == false) {
                 buyModeButton.draw(batch, 1);
+                unlockSellBuyButton.setTouchable(Touchable.disabled);
             }
         }
         if(sellBuyBought == false){
