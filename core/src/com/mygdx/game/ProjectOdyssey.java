@@ -1,6 +1,8 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -12,8 +14,9 @@ import java.util.TimerTask;
 
 public class ProjectOdyssey extends Game {
 
+	Preferences odysseyPrefs = Gdx.app.getPreferences("ProjectOdysseyPrefs");
 
-	public static int ice = 10;//ice variable used in every class
+	public static int ice = 10; //ice variable used in every class
 	public static int snowBall = 10;
 	public static int bucket = 5;
 	public static int shovel = 0;
@@ -29,6 +32,8 @@ public class ProjectOdyssey extends Game {
 	public static int moneys = 999; //changing for testing - natty
 	public static float scale = 1;
 	public static boolean lobbyUnlock = false;
+
+
 
 	//Texture img;
 
@@ -80,6 +85,9 @@ public class ProjectOdyssey extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		this.setScreen(new MainMenuScreen(this));
+
+		odysseyPrefs.putInteger("ice", 10);
+		odysseyPrefs.flush();
 	}
 
 

@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
@@ -30,6 +31,8 @@ import static com.mygdx.game.ProjectOdyssey.moneys;
 //Sell and Buy
 
 public class Market implements Screen, GestureDetector.GestureListener{
+
+    Preferences odysseyPrefs = Gdx.app.getPreferences("ProjectOdysseyPrefs");
 
     final ProjectOdyssey game;
     private Stage stage;
@@ -95,7 +98,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
-                //We dont want touch down to do anything, as touch up is better to use
+                //We don't want touch down to do anything, as touch up is better to use
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -271,9 +274,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 sellModeButton.setTouchable(Touchable.disabled);
                 buyModeButton.setTouchable((Touchable.enabled));
                 System.out.println("buy");
-
-
-
             }
         });
 
@@ -419,26 +419,26 @@ public class Market implements Screen, GestureDetector.GestureListener{
         }
 
         //Placing # of iceCubes based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
-        if (ProjectOdyssey.ice < 10){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.275 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        if (odysseyPrefs.getInteger("ice") < 10){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.275 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.ice > 999999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.16 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        else if (odysseyPrefs.getInteger("ice") > 999999){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.16 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.ice > 99999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.18 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        else if (odysseyPrefs.getInteger("ice") > 99999){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.18 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.ice > 9999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.20 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        else if (odysseyPrefs.getInteger("ice") > 9999){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.20 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.ice > 999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.22 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        else if (odysseyPrefs.getInteger("ice") > 999){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.22 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.ice > 99){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.24 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        else if (odysseyPrefs.getInteger("ice") > 99){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.24 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.ice > 9){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.26 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+        else if (odysseyPrefs.getInteger("ice") > 9){
+            moneyCounter.draw(batch, "" + odysseyPrefs.getInteger("ice") , ((int)(.26 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
         }
 
         //placing iceCube Price
