@@ -30,6 +30,13 @@ public class ProjectOdyssey extends Game {
 	public static float scale = 1;
 	public static boolean lobbyUnlock = false;
 
+	public static boolean sellBuyBought = false;
+	public static boolean sbBought = false;
+	public static boolean shovelBought = false;
+	public static boolean bucketBought = false;
+	public static boolean arrowBought = false;
+	public static boolean firstDraw = false;
+
 	//Texture img;
 
     Timer t = new Timer(); //declare the timer for the upgrades method

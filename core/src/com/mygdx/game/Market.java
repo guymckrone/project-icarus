@@ -62,17 +62,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton unlockMarketTwoButton;
 
     private boolean sellMode = true;
-    private boolean sellBuyBought = false;
-    private boolean sbBought = false;
-    private boolean shovelBought = false;
-    private boolean bucketBought = false;
-    private boolean arrowBought = false;
-    private boolean firstDraw = false;
+
 
     private BitmapFont moneyCounter = new BitmapFont(); //For drawing text
 
     private int screenWidth = Gdx.graphics.getWidth(); //Variable with screen width in it
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
+    private int unlockPrice = 100;
 
 
     private Texture logo;
@@ -160,7 +156,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(sbBought == true) {
+                if(ProjectOdyssey.sbBought == true) {
                     sbButton.setTouchable(Touchable.enabled);
                     if (sellMode == true && ProjectOdyssey.snowBall > 0) {//prevents from selling into negatives
                         ProjectOdyssey.snowBall--;//subtracts one ice each touchup
@@ -397,7 +393,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //game.setScreen(new GameScreen(game));
+                game.setScreen(new GameScreen(game));
                 //game.setScreen(new MarketTwo(game));
                 //marketButton.setDisabled(false);
 
@@ -410,12 +406,12 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin unlockButtonSkin = new Skin();
-        unlockButtonSkin.add("playButton", new Texture("buttons/Upgrade.png"));
+        unlockButtonSkin.add("unlockButton", new Texture("buttons/Upgrade.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle unlockButtonStyle = new ImageButton.ImageButtonStyle();
-        unlockButtonStyle.imageUp = unlockButtonSkin.getDrawable("playButton"); // Unpressed
-        unlockButtonStyle.imageDown = unlockButtonSkin.getDrawable("playButton"); // Pressed
+        unlockButtonStyle.imageUp = unlockButtonSkin.getDrawable("unlockButton"); // Unpressed
+        unlockButtonStyle.imageDown = unlockButtonSkin.getDrawable("unlockButton"); // Pressed
 
         // Play button
         unlockButton = new ImageButton(unlockButtonStyle);
@@ -440,13 +436,13 @@ public class Market implements Screen, GestureDetector.GestureListener{
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
         // Button skin
-        Skin unlockSellBuyButtonSkin = new Skin();
-        unlockSellBuyButtonSkin.add("playButton", new Texture("buttons/Upgrade.png"));
+        final Skin unlockSellBuyButtonSkin = new Skin();
+        unlockSellBuyButtonSkin.add("unlockSellBuyButton", new Texture("buttons/Upgrade.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle unlockSellBuyButtonStyle = new ImageButton.ImageButtonStyle();
-        unlockSellBuyButtonStyle.imageUp = unlockSellBuyButtonSkin.getDrawable("playButton"); // Unpressed
-        unlockSellBuyButtonStyle.imageDown = unlockSellBuyButtonSkin.getDrawable("playButton"); // Pressed
+        unlockSellBuyButtonStyle.imageUp = unlockSellBuyButtonSkin.getDrawable("unlockSellBuyButton"); // Unpressed
+        unlockSellBuyButtonStyle.imageDown = unlockSellBuyButtonSkin.getDrawable("unlockSellBuyButton"); // Pressed
 
         // Play button
         unlockSellBuyButton = new ImageButton(unlockSellBuyButtonStyle);
@@ -462,10 +458,11 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 100){
-                    moneys = moneys - 100;
-                    sellBuyBought = true;
+                if(moneys > unlockPrice){
+                    moneys = moneys - unlockPrice;
+                    ProjectOdyssey.sellBuyBought = true;
                     sellModeButton.setTouchable(Touchable.enabled);
+                    unlockSellBuyButton.setTouchable(Touchable.disabled);
                 }
 
             }
@@ -476,12 +473,12 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin unlockSnowBallButtonSkin = new Skin();
-        unlockSnowBallButtonSkin.add("playButton", new Texture("buttons/Upgrade.png"));
+        unlockSnowBallButtonSkin.add("unlockSnowBallButton", new Texture("buttons/Upgrade.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle unlockSnowBallButtonStyle = new ImageButton.ImageButtonStyle();
-        unlockSnowBallButtonStyle.imageUp = unlockSnowBallButtonSkin.getDrawable("playButton"); // Unpressed
-        unlockSnowBallButtonStyle.imageDown = unlockSnowBallButtonSkin.getDrawable("playButton"); // Pressed
+        unlockSnowBallButtonStyle.imageUp = unlockSnowBallButtonSkin.getDrawable("unlockSnowBallButton"); // Unpressed
+        unlockSnowBallButtonStyle.imageDown = unlockSnowBallButtonSkin.getDrawable("unlockSnowBallButton"); // Pressed
 
         // Play button
         unlockSnowBallButton = new ImageButton(unlockSnowBallButtonStyle);
@@ -497,9 +494,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 100 && sellBuyBought == true){
-                    moneys = moneys - 100;
-                    sbBought = true;
+                if(moneys > unlockPrice && ProjectOdyssey.sellBuyBought == true){
+                    moneys = moneys - unlockPrice;
+                    ProjectOdyssey.sbBought = true;
                 }
 
             }
@@ -510,12 +507,12 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin unlockBucketButtonSkin = new Skin();
-        unlockBucketButtonSkin.add("playButton", new Texture("buttons/Upgrade.png"));
+        unlockBucketButtonSkin.add("unlockBucketButton", new Texture("buttons/Upgrade.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle unlockBucketButtonStyle = new ImageButton.ImageButtonStyle();
-        unlockBucketButtonStyle.imageUp = unlockBucketButtonSkin.getDrawable("playButton"); // Unpressed
-        unlockBucketButtonStyle.imageDown = unlockBucketButtonSkin.getDrawable("playButton"); // Pressed
+        unlockBucketButtonStyle.imageUp = unlockBucketButtonSkin.getDrawable("unlockBucketButton"); // Unpressed
+        unlockBucketButtonStyle.imageDown = unlockBucketButtonSkin.getDrawable("unlockBucketButton"); // Pressed
 
         // Play button
         unlockBucketButton = new ImageButton(unlockBucketButtonStyle);
@@ -531,9 +528,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 100 && sbBought == true){
-                    moneys = moneys - 100;
-                    bucketBought = true;
+                if(moneys > unlockPrice && ProjectOdyssey.sbBought == true){
+                    moneys = moneys - unlockPrice;
+                    ProjectOdyssey.bucketBought = true;
                 }
 
             }
@@ -565,9 +562,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 100 && bucketBought == true){
-                    moneys = moneys - 100;
-                    shovelBought = true;
+                if(moneys > unlockPrice && ProjectOdyssey.bucketBought == true){
+                    moneys = moneys - unlockPrice;
+                    ProjectOdyssey.shovelBought = true;
                 }
 
             }
@@ -599,9 +596,10 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 100 && shovelBought == true){
-                    moneys = moneys - 100;
-                    arrowBought = true;
+                if(moneys > unlockPrice && ProjectOdyssey.shovelBought == true){
+                    unlockMarketTwoButton.setTouchable(Touchable.disabled);
+                    moneys = moneys - unlockPrice;
+                    ProjectOdyssey.arrowBought = true;
                 }
 
             }
@@ -674,7 +672,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         if (ProjectOdyssey.iceCubePrice < 10){
             moneyCounter.draw(batch, "$" + ProjectOdyssey.iceCubePrice , ((int)(.26 * screenWidth)),  ((int)(.6 * screenHeight))); //# of ice cubes/
         }
-        if(sbBought == true){
+        if(ProjectOdyssey.sbBought == true){
         //Placing # of snowballs based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
         if (ProjectOdyssey.snowBall < 10){
             moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.675 * screenWidth)),  ((int)(.85 * screenHeight))); //# of snowBalls
@@ -704,7 +702,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.64 * screenWidth)), ((int) (.6 * screenHeight)));
             }
         }
-        if(bucketBought == true) {
+        if(ProjectOdyssey.bucketBought == true) {
             //Placing # of buckets based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
             if (ProjectOdyssey.bucket < 10) {
                 moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.275 * screenWidth)), ((int) (.485 * screenHeight))); //# of buckets
@@ -731,7 +729,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 moneyCounter.draw(batch, "$" + ProjectOdyssey.bucketPrice, ((int) (.24 * screenWidth)), ((int) (.25 * screenHeight)));
             }
         }
-        if(shovelBought == true) {
+        if(ProjectOdyssey.shovelBought == true) {
             //Placing # of shovels based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
             if (ProjectOdyssey.shovel < 10) {
                 moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.675 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
@@ -767,58 +765,57 @@ public class Market implements Screen, GestureDetector.GestureListener{
             firstDraw = true;
         }*/
         sellIce.draw(batch, 1);//draw button, opacity
-        if(sellBuyBought == true) {
+        if(ProjectOdyssey.sellBuyBought == true) {
+            unlockSellBuyButton.setTouchable(Touchable.disabled);
+            unlockSellBuyButton.setTouchable(Touchable.disabled);
             if (sellMode == true) {
                 sellModeButton.draw(batch, 1);
-                unlockSellBuyButton.setTouchable(Touchable.disabled);
             }
             if (sellMode == false) {
                 buyModeButton.draw(batch, 1);
-                unlockSellBuyButton.setTouchable(Touchable.disabled);
             }
         }
-        if(sellBuyBought == false){
+        if(ProjectOdyssey.sellBuyBought == false){
             unlockSellBuyButton.draw(batch, 1);
-            unlockSellBuyButton.setTouchable(Touchable.enabled);
             buyModeButton.setTouchable(Touchable.disabled);
             sellModeButton.setTouchable(Touchable.disabled);
         }
-        if(sbBought == true && sellBuyBought == true){
+        if(ProjectOdyssey.sbBought == true && ProjectOdyssey.sellBuyBought == true){
             sbButton.draw(batch, 1);
             sbButton.setTouchable(Touchable.enabled);
             unlockSnowBallButton.setTouchable(Touchable.disabled);
         }
-        if(sbBought == false && sellBuyBought == true){
+        if(ProjectOdyssey.sbBought == false && ProjectOdyssey.sellBuyBought == true){
             unlockSnowBallButton.draw(batch, 1);
             unlockSnowBallButton.setTouchable(Touchable.enabled);
             sbButton.setTouchable(Touchable.disabled);
         }
-        if(shovelBought == true && bucketBought == true){
+        if(ProjectOdyssey.shovelBought == true && ProjectOdyssey.bucketBought == true){
             shovelButton.draw(batch, 1);
             shovelButton.setTouchable(Touchable.enabled);
             unlockShovelButton.setTouchable(Touchable.disabled);
         }
-        if(shovelBought == false && bucketBought == true){
+        if(ProjectOdyssey.shovelBought == false && ProjectOdyssey.bucketBought == true){
             unlockShovelButton.draw(batch, 1);
             unlockShovelButton.setTouchable(Touchable.enabled);
             shovelButton.setTouchable(Touchable.disabled);
         }
-        if(arrowBought == true && shovelBought == true){
+        if(ProjectOdyssey.arrowBought == true && ProjectOdyssey.shovelBought == true){
             marketTwoButton.draw(batch, 1);
             marketTwoButton.setTouchable(Touchable.enabled);
             unlockBucketButton.setTouchable(Touchable.disabled);
         }
-        if(arrowBought == false && shovelBought == true){
+        if(ProjectOdyssey.arrowBought == false && ProjectOdyssey.shovelBought == true){
             unlockMarketTwoButton.draw(batch, 1);
             unlockMarketTwoButton.setTouchable(Touchable.enabled);
             marketTwoButton.setTouchable(Touchable.disabled);
         }
-        if(bucketBought == true && sbBought == true){
+        if(ProjectOdyssey.bucketBought == true && ProjectOdyssey.sbBought == true){
             bucketButton.draw(batch, 1);
             bucketButton.setTouchable(Touchable.enabled);
             unlockBucketButton.setTouchable(Touchable.disabled);
         }
-        if(bucketBought == false && sbBought == true){
+        if(ProjectOdyssey.bucketBought == false && ProjectOdyssey.sbBought == true){
             unlockBucketButton.draw(batch, 1);
             unlockBucketButton.setTouchable(Touchable.enabled);
             bucketButton.setTouchable(Touchable.disabled);
@@ -852,6 +849,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
     @Override
     public void dispose() {
         moneyCounter.dispose();
+        stage.dispose();
+        batch.dispose();
+        game.dispose();
 
     }
 
