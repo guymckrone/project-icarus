@@ -465,6 +465,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 if(moneys > 100){
                     moneys = moneys - 100;
                     sellBuyBought = true;
+                    sellModeButton.setTouchable(Touchable.enabled);
                 }
 
             }
