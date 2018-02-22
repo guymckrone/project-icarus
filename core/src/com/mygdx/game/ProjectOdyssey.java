@@ -13,9 +13,9 @@ import java.util.TimerTask;
 public class ProjectOdyssey extends Game {
 
 
-	public static int ice = 10;//ice variable used in every class
-	public static int snowBall = 10;
-	public static int bucket = 5;
+	public static int ice = 0;//ice variable used in every class
+	public static int snowBall = 0;
+	public static int bucket = 0;
 	public static int shovel = 0;
 	public static int iceCream = 0;
 	public static int snowFlake = 0;
@@ -26,7 +26,7 @@ public class ProjectOdyssey extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public static boolean marketShow;
-	public static int moneys = 999; //changing for testing - natty
+	public static int moneys = 1000; //changing for testing - natty
 	public static float scale = 1;
 	public static boolean lobbyUnlock = false;
 
@@ -76,7 +76,7 @@ public class ProjectOdyssey extends Game {
 	int icicleMin = 188;
 	int icicleMax = 354;
 
-	int snowManPrice = 0;
+	public static int snowManPrice = 0;
 	int snowManMin = 456;
 	int snowManMax = 832;
 
@@ -174,7 +174,7 @@ public class ProjectOdyssey extends Game {
 			iceCubePrice = iceCubeMin;
 			snowBallPrice = snowBallMin;
 			bucketPrice = bucketMin;
-			shovelPrice = shovelMin;
+			snowManPrice = shovelMin;
 			iceCreamPrice = iceCreamMin;
 			snowFlakePrice = snowFlakeMin;
 			iciclePrice = icicleMin;

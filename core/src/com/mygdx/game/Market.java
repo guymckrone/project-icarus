@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
 
@@ -29,15 +30,6 @@ import static com.mygdx.game.ProjectOdyssey.moneys;
 //Sell and Buy
 
 public class Market implements Screen, GestureDetector.GestureListener{
-
-
-    /*Sell/buy
-    * Snowball
-    * Bucket
-    * Shovel
-    * Arrow
-    * */
-
 
     final ProjectOdyssey game;
     private Stage stage;
@@ -61,7 +53,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton unlockMarketTwoButton;
 
     private boolean sellMode = true;
-
 
     private BitmapFont moneyCounter = new BitmapFont(); //For drawing text
 
@@ -134,7 +125,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin sbButtonSkin = new Skin();
-            sbButtonSkin.add("sbButton", new Texture("Market/SnowBall.png"));
+        sbButtonSkin.add("sbButton", new Texture("Market/SnowBall.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle sbButtonStyle = new ImageButton.ImageButtonStyle();
@@ -255,7 +246,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                     ProjectOdyssey.shovel--;//subtracts one ice each touchup
                     ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.shovelPrice ){//prevents from selling into negatives
+                if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.shovelPrice){//prevents from selling into negatives
                     ProjectOdyssey.shovel++;
                     ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
                 }
@@ -392,9 +383,9 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new GameScreen(game));
-                //game.setScreen(new MarketTwo(game));
-                //marketButton.setDisabled(false);
+                game.setScreen(new MarketTwo(game));
+
+
 
             }
         });
@@ -646,123 +637,129 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         //Placing # of iceCubes based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
         if (ProjectOdyssey.ice < 10){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.275 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.275 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
         else if (ProjectOdyssey.ice > 999999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.16 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.125 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
         else if (ProjectOdyssey.ice > 99999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.18 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.15 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
         else if (ProjectOdyssey.ice > 9999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.20 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.175 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
         else if (ProjectOdyssey.ice > 999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.22 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.2 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
         else if (ProjectOdyssey.ice > 99){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.24 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.225 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
         else if (ProjectOdyssey.ice > 9){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.26 * screenWidth)),  ((int)(.85 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "" + ProjectOdyssey.ice , ((int)(.25 * screenWidth)),  ((int)(.835 * screenHeight))); //# of ice cubes/
         }
 
         //placing iceCube Price
         if (ProjectOdyssey.iceCubePrice < 10){
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.iceCubePrice , ((int)(.26 * screenWidth)),  ((int)(.6 * screenHeight))); //# of ice cubes/
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.iceCubePrice , ((int)(.25 * screenWidth)),  ((int)(.6 * screenHeight))); //# of ice cubes/
         }
-        if(ProjectOdyssey.sbBought == true){
-        //Placing # of snowballs based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
-        if (ProjectOdyssey.snowBall < 10){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.675 * screenWidth)),  ((int)(.85 * screenHeight))); //# of snowBalls
+        else if (ProjectOdyssey.iceCubePrice > 9){
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.iceCubePrice , ((int)(.225 * screenWidth)),  ((int)(.6 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.snowBall > 999999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.56 * screenWidth)),  ((int)(.85 * screenHeight)));
+        else if (ProjectOdyssey.iceCubePrice > 99){
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.iceCubePrice , ((int)(.2 * screenWidth)),  ((int)(.6 * screenHeight))); //# of ice cubes/
         }
-        else if (ProjectOdyssey.snowBall > 99999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.58 * screenWidth)),  ((int)(.85 * screenHeight)));
-        }
-        else if (ProjectOdyssey.snowBall > 9999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.60 * screenWidth)),  ((int)(.85 * screenHeight)));
-        }
-        else if (ProjectOdyssey.snowBall > 999){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.62 * screenWidth)),  ((int)(.85 * screenHeight)));
-        }
-        else if (ProjectOdyssey.snowBall > 99){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.64 * screenWidth)),  ((int)(.85 * screenHeight)));
-        }
-        else if (ProjectOdyssey.snowBall > 9){
-            moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall , ((int)(.66 * screenWidth)),  ((int)(.85 * screenHeight)));
-        }
+
+        if(ProjectOdyssey.sbBought == true) {
+            //Placing # of snowballs based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
+            if (ProjectOdyssey.snowBall < 10) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.675 * screenWidth)), ((int) (.835 * screenHeight))); //# of snowBalls
+            } else if (ProjectOdyssey.snowBall > 999999) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.525 * screenWidth)), ((int) (.835 * screenHeight)));
+            } else if (ProjectOdyssey.snowBall > 99999) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.55 * screenWidth)), ((int) (.835 * screenHeight)));
+            } else if (ProjectOdyssey.snowBall > 9999) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.575 * screenWidth)), ((int) (.835 * screenHeight)));
+            } else if (ProjectOdyssey.snowBall > 999) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.6 * screenWidth)), ((int) (.835 * screenHeight)));
+            } else if (ProjectOdyssey.snowBall > 99) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.625 * screenWidth)), ((int) (.835 * screenHeight)));
+            } else if (ProjectOdyssey.snowBall > 9) {
+                moneyCounter.draw(batch, "" + ProjectOdyssey.snowBall, ((int) (.65 * screenWidth)), ((int) (.835 * screenHeight)));
+            }
+
             //placing snowball price
             if (ProjectOdyssey.snowBallPrice < 10) {
-                moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.66 * screenWidth)), ((int) (.6 * screenHeight)));
+                moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.65 * screenWidth)), ((int) (.6 * screenHeight)));
+            } else if (ProjectOdyssey.snowBallPrice > 999) {
+                moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.575 * screenWidth)), ((int) (.6 * screenHeight)));
+            } else if (ProjectOdyssey.snowBallPrice > 99) {
+                moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.6 * screenWidth)), ((int) (.6 * screenHeight)));
             } else if (ProjectOdyssey.snowBallPrice > 9) {
-                moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.64 * screenWidth)), ((int) (.6 * screenHeight)));
+                moneyCounter.draw(batch, "$" + ProjectOdyssey.snowBallPrice, ((int) (.625 * screenWidth)), ((int) (.6 * screenHeight)));
+                //placing snowball price
             }
         }
-        if(ProjectOdyssey.bucketBought == true) {
-            //Placing # of buckets based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
-            if (ProjectOdyssey.bucket < 10) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.275 * screenWidth)), ((int) (.485 * screenHeight))); //# of buckets
-            } else if (ProjectOdyssey.bucket > 999999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.16 * screenWidth)), ((int) (.5 * screenHeight)));
-            } else if (ProjectOdyssey.bucket > 99999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.18 * screenWidth)), ((int) (.5 * screenHeight)));
-            } else if (ProjectOdyssey.bucket > 9999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.20 * screenWidth)), ((int) (.5 * screenHeight)));
-            } else if (ProjectOdyssey.bucket > 999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.22 * screenWidth)), ((int) (.5 * screenHeight)));
-            } else if (ProjectOdyssey.bucket > 99) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.24 * screenWidth)), ((int) (.5 * screenHeight)));
-            } else if (ProjectOdyssey.bucket > 9) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.26 * screenWidth)), ((int) (.5 * screenHeight)));
+            if(ProjectOdyssey.bucketBought == true) {
+                //Placing # of buckets based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
+                if (ProjectOdyssey.bucket < 10) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.275 * screenWidth)), ((int) (.485 * screenHeight))); //# of buckets
+                } else if (ProjectOdyssey.bucket > 999999) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.125 * screenWidth)), ((int) (.485 * screenHeight)));
+                } else if (ProjectOdyssey.bucket > 99999) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.15 * screenWidth)), ((int) (.485 * screenHeight)));
+                } else if (ProjectOdyssey.bucket > 9999) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.175 * screenWidth)), ((int) (.485 * screenHeight)));
+                } else if (ProjectOdyssey.bucket > 999) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.2 * screenWidth)), ((int) (.485 * screenHeight)));
+                } else if (ProjectOdyssey.bucket > 99) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.225 * screenWidth)), ((int) (.485 * screenHeight)));
+                } else if (ProjectOdyssey.bucket > 9) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucket, ((int) (.25 * screenWidth)), ((int) (.485 * screenHeight)));
+                }
+
+                //placing bucket price
+                if (ProjectOdyssey.bucketPrice < 10) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucketPrice, ((int) (.25 * screenWidth)), ((int) (.25 * screenHeight)));
+                } else if (ProjectOdyssey.bucketPrice > 999) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucketPrice, ((int) (.175 * screenWidth)), ((int) (.25 * screenHeight)));
+                } else if (ProjectOdyssey.bucketPrice > 99) {
+                    moneyCounter.draw(batch, "" + ProjectOdyssey.bucketPrice, ((int) (.2 * screenWidth)), ((int) (.25 * screenHeight)));
+                } else if (ProjectOdyssey.bucketPrice > 9) {
+                    moneyCounter.draw(batch, "$" + ProjectOdyssey.bucketPrice, ((int) (.225 * screenWidth)), ((int) (.25 * screenHeight)));
+                }
             }
 
-            //placing bucket price
-            if (ProjectOdyssey.bucketPrice < 10) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucketPrice, ((int) (.26 * screenWidth)), ((int) (.25 * screenHeight)));
-            } else if (ProjectOdyssey.bucketPrice > 99) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.bucketPrice, ((int) (.22 * screenWidth)), ((int) (.25 * screenHeight)));
-            } else if (ProjectOdyssey.bucketPrice > 9) {
-                moneyCounter.draw(batch, "$" + ProjectOdyssey.bucketPrice, ((int) (.24 * screenWidth)), ((int) (.25 * screenHeight)));
-            }
-        }
-        if(ProjectOdyssey.shovelBought == true) {
-            //Placing # of shovels based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
-            if (ProjectOdyssey.shovel < 10) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.675 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovel > 999999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.56 * screenWidth)), ((int) (.5 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovel > 99999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.58 * screenWidth)), ((int) (.5 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovel > 9999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.60 * screenWidth)), ((int) (.5 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovel > 999) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.62 * screenWidth)), ((int) (.5 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovel > 99) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.64 * screenWidth)), ((int) (.5 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovel > 9) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.66 * screenWidth)), ((int) (.5 * screenHeight))); //# of ice cubes/
-            }
+                if(ProjectOdyssey.shovelBought == true) {
+                    //Placing # of shovels based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
+                    if (ProjectOdyssey.shovel < 10) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.675 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovel > 999999) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.525 * screenWidth)), ((int) (.4855 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovel > 99999) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.5 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovel > 9999) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.575 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovel > 999) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.6 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovel > 99) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.625 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovel > 9) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovel, ((int) (.65 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
+                    }
 
-            //placing shovel price
-            if (ProjectOdyssey.shovelPrice < 10) {
-                moneyCounter.draw(batch, "$" + ProjectOdyssey.shovelPrice, ((int) (.66 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovelPrice > 99) {
-                moneyCounter.draw(batch, "" + ProjectOdyssey.shovelPrice, ((int) (.62 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
-            } else if (ProjectOdyssey.shovelPrice > 9) {
-                moneyCounter.draw(batch, "$" + ProjectOdyssey.shovelPrice, ((int) (.64 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
-            }
-        }
-
-
+                    //placing shovel price
+                    if (ProjectOdyssey.shovelPrice < 10) {
+                        moneyCounter.draw(batch, "$" + ProjectOdyssey.shovelPrice, ((int) (.65 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovelPrice > 999) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovelPrice, ((int) (.575 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovelPrice > 99) {
+                        moneyCounter.draw(batch, "" + ProjectOdyssey.shovelPrice, ((int) (.6 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
+                    } else if (ProjectOdyssey.shovelPrice > 9) {
+                        moneyCounter.draw(batch, "$" + ProjectOdyssey.shovelPrice, ((int) (.625 * screenWidth)), ((int) (.25 * screenHeight))); //# of ice cubes/
+                    }
+                }
         batch.end();
         batch.begin();
-        /*if(firstDraw == false){
-            sellModeButton.draw(batch, 1);
-            firstDraw = true;
-        }*/
         sellIce.draw(batch, 1);//draw button, opacity
         if(ProjectOdyssey.sellBuyBought == true) {
             unlockSellBuyButton.setTouchable(Touchable.disabled);

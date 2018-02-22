@@ -36,6 +36,17 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     private ImageButton iceButton;
     private ImageButton marketButton;
     private ImageButton lobbyButton;
+
+    private ImageButton onePersonNoRing;
+    private ImageButton onePersonRing;
+
+    private ImageButton twoPersonNoRing;
+    private ImageButton twoPersonRing;
+
+    private ImageButton threePersonNoRing;
+    private ImageButton threePersonRing;
+
+
     private int screenWidth = Gdx.graphics.getWidth();
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
     //public static int ice;
@@ -44,7 +55,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     int playIntSec;
     int playIntHour;
     String gameClock;
-    
+
+    public static int whichTable = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
 
     public GameScreen(final ProjectOdyssey game) {
         System.out.println(screenWidth + "HERE");
@@ -165,6 +177,172 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         stage.addActor(marketButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // onePersonNoRing
+        Skin onePersonNoRingSkin = new Skin();
+        onePersonNoRingSkin.add("onePersonNoRing", new Texture("MainScreen/OnePersonNoRing.png"));
+
+        ImageButton.ImageButtonStyle onePersonNoRingStyle = new ImageButton.ImageButtonStyle();
+        onePersonNoRingStyle.imageUp = onePersonNoRingSkin.getDrawable("onePersonNoRing"); // Unpressed
+        onePersonNoRingStyle.imageDown = onePersonNoRingSkin.getDrawable("onePersonNoRing"); // Pressed
+
+        onePersonNoRing = new ImageButton(onePersonNoRingStyle);
+        int buttonSize4 = (int) (300 * Gdx.graphics.getDensity());
+        onePersonNoRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        int width4 = (int) (((Gdx.graphics.getWidth() - onePersonNoRing.getWidth())/2));
+        int height4 = (int) (((Gdx.graphics.getHeight() - onePersonNoRing.getHeight())/1.1));
+        onePersonNoRing.setBounds(width4, height4, onePersonNoRing.getWidth(), onePersonNoRing.getHeight());
+        onePersonNoRing.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                moneys++;
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(onePersonNoRing);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+
+        // onePersonRing
+        Skin onePersonRingSkin = new Skin();
+        onePersonRingSkin.add("onePersonRing", new Texture("MainScreen/OnePersonRing.png"));
+
+        ImageButton.ImageButtonStyle onePersonRingStyle = new ImageButton.ImageButtonStyle();
+        onePersonRingStyle.imageUp = onePersonRingSkin.getDrawable("onePersonRing"); // Unpressed
+        onePersonRingStyle.imageDown = onePersonRingSkin.getDrawable("onePersonRing"); // Pressed
+
+        onePersonRing = new ImageButton(onePersonRingStyle);
+        onePersonRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        onePersonRing.setBounds(width4, height4, onePersonRing.getWidth(), onePersonRing.getHeight());
+        onePersonRing.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                moneys++;
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(onePersonRing);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // twoPersonNoRing
+        Skin twoPersonNoRingSkin = new Skin();
+        twoPersonNoRingSkin.add("twoPersonNoRing", new Texture("MainScreen/TwoPersonNoRing.png"));
+
+        ImageButton.ImageButtonStyle twoPersonNoRingStyle = new ImageButton.ImageButtonStyle();
+        twoPersonNoRingStyle.imageUp = twoPersonNoRingSkin.getDrawable("twoPersonNoRing"); // Unpressed
+        twoPersonNoRingStyle.imageDown = twoPersonNoRingSkin.getDrawable("twoPersonNoRing"); // Pressed
+
+        twoPersonNoRing = new ImageButton(twoPersonNoRingStyle);
+        twoPersonNoRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        twoPersonNoRing.setBounds(width4, height4, twoPersonNoRing.getWidth(), twoPersonNoRing.getHeight());
+        twoPersonNoRing.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                moneys++;
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(twoPersonNoRing);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // twoPersonRing
+        Skin twoPersonRingSkin = new Skin();
+        twoPersonRingSkin.add("twoPersonRing", new Texture("MainScreen/TwoPersonRing.png"));
+
+        ImageButton.ImageButtonStyle twoPersonRingStyle = new ImageButton.ImageButtonStyle();
+        twoPersonRingStyle.imageUp = twoPersonRingSkin.getDrawable("twoPersonRing"); // Unpressed
+        twoPersonRingStyle.imageDown = twoPersonRingSkin.getDrawable("twoPersonRing"); // Pressed
+
+        twoPersonRing = new ImageButton(twoPersonRingStyle);
+        twoPersonRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        twoPersonRing.setBounds(width4, height4, twoPersonRing.getWidth(), twoPersonRing.getHeight());
+        twoPersonRing.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                moneys++;
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(twoPersonRing);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // threePersonNoRing
+        Skin threePersonNoRingSkin = new Skin();
+        threePersonNoRingSkin.add("threePersonNoRing", new Texture("MainScreen/ThreePersonNoRing.png"));
+
+        ImageButton.ImageButtonStyle threePersonNoRingStyle = new ImageButton.ImageButtonStyle();
+        threePersonNoRingStyle.imageUp = threePersonNoRingSkin.getDrawable("threePersonNoRing"); // Unpressed
+        threePersonNoRingStyle.imageDown = threePersonNoRingSkin.getDrawable("threePersonNoRing"); // Pressed
+
+        threePersonNoRing = new ImageButton(threePersonNoRingStyle);
+        threePersonNoRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        threePersonNoRing.setBounds(width4, height4, threePersonNoRing.getWidth(), threePersonNoRing.getHeight());
+        threePersonNoRing.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                moneys++;
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(threePersonNoRing);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // threePersonRing
+        Skin threePersonRingSkin = new Skin();
+        threePersonRingSkin.add("threePersonRing", new Texture("MainScreen/ThreePersonRing.png"));
+
+        ImageButton.ImageButtonStyle threePersonRingStyle = new ImageButton.ImageButtonStyle();
+        threePersonRingStyle.imageUp = threePersonRingSkin.getDrawable("threePersonRing"); // Unpressed
+        threePersonRingStyle.imageDown = threePersonRingSkin.getDrawable("threePersonRing"); // Pressed
+
+        threePersonRing = new ImageButton(threePersonRingStyle);
+        threePersonRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        threePersonRing.setBounds(width4, height4, threePersonRing.getWidth(), threePersonRing.getHeight());
+        threePersonRing.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                moneys++;
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(threePersonRing);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
 
 
@@ -206,16 +384,57 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
 
-
-
-
         batch.end();
-
-
         batch.begin();
+
         iceButton.draw(batch, 1);
+
+
+        if (ProjectOdyssey.ice == 4) {
+            whichTable = 1;
+        }
+        else if (ProjectOdyssey.ice == 5) {
+            whichTable = 2;
+        }
+        else if (ProjectOdyssey.ice == 6) {
+            whichTable = 3;
+        }
+        else if (ProjectOdyssey.ice == 7) {
+            whichTable = 4;
+        }
+        else if (ProjectOdyssey.ice == 8) { //thsi one doesnt work idk why
+            whichTable = 5;
+        }
+        else { //for testing
+            whichTable = 0;
+        }
+
+        if (whichTable == 0){ //draw the table sprite depending on the whichTable variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
+            onePersonNoRing.draw(batch, 1);
+        }
+        else if (whichTable == 1){
+            onePersonRing.draw(batch, 1);
+        }
+        else if (whichTable == 2){
+            twoPersonNoRing.draw(batch, 1);
+        }
+        else if (whichTable == 3){
+            twoPersonRing.draw(batch, 1);
+        }
+        else if (whichTable == 4){
+            threePersonNoRing.draw(batch, 1);
+        }
+        else if (whichTable == 5){
+            threePersonRing.draw(batch, 1);
+        }
         batch.end();
         camera.update();
+
+
+
+
+
+
 
         if(ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
