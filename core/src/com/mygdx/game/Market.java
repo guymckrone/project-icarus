@@ -227,11 +227,11 @@ public class Market implements Screen, GestureDetector.GestureListener{
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if (sellMode == true && ProjectOdyssey.shovel > 0){//prevents from selling into negatives
                     ProjectOdyssey.shovel--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
                 }
                 if (sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.shovelPrice){//prevents from selling into negatives
                     ProjectOdyssey.shovel++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.shovelPrice;//adds iceprice amount of moneys each time you click button
                 }
 
 

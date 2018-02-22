@@ -322,11 +322,11 @@ public class ProjectOdyssey extends Game {
 				}
 			}
 		}
-		if (snowManPrice > shovelMax){ //This makes sure the price of the item never exceeds its designated max price
-			snowManPrice = shovelMax;
+		if (shovelPrice > shovelMax){ //This makes sure the price of the item never exceeds its designated max price
+			shovelPrice = shovelMax;
 		}
-		if (snowManPrice < shovelMin){
-			snowManPrice = shovelMin;
+		if (shovelPrice < shovelMin){
+			shovelPrice = shovelMin;
 		}
 		System.out.println("Shovel Price:" + shovelPrice);
 	}
