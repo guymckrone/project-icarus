@@ -19,7 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
 
@@ -596,10 +595,10 @@ public class Market implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice && ProjectOdyssey.shovelBought == true){
+                if(moneys > unlockPrice && ProjectOdyssey.shovelBought == true && ProjectOdyssey.marketTwoBought == false){
                     unlockMarketTwoButton.setTouchable(Touchable.disabled);
                     moneys = moneys - unlockPrice;
-                    ProjectOdyssey.arrowBought = true;
+                    ProjectOdyssey.marketTwoBought = true;
                 }
 
             }
@@ -800,15 +799,14 @@ public class Market implements Screen, GestureDetector.GestureListener{
             unlockShovelButton.setTouchable(Touchable.enabled);
             shovelButton.setTouchable(Touchable.disabled);
         }
-        if(ProjectOdyssey.arrowBought == true && ProjectOdyssey.shovelBought == true){
+        if(ProjectOdyssey.marketTwoBought == true && ProjectOdyssey.shovelBought == true){
             marketTwoButton.draw(batch, 1);
             marketTwoButton.setTouchable(Touchable.enabled);
-            unlockBucketButton.setTouchable(Touchable.disabled);
+            unlockMarketTwoButton.setTouchable(Touchable.disabled);
         }
-        if(ProjectOdyssey.arrowBought == false && ProjectOdyssey.shovelBought == true){
+        if(ProjectOdyssey.marketTwoBought == false && ProjectOdyssey.shovelBought == true){
             unlockMarketTwoButton.draw(batch, 1);
             unlockMarketTwoButton.setTouchable(Touchable.enabled);
-            marketTwoButton.setTouchable(Touchable.disabled);
         }
         if(ProjectOdyssey.bucketBought == true && ProjectOdyssey.sbBought == true){
             bucketButton.draw(batch, 1);

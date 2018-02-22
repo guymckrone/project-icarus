@@ -34,7 +34,7 @@ public class ProjectOdyssey extends Game {
 	public static boolean sbBought = false;
 	public static boolean shovelBought = false;
 	public static boolean bucketBought = false;
-	public static boolean arrowBought = false;
+	public static boolean marketTwoBought = false;
 	public static boolean firstDraw = false;
 
 	//Texture img;
