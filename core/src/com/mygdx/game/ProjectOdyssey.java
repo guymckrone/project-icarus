@@ -35,7 +35,13 @@ public class ProjectOdyssey extends Game {
 	public static boolean shovelBought = false;
 	public static boolean bucketBought = false;
 	public static boolean marketTwoBought = false;
-	public static boolean firstDraw = false;
+	public static boolean sellMode = false;
+
+	public static boolean iceCreamBought = false;
+	public static boolean snowFlakeBought = false;
+	public static boolean icicleBought = false;
+	public static boolean snowManBought = false;
+	public static boolean marketThreeBought = false;
 
 	//Texture img;
 
