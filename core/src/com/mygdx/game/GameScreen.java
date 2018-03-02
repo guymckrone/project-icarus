@@ -56,7 +56,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     int playIntHour;
     String gameClock;
 
-    public static int whichTable = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
+    public static int whichTableGameScreen = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
 
     public GameScreen(final ProjectOdyssey game) {
         System.out.println(screenWidth + "HERE");
@@ -115,13 +115,13 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
 
         // Button skin
-        Skin gameButtonSkin = new Skin();
-        gameButtonSkin.add("gameButton", new Texture("buttons/ArrowRight.png"));
+        Skin lobbyButtonSkin = new Skin();
+        lobbyButtonSkin.add("lobbyButton", new Texture("buttons/ArrowRight.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle lobbyButtonStyle = new ImageButton.ImageButtonStyle();
-        lobbyButtonStyle.imageUp = gameButtonSkin.getDrawable("gameButton"); // Unpressed
-        lobbyButtonStyle.imageDown = gameButtonSkin.getDrawable("gameButton"); // Pressed
+        lobbyButtonStyle.imageUp = lobbyButtonSkin.getDrawable("lobbyButton"); // Unpressed
+        lobbyButtonStyle.imageDown = lobbyButtonSkin.getDrawable("lobbyButton"); // Pressed
 
         // Market button
         lobbyButton = new ImageButton(lobbyButtonStyle);
@@ -137,13 +137,10 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                //game.setScreen(new lobby(game));
-
-
+                game.setScreen(new Lobby(game));
             }
         });
         stage.addActor(lobbyButton);
-
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
         // Button skin
@@ -173,10 +170,11 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
             }
         });
-        marketButton.setTouchable(Touchable.disabled);
+
         stage.addActor(marketButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
 
         // onePersonNoRing
         Skin onePersonNoRingSkin = new Skin();
@@ -391,40 +389,40 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
 
         if (ProjectOdyssey.ice == 4) {
-            whichTable = 1;
+            whichTableGameScreen = 1;
         }
         else if (ProjectOdyssey.ice == 5) {
-            whichTable = 2;
+            whichTableGameScreen = 2;
         }
         else if (ProjectOdyssey.ice == 6) {
-            whichTable = 3;
+            whichTableGameScreen = 3;
         }
         else if (ProjectOdyssey.ice == 7) {
-            whichTable = 4;
+            whichTableGameScreen = 4;
         }
         else if (ProjectOdyssey.ice == 8) { //thsi one doesnt work idk why
-            whichTable = 5;
+            whichTableGameScreen = 5;
         }
         else { //for testing
-            whichTable = 0;
+            whichTableGameScreen = 0;
         }
 
-        if (whichTable == 0){ //draw the table sprite depending on the whichTable variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
+        if (whichTableGameScreen == 0){ //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
             onePersonNoRing.draw(batch, 1);
         }
-        else if (whichTable == 1){
+        else if (whichTableGameScreen == 1){
             onePersonRing.draw(batch, 1);
         }
-        else if (whichTable == 2){
+        else if (whichTableGameScreen == 2){
             twoPersonNoRing.draw(batch, 1);
         }
-        else if (whichTable == 3){
+        else if (whichTableGameScreen == 3){
             twoPersonRing.draw(batch, 1);
         }
-        else if (whichTable == 4){
+        else if (whichTableGameScreen == 4){
             threePersonNoRing.draw(batch, 1);
         }
-        else if (whichTable == 5){
+        else if (whichTableGameScreen == 5){
             threePersonRing.draw(batch, 1);
         }
         batch.end();
@@ -438,14 +436,17 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         if(ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
+            lobbyButton.setTouchable(Touchable.enabled);
+
             batch.begin();
             marketButton.draw(batch, 1);
+            lobbyButton.draw(batch, 1);
             batch.end();
             ProjectOdyssey.marketShow = true;
         }
-        if(ProjectOdyssey.lobbyUnlock == true){
+       /* if(ProjectOdyssey.lobbyUnlock == true){
             lobbyButton.draw(batch, 1);
-        }
+        }*/
 
 
 
