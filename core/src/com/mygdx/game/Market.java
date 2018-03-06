@@ -72,7 +72,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         //This is for creating the text on the screen
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 80;
+        parameter.size = 70;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -342,7 +342,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         gameButton.setSize(buttonSize8, buttonSize8);
         int width8 = (int) (((Gdx.graphics.getWidth() - gameButton.getWidth())/4)*3);
-        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/10);
+        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/20);
         gameButton.setBounds(width8, height8, gameButton.getWidth(), gameButton.getHeight());
         gameButton.addListener(new InputListener() {
             @Override
@@ -374,7 +374,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         int buttonSize9 = (int) (75 * Gdx.graphics.getDensity());
         marketTwoButton.setSize(buttonSize9, buttonSize9);
         int width9 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth())/4));
-        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/10));
+        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/20));
         marketTwoButton.setBounds(width9, height9, marketTwoButton.getWidth(), marketTwoButton.getHeight());
         marketTwoButton.addListener(new InputListener() {
             @Override

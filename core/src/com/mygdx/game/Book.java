@@ -16,6 +16,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
@@ -37,7 +38,14 @@ public class Book implements Screen, GestureDetector.GestureListener {
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
     private int unlockPrice = 100;
 
+    public static int upgradeOneProgress = 0; //This int tracks which upgrade the first upgrade space will show
+    public static int upgradeTwoProgress = 0;
+    public static int upgradeThreeProgress = 0;
+
     ImageButton lobbyButton;
+    ImageButton upgradeOne;
+    ImageButton upgradeTwo;
+    ImageButton upgradeThree;
 
     OrthographicCamera camera;
 
@@ -51,7 +59,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 80;
+        parameter.size = 70;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -70,7 +78,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
         int buttonSize2 = (int) (75 * Gdx.graphics.getDensity());
         lobbyButton.setSize(buttonSize2, buttonSize2);
         int width2 = (int) (((Gdx.graphics.getWidth() - lobbyButton.getWidth())/4));
-        int height2 = (int) ((Gdx.graphics.getHeight() - lobbyButton.getHeight())/10);
+        int height2 = (int) ((Gdx.graphics.getHeight() - lobbyButton.getHeight())/20);
         lobbyButton.setBounds(width2, height2, lobbyButton.getWidth(), lobbyButton.getHeight());
         lobbyButton.addListener(new InputListener() {
             @Override
@@ -85,8 +93,102 @@ public class Book implements Screen, GestureDetector.GestureListener {
         stage.addActor(lobbyButton);
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
+        // Button skin
+        Skin upgradeOneSkin = new Skin();
+        upgradeOneSkin.add("upgradeOneButton", new Texture("buttons/Upgrade.png"));
 
+        // Create button style
+        ImageButton.ImageButtonStyle upgradeOneStyle = new ImageButton.ImageButtonStyle();
+        upgradeOneStyle.imageUp = upgradeOneSkin.getDrawable("upgradeOneButton"); // Unpressed
+        upgradeOneStyle.imageDown = upgradeOneSkin.getDrawable("upgradeOneButton"); // Pressed
 
+        // Market button
+        upgradeOne= new ImageButton(upgradeOneStyle);
+        int buttonSize3 = (int) (75 * Gdx.graphics.getDensity());
+        upgradeOne.setSize(buttonSize3, buttonSize3);
+        int width3 = (int) (((Gdx.graphics.getWidth() - upgradeOne.getWidth())/1.15));
+        int height3 = (int) ((Gdx.graphics.getHeight() - upgradeOne.getHeight())/1.3);
+        upgradeOne.setBounds(width3, height3, upgradeOne.getWidth(), upgradeOne.getHeight());
+        upgradeOne.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                if (upgradeOneProgress == 0 || moneys > 99){
+                    upgradeOneProgress = 1;
+                    moneys = moneys - 100;
+
+                }
+                else if (upgradeOneProgress == 1 || moneys > 299){
+
+                }
+                else if (upgradeOneProgress == 2 || moneys > 499){
+
+                }
+            }
+        });
+        stage.addActor(upgradeOne);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin upgradeTwoSkin = new Skin();
+        upgradeTwoSkin.add("upgradeTwoButton", new Texture("buttons/Upgrade.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle upgradeTwoStyle = new ImageButton.ImageButtonStyle();
+        upgradeTwoStyle.imageUp = upgradeTwoSkin.getDrawable("upgradeTwoButton"); // Unpressed
+        upgradeTwoStyle.imageDown = upgradeTwoSkin.getDrawable("upgradeTwoButton"); // Pressed
+
+        // Market button
+        upgradeTwo = new ImageButton(upgradeTwoStyle);
+        int buttonSize4 = (int) (75 * Gdx.graphics.getDensity());
+        upgradeTwo.setSize(buttonSize4, buttonSize4);
+        int width4 = (int) (((Gdx.graphics.getWidth() - upgradeTwo.getWidth())/1.15));
+        int height4 = (int) ((Gdx.graphics.getHeight() - upgradeTwo.getHeight())/2);
+        upgradeTwo.setBounds(width4, height4, upgradeTwo.getWidth(), upgradeTwo.getHeight());
+        upgradeTwo.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new Lobby(game));
+            }
+        });
+        stage.addActor(upgradeTwo);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin upgradeThreeSkin = new Skin();
+        upgradeThreeSkin.add("upgradeThreeButton", new Texture("buttons/Upgrade.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle upgradeThreeStyle = new ImageButton.ImageButtonStyle();
+        upgradeThreeStyle.imageUp = upgradeThreeSkin.getDrawable("upgradeThreeButton"); // Unpressed
+        upgradeThreeStyle.imageDown = upgradeThreeSkin.getDrawable("upgradeThreeButton"); // Pressed
+
+        // Market button
+        upgradeThree = new ImageButton(upgradeThreeStyle);
+        int buttonSize5 = (int) (75 * Gdx.graphics.getDensity());
+        upgradeThree.setSize(buttonSize5, buttonSize5);
+        int width5 = (int) (((Gdx.graphics.getWidth() - upgradeThree.getWidth())/1.15));
+        int height5 = (int) ((Gdx.graphics.getHeight() - upgradeThree.getHeight())/4.8);
+        upgradeThree.setBounds(width5, height5, upgradeThree.getWidth(), upgradeThree.getHeight());
+        upgradeThree.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(new Lobby(game));
+            }
+        });
+        stage.addActor(upgradeThree);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
 
     @Override
@@ -168,7 +270,47 @@ public class Book implements Screen, GestureDetector.GestureListener {
         else if (moneys > 9) {
             moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
+
+
+        if (upgradeOneProgress == 0){
+            moneyCounter.draw(batch, "$100: Produce one", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "more ice cube", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
+            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+        }
+        else if (upgradeOneProgress == 1){
+            moneyCounter.draw(batch, "$300: Produce three", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
+            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+        }
+        else if (upgradeOneProgress == 2){
+            moneyCounter.draw(batch, "$500: Produce seven", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
+            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+        }
+
+        if (upgradeTwoProgress == 0){
+            moneyCounter.draw(batch, "$500: Produce one", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "more snowball", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
+            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
+        }
+        else if (upgradeTwoProgress == 1){
+
+        }
+
+        if (upgradeThreeProgress == 0){
+            moneyCounter.draw(batch, "$2000: Produce one", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "more bucket", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
+            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
+        }
+        else if (upgradeThreeProgress == 1){
+
+        }
+
+
         lobbyButton.draw(batch,1);
+        upgradeOne.draw(batch,1);
+        upgradeTwo.draw(batch,1);
+        upgradeThree.draw(batch,1);
         batch.end();
     }
 
@@ -194,6 +336,9 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
     @Override
     public void dispose() {
-
+        moneyCounter.dispose();
+        stage.dispose();
+        batch.dispose();
+        game.dispose();
     }
 }

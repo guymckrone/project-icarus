@@ -4,6 +4,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -43,6 +45,7 @@ public class ProjectOdyssey extends Game {
 
     int upgradeOne = 1;
     int upgradeTwo = 1;
+
 
 
 	String marketEvent = ""; //Text of market event

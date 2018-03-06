@@ -66,7 +66,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 80;
+        parameter.size = 70;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -195,7 +195,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         int buttonSize2 = (int) (75 * Gdx.graphics.getDensity());
         gameScreenButton.setSize(buttonSize2, buttonSize2);
         int width2 = (int) (((Gdx.graphics.getWidth() - gameScreenButton.getWidth())/4));
-        int height2 = (int) ((Gdx.graphics.getHeight() - gameScreenButton.getHeight())/10);
+        int height2 = (int) ((Gdx.graphics.getHeight() - gameScreenButton.getHeight())/20);
         gameScreenButton.setBounds(width2, height2, gameScreenButton.getWidth(), gameScreenButton.getHeight());
         gameScreenButton.addListener(new InputListener() {
             @Override
