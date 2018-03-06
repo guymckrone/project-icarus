@@ -45,9 +45,6 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
     private ImageButton sellModeButton;
     private ImageButton buyModeButton;
     private ImageButton marketTwoButton;
-    private ImageButton creamButton;
-    private ImageButton flakeButton;
-    private ImageButton snowManButton;
 
     private Table marketTable;
     private boolean sellMode = true;
@@ -58,7 +55,6 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
     private Texture logo;
     OrthographicCamera camera;
     public MarketTwo(final ProjectOdyssey game){
-        sellMode = !sellMode;
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();

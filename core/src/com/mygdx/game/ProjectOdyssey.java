@@ -30,6 +30,8 @@ public class ProjectOdyssey extends Game {
 	public static float scale = 1;
 	public static boolean lobbyUnlock = false;
 
+	public static int unlocksOne = 0;
+	public static int unlocksTwo = 0;
 	public static boolean sellBuyBought = false;
 	public static boolean sbBought = false;
 	public static boolean shovelBought = false;
