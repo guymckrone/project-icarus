@@ -19,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+import static com.mygdx.game.ProjectOdyssey.ice;
 import static com.mygdx.game.ProjectOdyssey.moneys;
 
 /**
@@ -38,8 +39,13 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
     private ImageButton conTableThree;
     private ImageButton conTableFour;
 
+    private ImageButton lobbySignButton;
+
     private ImageButton gameScreenButton;
 
+    private ImageButton phoneButton;
+    private ImageButton bookNoMarkButton;
+    private ImageButton bookMarkButton;
 
     private int screenWidth = Gdx.graphics.getWidth(); //Variable with screen width in it
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
@@ -48,6 +54,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
     OrthographicCamera camera;
 
     public static int whichTableLobbyScreen = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
+    public static boolean whichBook = false; //false = no bookmark, true = bookmark
 
     public Lobby(final ProjectOdyssey game){
         this.game = game;
@@ -79,7 +86,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         int conTableSize = (int) (300 * Gdx.graphics.getDensity());
         conTableOne.setSize( conTableSize, (conTableSize *(float)1.14) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
         int conTableWidth = (int) (((Gdx.graphics.getWidth() - conTableOne.getWidth())/2));
-        int conTableHeight = (int) (((Gdx.graphics.getHeight() - conTableOne.getHeight())/1.1));
+        int conTableHeight = (int) (((Gdx.graphics.getHeight() - conTableOne.getHeight())/1.5));
         conTableOne.setBounds(conTableWidth, conTableHeight, conTableOne.getWidth(), conTableOne.getHeight());
         conTableOne.addListener(new InputListener() {
             @Override
@@ -203,6 +210,129 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         });
         stage.addActor(gameScreenButton);
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin lobbySignButtonSkin = new Skin();
+        lobbySignButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle lobbySignButtonStyle = new ImageButton.ImageButtonStyle();
+        lobbySignButtonStyle.imageUp = lobbySignButtonSkin.getDrawable("lobbySignButton"); // Unpressed
+        lobbySignButtonStyle.imageDown = lobbySignButtonSkin.getDrawable("lobbySignButton"); // Pressed
+
+        // Market button
+        lobbySignButton = new ImageButton(lobbySignButtonStyle);
+        int lobbySignButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        lobbySignButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
+        int lobbySignWidth = (int) (((Gdx.graphics.getWidth() - lobbySignButton.getWidth())/10));
+        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() - lobbySignButton.getHeight())/.95);
+        lobbySignButton.setBounds(lobbySignWidth, lobbySignHeight, lobbySignButton.getWidth(), lobbySignButton.getHeight());
+        lobbySignButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+                game.setScreen(new GameScreen(game));
+            }
+        });
+        stage.addActor(lobbySignButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin phoneButtonSkin = new Skin();
+        phoneButtonSkin.add("phoneButton", new Texture("LobbyingScreen/Telephone.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle phoneButtonStyle = new ImageButton.ImageButtonStyle();
+        phoneButtonStyle.imageUp = phoneButtonSkin.getDrawable("phoneButton"); // Unpressed
+        phoneButtonStyle.imageDown = phoneButtonSkin.getDrawable("phoneButton"); // Pressed
+
+        // Market button
+        phoneButton = new ImageButton(phoneButtonStyle);
+        int phoneButtonSize = (int) (80 * Gdx.graphics.getDensity());
+        phoneButton.setSize(phoneButtonSize, phoneButtonSize);
+        int phoneButtonWidth = (int) (((Gdx.graphics.getWidth() - phoneButton.getWidth())/5));
+        int phoneButtonHeight = (int) ((Gdx.graphics.getHeight() - phoneButton.getHeight())/2.5);
+        phoneButton.setBounds(phoneButtonWidth, phoneButtonHeight, phoneButton.getWidth(), phoneButton.getHeight());
+        phoneButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+                game.setScreen(new GameScreen(game));
+            }
+        });
+        stage.addActor(phoneButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin bookNoMarkButtonSkin = new Skin();
+        bookNoMarkButtonSkin.add("bookNoMark", new Texture("LobbyingScreen/Book.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle bookNoMarkButtonStyle = new ImageButton.ImageButtonStyle();
+        bookNoMarkButtonStyle.imageUp = bookNoMarkButtonSkin.getDrawable("bookNoMark"); // Unpressed
+        bookNoMarkButtonStyle.imageDown = bookNoMarkButtonSkin.getDrawable("bookNoMark"); // Pressed
+
+        // Market button
+        bookNoMarkButton = new ImageButton(bookNoMarkButtonStyle);
+        int bookSize = (int) (80 * Gdx.graphics.getDensity());
+        bookNoMarkButton.setSize(bookSize, bookSize);
+        int bookWidth = (int) (((Gdx.graphics.getWidth() - bookNoMarkButton.getWidth())/1.5));
+        int bookHeight = (int) ((Gdx.graphics.getHeight() - bookNoMarkButton.getHeight())/2.5);
+        bookNoMarkButton.setBounds(bookWidth, bookHeight, bookNoMarkButton.getWidth(), bookNoMarkButton.getHeight());
+        bookNoMarkButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+                game.setScreen(new GameScreen(game));
+            }
+        });
+        stage.addActor(bookNoMarkButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin bookMarkButtonSkin = new Skin();
+        bookMarkButtonSkin.add("bookMark", new Texture("LobbyingScreen/BookBookmark.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle bookMarkButtonStyle = new ImageButton.ImageButtonStyle();
+        bookMarkButtonStyle.imageUp = bookMarkButtonSkin.getDrawable("bookMark"); // Unpressed
+        bookMarkButtonStyle.imageDown = bookMarkButtonSkin.getDrawable("bookMark"); // Pressed
+
+        // Market button
+        bookMarkButton = new ImageButton(bookMarkButtonStyle);
+        bookMarkButton.setSize(bookSize, bookSize);
+        bookMarkButton.setBounds(bookWidth, bookHeight, bookMarkButton.getWidth(), bookMarkButton.getHeight());
+        bookMarkButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+                game.setScreen(new GameScreen(game));
+            }
+        });
+        stage.addActor(bookMarkButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+
+
+
+
+
     }
 
 
@@ -232,9 +362,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         conTableOne.draw(batch, 1);
         gameScreenButton.draw(batch,1);
 
-        //THIS CRASHSE
-
-
+        //Determine which table to show
         if (ProjectOdyssey.ice == 4) {
             whichTableLobbyScreen = 1;
         }
@@ -261,6 +389,20 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             conTableFour.draw(batch, 1);
         }
 
+        //determine which book to show
+        if (ice == 5){
+            whichBook = true;
+        }
+        else{
+            whichBook = false;
+        }
+
+        if (whichBook == true){
+            bookMarkButton.draw(batch,1);
+        }
+        else if (whichBook == false){
+            bookNoMarkButton.draw(batch, 1);
+        }
 
         batch.end();
         camera.update();
@@ -297,6 +439,9 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
 
 
+
+        phoneButton.draw(batch,1);
+        lobbySignButton.draw(batch,1);
         batch.end();
     }
 
@@ -323,7 +468,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void dispose() {
-        //moneyCounter.dispose();
+        moneyCounter.dispose();
         stage.dispose();
         batch.dispose();
         game.dispose();

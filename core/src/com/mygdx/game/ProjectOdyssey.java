@@ -109,7 +109,7 @@ public class ProjectOdyssey extends Game {
 		super.render();
 	}
 
-	public void upgrades(){
+	public void upgrades(){ //These upgrades will begin "stacking", or running themselves more than wanted, if you run the game with the yellow lightning bolt. If you do the green arrow, or a full restart, it will get rid of the old loops and only run the new ones once, as intended. We are going to need to monitor this.
 
 	    if (upgradeOne == 1) {
 	        upgradeOne = 0;
@@ -129,6 +129,7 @@ public class ProjectOdyssey extends Game {
                                       @Override
                                       public void run() { //Called each time when 1000 milliseconds (1 second) (the period parameter)
                                           System.out.println("Price RUNS AT THE SAME TIME YES");
+										  System.out.println("YES");
                                       }
                                   },
                     0, //Set how long before to start calling the TimerTask (in milliseconds)

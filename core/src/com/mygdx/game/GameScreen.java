@@ -478,6 +478,10 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
     @Override
     public void dispose() {
+        moneyCounter.dispose();
+        stage.dispose();
+        batch.dispose();
+        game.dispose();
     }
 
     @Override
