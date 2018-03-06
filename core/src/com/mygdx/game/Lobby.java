@@ -295,7 +295,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new Book(game));
             }
         });
         stage.addActor(bookNoMarkButton);
@@ -322,7 +322,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new Book(game));
             }
         });
         stage.addActor(bookMarkButton);
