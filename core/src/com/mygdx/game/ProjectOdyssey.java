@@ -38,6 +38,7 @@ public class ProjectOdyssey extends Game {
 	public static boolean bucketBought = false;
 	public static boolean marketTwoBought = false;
 	public static boolean firstDraw = false;
+	public static boolean sellMode = true;
 
 	//Texture img;
 
