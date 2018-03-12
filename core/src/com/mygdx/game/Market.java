@@ -22,6 +22,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
+import static com.mygdx.game.ProjectOdyssey.sellMode;
+import static com.mygdx.game.ProjectOdyssey.unlocksOne;
 
 /**
  * Created by guymc on 11/30/2017.
@@ -33,8 +35,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
     final ProjectOdyssey game;
     private Stage stage;
-    private AssetManager menuManager = new AssetManager();
-    private BitmapFont font = new BitmapFont();
     private SpriteBatch batch;
 
     private ImageButton gameButton;
@@ -59,10 +59,11 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
     private int unlockPrice = 100;
 
-
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
+
+        System.out.println(sellMode + "Market");
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
@@ -277,7 +278,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 buyModeButton.setTouchable(Touchable.disabled);
                 sellModeButton.setTouchable((Touchable.enabled));
                 System.out.println("sell");
-
             }
         });
         stage.addActor(buyModeButton);
@@ -557,7 +557,14 @@ public class Market implements Screen, GestureDetector.GestureListener{
         stage.addActor(unlockMarketTwoButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
-
+        if (sellMode == true) {
+            sellModeButton.setTouchable(Touchable.enabled);
+            buyModeButton.setTouchable((Touchable.disabled));
+        }
+        if (sellMode == false) {
+            sellModeButton.setTouchable(Touchable.disabled);
+            buyModeButton.setTouchable((Touchable.enabled));
+        }
     }
 
 

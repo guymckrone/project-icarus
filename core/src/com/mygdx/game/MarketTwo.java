@@ -22,6 +22,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
+import static com.mygdx.game.ProjectOdyssey.sellMode;
+import static com.mygdx.game.ProjectOdyssey.unlocksOne;
 
 /**
  * Created by guymc on 11/30/2017.
@@ -60,6 +62,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
     private Texture logo;
     OrthographicCamera camera;
     public MarketTwo(final ProjectOdyssey game){
+        System.out.println(sellMode + "MarketTwo");
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
@@ -480,6 +483,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         stage.addActor(unlockSnowManButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        if (sellMode == true) {
+            sellModeButton.setTouchable(Touchable.enabled);
+            buyModeButton.setTouchable((Touchable.disabled));
+        }
+        if (sellMode == false) {
+            sellModeButton.setTouchable(Touchable.disabled);
+            buyModeButton.setTouchable((Touchable.enabled));
+        }
     }
 
 
@@ -490,7 +502,6 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void render(float delta) {
-        System.out.println(ProjectOdyssey.unlocksTwo);
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.setProjectionMatrix(camera.combined);
@@ -644,9 +655,11 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         batch.begin();
         if (ProjectOdyssey.sellMode == true) {
             sellModeButton.draw(batch, 1);
+
         }
         if (ProjectOdyssey.sellMode == false) {
             buyModeButton.draw(batch, 1);
+
         }
         if(ProjectOdyssey.unlocksTwo == 0){
             unlockIceCreamButton.draw(batch, 1);
