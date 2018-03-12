@@ -14,12 +14,10 @@ import java.util.TimerTask;
 
 public class ProjectOdyssey extends Game {
 
-	Preferences odysseyPrefs = Gdx.app.getPreferences("ProjectOdysseyPrefs");
-
 	public static int ice = 10; //ice variable used in every class
 	public static int snowBall = 10;
 	public static int bucket = 5;
-	public static int shovel = 0;
+	public static int shovel = 20;
 	public static int iceCream = 0;
 	public static int snowFlake = 0;
 	public static int icicle = 0;
@@ -85,9 +83,6 @@ public class ProjectOdyssey extends Game {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		this.setScreen(new MainMenuScreen(this));
-
-		odysseyPrefs.putInteger("ice", 10);
-		odysseyPrefs.flush();
 	}
 
 

@@ -1,23 +1,28 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Align;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
 
@@ -44,6 +49,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     int playIntSec;
     int playIntHour;
     String gameClock;
+    Preferences odysseyPrefs = Gdx.app.getPreferences("ProjectOdysseyPrefs");
     
 
     public GameScreen(final ProjectOdyssey game) {
@@ -184,26 +190,26 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
-        if (moneys < 10) { //position money counter
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.88 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
+        if (odysseyPrefs.getInteger("playerMoney") < 10) { //position money counter
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.88 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
         }
-        else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.58 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
+        else if (odysseyPrefs.getInteger("playerMoney") > 999999) {
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.58 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
         }
-        else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.63 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
+        else if (odysseyPrefs.getInteger("playerMoney") > 99999) {
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.63 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
         }
-        else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.68 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
+        else if (odysseyPrefs.getInteger("playerMoney") > 9999) {
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.68 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
         }
-        else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.73 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
+        else if (odysseyPrefs.getInteger("playerMoney") > 999) {
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.73 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
         }
-        else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.78 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
+        else if (odysseyPrefs.getInteger("playerMoney") > 99) {
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.78 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
         }
-        else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
+        else if (odysseyPrefs.getInteger("playerMoney") > 9) {
+            moneyCounter.draw(batch, "$" + odysseyPrefs.getInteger("playerMoney"), ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
 
 

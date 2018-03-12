@@ -4,18 +4,24 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.utils.Align;
 
 
 /**
@@ -30,13 +36,14 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
     final ProjectOdyssey game;
     private Stage stage;
     private AssetManager menuManager = new AssetManager();
-    private BitmapFont font = new BitmapFont();
+    private BitmapFont labelFont = new BitmapFont();
     private SpriteBatch batch;
     private ImageButton playButton;
     private Texture logo;
     public static int width;
     public static int height;
     OrthographicCamera camera;
+    Label welcomeLabel;
 
     public MainMenuScreen(final ProjectOdyssey game) {
         width = Gdx.graphics.getWidth();
@@ -84,12 +91,10 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void show() {
-
     }
 
     @Override
     public void render(float delta) {
-
 
         //game.assets.update();
         Gdx.gl.glClearColor(1, 0, 0, 1);
@@ -99,6 +104,7 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
 
         game.batch.begin();
         game.font.draw(game.batch, "Welcome to your Odyssey", 150, 100);
+//        welcomeLabel.draw(game.batch, 1);
         game.batch.end();
 
         batch.begin();
