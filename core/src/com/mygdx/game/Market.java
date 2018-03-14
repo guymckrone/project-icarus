@@ -813,7 +813,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         if(ProjectOdyssey.bucketBought == false && ProjectOdyssey.sbBought == true){
             unlockBucketButton.draw(batch, 1);
             unlockBucketButton.setTouchable(Touchable.enabled);
-            bucketButton.setTouchable(Touchable.disabled);
+            bucketButton.setTouchable(Touchable.enabled);
         }
 
         //unlockButton.draw(batch, 1);
