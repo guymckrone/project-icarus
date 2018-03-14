@@ -22,6 +22,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
+import static com.mygdx.game.ProjectOdyssey.sellMode;
+import static com.mygdx.game.ProjectOdyssey.unlocksOne;
 
 /**
  * Created by guymc on 11/30/2017.
@@ -33,8 +35,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
     final ProjectOdyssey game;
     private Stage stage;
-    private AssetManager menuManager = new AssetManager();
-    private BitmapFont font = new BitmapFont();
     private SpriteBatch batch;
 
     private ImageButton gameButton;
@@ -59,10 +59,11 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
     private int unlockPrice = 100;
 
-
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
+
+        System.out.println(sellMode + "Market");
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
@@ -70,7 +71,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         //This is for creating the text on the screen
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 80;
+        parameter.size = 70;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -277,7 +278,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 buyModeButton.setTouchable(Touchable.disabled);
                 sellModeButton.setTouchable((Touchable.enabled));
                 System.out.println("sell");
-
             }
         });
         stage.addActor(buyModeButton);
@@ -334,7 +334,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         gameButton.setSize(buttonSize8, buttonSize8);
         int width8 = (int) (((Gdx.graphics.getWidth() - gameButton.getWidth())/4)*3);
-        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/10);
+        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight())/20);
         gameButton.setBounds(width8, height8, gameButton.getWidth(), gameButton.getHeight());
         gameButton.addListener(new InputListener() {
             @Override
@@ -366,7 +366,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         int buttonSize9 = (int) (75 * Gdx.graphics.getDensity());
         marketTwoButton.setSize(buttonSize9, buttonSize9);
         int width9 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth())/4));
-        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/10));
+        int height9 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight())/20));
         marketTwoButton.setBounds(width9, height9, marketTwoButton.getWidth(), marketTwoButton.getHeight());
         marketTwoButton.addListener(new InputListener() {
             @Override
@@ -557,7 +557,14 @@ public class Market implements Screen, GestureDetector.GestureListener{
         stage.addActor(unlockMarketTwoButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
-
+        if (sellMode == true) {
+            sellModeButton.setTouchable(Touchable.enabled);
+            buyModeButton.setTouchable((Touchable.disabled));
+        }
+        if (sellMode == false) {
+            sellModeButton.setTouchable(Touchable.disabled);
+            buyModeButton.setTouchable((Touchable.enabled));
+        }
     }
 
 

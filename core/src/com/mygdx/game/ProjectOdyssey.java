@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -44,9 +45,42 @@ public class ProjectOdyssey extends Game {
 
     Timer t = new Timer(); //declare the timer for the upgrades method
 
-    int upgradeOne = 1;
-    int upgradeTwo = 1;
+    public static boolean isMarketRunning = false;
 
+    //These variables are all used to track if upgrades have been purchased on the Book.java screen. Upgrade OneOne is the first upgrade for the top (visually) upgrade path. And upgrade three four is the fourth upgrade for the button upgrade path.
+
+	public static boolean upgradeOneOne = false;
+	public static boolean upgradeOneTwo = false;
+	public static boolean upgradeOneThree = false;
+	public static boolean upgradeOneFour = false;
+	public static boolean upgradeOneFive = false;
+	public static boolean upgradeOneSix = false;
+	public static boolean upgradeOneSeven = false;
+	public static boolean upgradeOneEight = false;
+	public static boolean upgradeOneNine = false;
+	public static boolean upgradeOneTen = false;
+
+	public static boolean upgradeTwoOne = false;
+	public static boolean upgradeTwoTwo = false;
+	public static boolean upgradeTwoThree = false;
+	public static boolean upgradeTwoFour = false;
+	public static boolean upgradeTwoFive = false;
+	public static boolean upgradeTwoSix = false;
+	public static boolean upgradeTwoSeven = false;
+	public static boolean upgradeTwoEight = false;
+	public static boolean upgradeTwoNine = false;
+	public static boolean upgradeTwoTen = false;
+
+	public static boolean upgradeThreeOne = false;
+	public static boolean upgradeThreeTwo = false;
+	public static boolean upgradeThreeThree = false;
+	public static boolean upgradeThreeFour = false;
+	public static boolean upgradeThreeFive = false;
+	public static boolean upgradeThreeSix = false;
+	public static boolean upgradeThreeSeven = false;
+	public static boolean upgradeThreeEight = false;
+	public static boolean upgradeThreeNine = false;
+	public static boolean upgradeThreeTen = false;
 
 	String marketEvent = ""; //Text of market event
 
@@ -114,8 +148,8 @@ public class ProjectOdyssey extends Game {
 
 	public void upgrades(){ //These upgrades will begin "stacking", or running themselves more than wanted, if you run the game with the yellow lightning bolt. If you do the green arrow, or a full restart, it will get rid of the old loops and only run the new ones once, as intended. We are going to need to monitor this.
 
-	    if (upgradeOne == 1) {
-	        upgradeOne = 0;
+	    if (isMarketRunning == false) {
+	        isMarketRunning = true;
             t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
                                       @Override
                                       public void run() { //Called each time when 1000 milliseconds (1 second) (the period parameter)
@@ -126,22 +160,341 @@ public class ProjectOdyssey extends Game {
                     10000);  //Set the amount of time between each execution (in milliseconds)
         }
 
-        if (upgradeTwo == 1) {
-            upgradeTwo = 0;
-            t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
-                                      @Override
-                                      public void run() { //Called each time when 1000 milliseconds (1 second) (the period parameter)
-                                          System.out.println("Price RUNS AT THE SAME TIME YES");
-										  System.out.println("YES");
-                                      }
-                                  },
-                    0, //Set how long before to start calling the TimerTask (in milliseconds)
-                    5000);  //Set the amount of time between each execution (in milliseconds)
-        }
+        //Upgrade path 1
+		if (upgradeOneOne == true){ //one icecube a minute
+	    	upgradeOneOne = false;
+			t.scheduleAtFixedRate(new TimerTask() {
+									  @Override
+									  public void run() {
+											ice++;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneTwo == true){ //three icecubes a minute
+			upgradeOneTwo = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  ice = ice + 3;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneThree == true){ //seven icecubes a minute
+			upgradeOneThree = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  ice = ice + 7;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneFour == true){
+			upgradeOneFour = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneFive == true){
+			upgradeOneFive = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneSix == true){
+			upgradeOneSix = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneSeven == true){
+			upgradeOneSeven = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneEight == true){
+			upgradeOneEight = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneNine == true){
+			upgradeOneNine = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeOneTen == true){
+			upgradeOneTen = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
 
+		//upgrade path 2
+		if (upgradeTwoOne == true){
+			upgradeTwoOne = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { // one snowball a minute
+										  snowBall++;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoTwo == true){
+			upgradeTwoTwo = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { // four snowballs a minute
+										  snowBall = snowBall + 4;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoThree == true){
+			upgradeTwoThree = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { // twelve snowballs a minute
+										  snowBall = snowBall + 12;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoFour == true){
+			upgradeTwoFour = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoFive == true){
+			upgradeTwoFive = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoSix == true){
+			upgradeTwoSix = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoSeven == true){
+			upgradeTwoSeven = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoEight == true){
+			upgradeTwoEight = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoNine == true){
+			upgradeTwoNine = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeTwoTen == true){
+			upgradeTwoTen = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //upgrade here!!!!!
+									  }
+								  },
+					0,
+					60000);
+		}
 
-
-
+		//Upgrade path 3
+		if (upgradeThreeOne == true){
+			upgradeThreeOne = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  bucket++;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeTwo == true){
+			upgradeThreeTwo = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  bucket = bucket + 4;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeThree == true){
+			upgradeThreeThree = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  bucket = bucket + 10;
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeFour == true){
+			upgradeThreeFour = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										 //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeFive == true){
+			upgradeThreeFive = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeSix == true){
+			upgradeThreeSix = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeSeven == true){
+			upgradeThreeSeven = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeEight == true){
+			upgradeThreeEight = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeNine == true){
+			upgradeThreeNine = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
+		if (upgradeThreeTen == true){
+			upgradeThreeTen = false;
+			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
+									  @Override
+									  public void run() { //
+										  //UPGRADE HERE!!!
+									  }
+								  },
+					0,
+					60000);
+		}
 
 
     }
