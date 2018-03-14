@@ -110,7 +110,6 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             }
 
         });
-        //sbButton.setTouchable(Touchable.disabled);
         stage.addActor(iceCreamButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
