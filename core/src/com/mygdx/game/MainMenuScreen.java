@@ -104,7 +104,6 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
 
         game.batch.begin();
         game.font.draw(game.batch, "Welcome to your Odyssey", 150, 100);
-//        welcomeLabel.draw(game.batch, 1);
         game.batch.end();
 
         batch.begin();

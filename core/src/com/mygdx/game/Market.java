@@ -74,7 +74,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private Texture logo;
     OrthographicCamera camera;
     public Market(final ProjectOdyssey game){
-        popup();
 
         sellMode = !sellMode;
         this.game = game;
@@ -604,28 +603,28 @@ public class Market implements Screen, GestureDetector.GestureListener{
         batch.end();
     }
 
-    public void popup(){
-        FreeTypeFontGenerator generator2 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter2 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter2.size = 20;
-        parameter2.spaceX = 4;
-        parameter2.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
-        labelFont = generator2.generateFont(parameter2); // font size 80 pixels
-        generator2.dispose(); // don't forget to dispose to avoid memory leaks!
-
-        Pixmap labelColor = new Pixmap(0, 0, Pixmap.Format.RGBA8888);
-        labelColor.setColor(Color.BLACK);
-        labelColor.fill();
-        Label.LabelStyle wLStyle = new Label.LabelStyle();
-        wLStyle.font = labelFont;
-        wLStyle.fontColor = Color.WHITE;
-        Label1 = new Label("Title (BitmapFont)", wLStyle);
-        Label1.getStyle().background = new Image(new Texture(labelColor)).getDrawable();
-        int labelSize = (int) (200 * Gdx.graphics.getDensity());
-        Label1.setSize(labelSize, 60);
-        Label1.setPosition(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/7);
-        Label1.setAlignment(Align.center);
-    }
+//    public void popup(){
+//        FreeTypeFontGenerator generator2 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
+//        FreeTypeFontGenerator.FreeTypeFontParameter parameter2 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+//        parameter2.size = 20;
+//        parameter2.spaceX = 4;
+//        parameter2.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
+//        labelFont = generator2.generateFont(parameter2); // font size 80 pixels
+//        generator2.dispose(); // don't forget to dispose to avoid memory leaks!
+//
+//        Pixmap labelColor = new Pixmap(0, 0, Pixmap.Format.RGBA8888);
+//        labelColor.setColor(Color.BLACK);
+//        labelColor.fill();
+//        Label.LabelStyle wLStyle = new Label.LabelStyle();
+//        wLStyle.font = labelFont;
+//        wLStyle.fontColor = Color.WHITE;
+//        Label1 = new Label("Title (BitmapFont)", wLStyle);
+//        Label1.getStyle().background = new Image(new Texture(labelColor)).getDrawable();
+//        int labelSize = (int) (200 * Gdx.graphics.getDensity());
+//        Label1.setSize(labelSize, 60);
+//        Label1.setPosition(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/7);
+//        Label1.setAlignment(Align.center);
+//    }
 
     @Override
     public void resize(int width, int height) {
