@@ -127,29 +127,29 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 100;
                     ProjectOdyssey.upgradeOneOne = true;
                 }
-                else if (upgradeOneProgress == 1 && moneys > 299){
-                    upgradeOneProgress = 2;
-                    moneys = moneys - 300;
+                else if (upgradeOneProgress == 1 && moneys > 399){
+                    upgradeOneProgress = 5;
+                    moneys = moneys - 400;
                     ProjectOdyssey.upgradeOneTwo = true;
                 }
-                else if (upgradeOneProgress == 2 && moneys > 499){
-                    upgradeOneProgress = 3;
-                    moneys = moneys - 500;
+                else if (upgradeOneProgress == 2 && moneys > 749){
+                    upgradeOneProgress = 10;
+                    moneys = moneys - 750;
                     ProjectOdyssey.upgradeOneThree = true;
                 }
-                else if (upgradeOneProgress == 3 && moneys > 99999){
-                    upgradeOneProgress = 4;
-                    moneys = moneys - 99999;
+                else if (upgradeOneProgress == 3 && moneys > 1049){
+                    upgradeOneProgress = 15;
+                    moneys = moneys - 1050;
                     ProjectOdyssey.upgradeOneFour = true;
                 }
-                else if (upgradeOneProgress == 4 && moneys > 99999){
-                    upgradeOneProgress = 5;
-                    moneys = moneys - 99999;
+                else if (upgradeOneProgress == 4 && moneys > 3299){
+                    upgradeOneProgress = 28;
+                    moneys = moneys - 3300;
                     ProjectOdyssey.upgradeOneFive = true;
                 }
                 else if (upgradeOneProgress == 5 && moneys > 99999){
-                    upgradeOneProgress = 6;
-                    moneys = moneys - 99999;
+                    upgradeOneProgress = 40;
+                    moneys = moneys - ;
                     ProjectOdyssey.upgradeOneSix = true;
                 }
                 else if (upgradeOneProgress == 6 && moneys > 99999){
