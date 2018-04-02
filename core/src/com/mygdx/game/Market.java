@@ -36,8 +36,6 @@ import static com.mygdx.game.ProjectOdyssey.moneys;
 
 public class Market implements Screen, GestureDetector.GestureListener{
 
-    Preferences odysseyPrefs = Gdx.app.getPreferences("ProjectOdysseyPrefs");
-
     final ProjectOdyssey game;
     private Stage stage;
     private AssetManager menuManager = new AssetManager();
@@ -55,6 +53,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
     private ImageButton creamButton;
     private ImageButton flakeButton;
     private ImageButton snowManButton;
+
+    Preferences odysseyPrefs = Gdx.app.getPreferences("ProjectOdysseyPrefs");
 
     int iceNumHold = odysseyPrefs.getInteger("ice");
     int snowballNumHold = odysseyPrefs.getInteger("snowballs");
@@ -602,29 +602,6 @@ public class Market implements Screen, GestureDetector.GestureListener{
         marketTwoButton.draw(batch, 1);
         batch.end();
     }
-
-//    public void popup(){
-//        FreeTypeFontGenerator generator2 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/century.ttf"));
-//        FreeTypeFontGenerator.FreeTypeFontParameter parameter2 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-//        parameter2.size = 20;
-//        parameter2.spaceX = 4;
-//        parameter2.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
-//        labelFont = generator2.generateFont(parameter2); // font size 80 pixels
-//        generator2.dispose(); // don't forget to dispose to avoid memory leaks!
-//
-//        Pixmap labelColor = new Pixmap(0, 0, Pixmap.Format.RGBA8888);
-//        labelColor.setColor(Color.BLACK);
-//        labelColor.fill();
-//        Label.LabelStyle wLStyle = new Label.LabelStyle();
-//        wLStyle.font = labelFont;
-//        wLStyle.fontColor = Color.WHITE;
-//        Label1 = new Label("Title (BitmapFont)", wLStyle);
-//        Label1.getStyle().background = new Image(new Texture(labelColor)).getDrawable();
-//        int labelSize = (int) (200 * Gdx.graphics.getDensity());
-//        Label1.setSize(labelSize, 60);
-//        Label1.setPosition(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()/7);
-//        Label1.setAlignment(Align.center);
-//    }
 
     @Override
     public void resize(int width, int height) {
