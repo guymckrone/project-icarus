@@ -149,7 +149,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
                 }
                 else if (upgradeOneProgress == 5 && moneys > 99999){
                     upgradeOneProgress = 40;
-                    moneys = moneys - ;
+                    moneys = moneys - 1850;
                     ProjectOdyssey.upgradeOneSix = true;
                 }
                 else if (upgradeOneProgress == 6 && moneys > 99999){
