@@ -541,8 +541,8 @@ public class Market implements Screen, GestureDetector.GestureListener {
         unlockMarketTwoButton = new ImageButton(unlockMarketTwoButtonStyle);
         int buttonSize15 = (int) (100 * Gdx.graphics.getDensity());
         unlockMarketTwoButton.setSize(buttonSize15, buttonSize15);
-        int width15 = (int) (((Gdx.graphics.getWidth() - marketTwoButton.getWidth()) / 4));
-        int height15 = (int) (((Gdx.graphics.getHeight() - marketTwoButton.getHeight()) / 10));
+        int width15 = (int) (((Gdx.graphics.getWidth() - unlockMarketTwoButton.getWidth()) / 4));
+        int height15 = (int) (((Gdx.graphics.getHeight() - unlockMarketTwoButton.getHeight()) / 20));
         unlockMarketTwoButton.setBounds(width15, height15, unlockMarketTwoButton.getWidth(), unlockMarketTwoButton.getHeight());
         unlockMarketTwoButton.addListener(new InputListener() {
             @Override

@@ -292,7 +292,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         marketButton.setSize(buttonSize8, buttonSize8);
         int width8 = (int) (((Gdx.graphics.getWidth() - marketButton.getWidth()) / 4) * 3);
-        int height8 = (int) ((Gdx.graphics.getHeight() - marketButton.getHeight()) / 10);
+        int height8 = (int) ((Gdx.graphics.getHeight() - marketButton.getHeight()) / 20);
         marketButton.setBounds(width8, height8, marketButton.getWidth(), marketButton.getHeight());
         marketButton.addListener(new InputListener() {
             @Override
