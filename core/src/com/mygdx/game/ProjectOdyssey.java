@@ -27,7 +27,7 @@ public class ProjectOdyssey extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public static boolean marketShow;
-	public static int moneys = 99999; //changing for testing - natty
+	public static int moneys = 9999999; //changing for testing - natty
 	public static float scale = 1;
 
 
@@ -62,6 +62,10 @@ public class ProjectOdyssey extends Game {
 	public static boolean upgradeOneEight = false;
 	public static boolean upgradeOneNine = false;
 	public static boolean upgradeOneTen = false;
+	public static boolean upgradeOneEleven = false;
+	public static boolean upgradeOneTwelve = false;
+	public static boolean upgradeOneThirteen = false;
+
 
 	public static boolean upgradeTwoOne = false;
 	public static boolean upgradeTwoTwo = false;
@@ -73,6 +77,9 @@ public class ProjectOdyssey extends Game {
 	public static boolean upgradeTwoEight = false;
 	public static boolean upgradeTwoNine = false;
 	public static boolean upgradeTwoTen = false;
+	public static boolean upgradeTwoEleven = false;
+	public static boolean upgradeTwoTwelve = false;
+	public static boolean upgradeTwoThirteen = false;
 
 	public static boolean upgradeThreeOne = false;
 	public static boolean upgradeThreeTwo = false;
@@ -84,6 +91,9 @@ public class ProjectOdyssey extends Game {
 	public static boolean upgradeThreeEight = false;
 	public static boolean upgradeThreeNine = false;
 	public static boolean upgradeThreeTen = false;
+	public static boolean upgradeThreeEleven = false;
+	public static boolean upgradeThreeTwelve = false;
+	public static boolean upgradeThreeThirteen = false;
 
 	String marketEvent = ""; //Text of market event
 
@@ -141,13 +151,48 @@ public class ProjectOdyssey extends Game {
 		batch.end();
 
 		upgrades();
-
+		changeMaxValues();
 
 
 		//final prices for the day
 
 		super.render();
 	}
+
+	public void changeMaxValues(){
+		if (upgradeOneThirteen == true){
+			iceCubeMax = 16;
+		}
+		else if(upgradeOneTwelve == true){
+			iceCubeMax = 11;
+		}
+		else if (upgradeOneEleven == true){
+			iceCubeMax = 7;
+		}
+
+		if (upgradeTwoThirteen == true){
+			snowBallMax = 53;
+		}
+		else if(upgradeTwoTwelve == true){
+			snowBallMax = 35;
+		}
+		else if (upgradeTwoEleven == true){
+			snowBallMax = 23;
+		}
+
+		if (upgradeThreeThirteen == true){
+			iceCubeMax = 113;
+		}
+		else if(upgradeThreeTwelve == true){
+			iceCubeMax = 75;
+		}
+		else if (upgradeThreeEleven == true){
+			iceCubeMax = 50;
+		}
+
+
+	}
+
 
 	public void upgrades(){ //These upgrades will begin "stacking", or running themselves more than wanted, if you run the game with the yellow lightning bolt. If you do the green arrow, or a full restart, it will get rid of the old loops and only run the new ones once, as intended. We are going to need to monitor this.
 

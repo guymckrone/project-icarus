@@ -66,7 +66,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 70;
-        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
+        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$% ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
@@ -172,6 +172,23 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 13200;
                     ProjectOdyssey.upgradeOneTen = true;
                 }
+                else if (upgradeOneProgress == 10 && moneys > 99999){
+                    upgradeOneProgress = 11;
+                    moneys = moneys - 100000;
+                    ProjectOdyssey.upgradeOneEleven = true;
+                }
+                else if (upgradeOneProgress == 11 && moneys > 299999){
+                    upgradeOneProgress = 12;
+                    moneys = moneys - 300000;
+                    ProjectOdyssey.upgradeOneTwelve = true;
+
+                }
+                else if (upgradeOneProgress == 12 && moneys > 799999){
+                    upgradeOneProgress = 13;
+                    moneys = moneys - 800000;
+                    ProjectOdyssey.upgradeOneThirteen = true;
+
+                }
             }
         });
         stage.addActor(upgradeOne);
@@ -250,6 +267,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 49500;
                     ProjectOdyssey.upgradeTwoTen = true;
                 }
+                else if (upgradeTwoProgress == 10 && moneys > 299999){
+                    upgradeTwoProgress = 11;
+                    moneys = moneys - 300000;
+                    ProjectOdyssey.upgradeTwoEleven = true;
+                }
+                else if (upgradeTwoProgress == 11 && moneys > 699999){
+                    upgradeTwoProgress = 12;
+                    moneys = moneys - 700000;
+                    ProjectOdyssey.upgradeTwoTwelve = true;
+                }
+                else if (upgradeTwoProgress == 12 && moneys > 1299999){
+                    upgradeTwoProgress = 13;
+                    moneys = moneys - 1300000;
+                    ProjectOdyssey.upgradeTwoThirteen = true;
+                }
             }
         });
         stage.addActor(upgradeTwo);
@@ -327,6 +359,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     upgradeThreeProgress = 10;
                     moneys = moneys - 132000;
                     ProjectOdyssey.upgradeThreeTen = true;
+                }
+                else if (upgradeThreeProgress == 10 && moneys > 699999){
+                    upgradeThreeProgress = 11;
+                    moneys = moneys - 7000000;
+                    ProjectOdyssey.upgradeThreeEleven = true;
+                }
+                else if (upgradeThreeProgress == 11 && moneys > 1499999){
+                    upgradeThreeProgress = 12;
+                    moneys = moneys - 1500000;
+                    ProjectOdyssey.upgradeThreeTwelve = true;
+                }
+                else if (upgradeThreeProgress == 12 && moneys > 2699999){
+                    upgradeThreeProgress = 13;
+                    moneys = moneys - 27000000;
+                    ProjectOdyssey.upgradeThreeThirteen = true;
                 }
             }
         });
@@ -411,7 +458,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.78 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
         }
         else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.825 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
 
         //upgrade path 1
@@ -466,6 +513,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "every second.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 10){
+            moneyCounter.draw(batch, "$100000: Increase", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
+            moneyCounter.draw(batch, "ice cube: 50%", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+        }
+        else if (upgradeOneProgress == 11){
+            moneyCounter.draw(batch, "$300000: Increase", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
+            moneyCounter.draw(batch, "ice cube: 50%", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+        }
+        else if (upgradeOneProgress == 12){
+            moneyCounter.draw(batch, "$800000: Increase", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
+            moneyCounter.draw(batch, "ice cube: 50%", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+        }
+        else if (upgradeOneProgress == 13){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "purchased.", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
         }
@@ -522,6 +584,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "every second.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 10){
+            moneyCounter.draw(batch, "$300000: Increase", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
+            moneyCounter.draw(batch, "Snowballs: 50%", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
+        }
+        else if (upgradeTwoProgress == 11){
+            moneyCounter.draw(batch, "$700000: Increase", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
+            moneyCounter.draw(batch, "Snowballs: 50%", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
+        }
+        else if (upgradeTwoProgress == 12){
+            moneyCounter.draw(batch, "$1300000: Increase", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
+            moneyCounter.draw(batch, "Snowballs: 50%", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
+        }
+        else if (upgradeTwoProgress == 13){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "purchased.", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
         }
@@ -578,6 +655,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "every second.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 10){
+            moneyCounter.draw(batch, "$700000: Increase", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
+            moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
+        }
+        else if (upgradeThreeProgress == 11){
+            moneyCounter.draw(batch, "$1500000: Increase", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
+            moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
+        }
+        else if (upgradeThreeProgress == 12){
+            moneyCounter.draw(batch, "$2700000: Increase", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
+            moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
+        }
+        else if (upgradeThreeProgress == 13){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "purchased.", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
         }
@@ -587,21 +679,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
         lobbyButton.draw(batch,1);
 
-        if (upgradeOneProgress != 10){//If we have bought all of the upgrades, dont show an upgrade button.
+        if (upgradeOneProgress != 13){//If we have bought all of the upgrades, dont show an upgrade button.
             upgradeOne.draw(batch,1);
         }
         else{
             upgradeOne.setTouchable(Touchable.disabled);
         }
 
-        if (upgradeTwoProgress != 10){
+        if (upgradeTwoProgress != 13){
             upgradeTwo.draw(batch,1);
         }
         else{
             upgradeTwo.setTouchable(Touchable.disabled);
         }
 
-        if (upgradeThreeProgress != 10){
+        if (upgradeThreeProgress != 13){
             upgradeThree.draw(batch,1);
 
         }
