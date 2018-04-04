@@ -127,49 +127,49 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 100;
                     ProjectOdyssey.upgradeOneOne = true;
                 }
-                else if (upgradeOneProgress == 1 && moneys > 399){
-                    upgradeOneProgress = 5;
-                    moneys = moneys - 400;
+                else if (upgradeOneProgress == 1 && moneys > 284){
+                    upgradeOneProgress = 2;
+                    moneys = moneys - 285;
                     ProjectOdyssey.upgradeOneTwo = true;
                 }
-                else if (upgradeOneProgress == 2 && moneys > 749){
-                    upgradeOneProgress = 10;
-                    moneys = moneys - 750;
+                else if (upgradeOneProgress == 2 && moneys > 719){
+                    upgradeOneProgress = 3;
+                    moneys = moneys - 720;
                     ProjectOdyssey.upgradeOneThree = true;
                 }
-                else if (upgradeOneProgress == 3 && moneys > 1049){
-                    upgradeOneProgress = 15;
-                    moneys = moneys - 1050;
+                else if (upgradeOneProgress == 3 && moneys > 1019){
+                    upgradeOneProgress = 4;
+                    moneys = moneys - 1020;
                     ProjectOdyssey.upgradeOneFour = true;
                 }
-                else if (upgradeOneProgress == 4 && moneys > 3299){
-                    upgradeOneProgress = 28;
-                    moneys = moneys - 3300;
+                else if (upgradeOneProgress == 4 && moneys > 1439){
+                    upgradeOneProgress = 5;
+                    moneys = moneys - 1440;
                     ProjectOdyssey.upgradeOneFive = true;
                 }
-                else if (upgradeOneProgress == 5 && moneys > 99999){
-                    upgradeOneProgress = 40;
-                    moneys = moneys - 1850;
+                else if (upgradeOneProgress == 5 && moneys > 1724){
+                    upgradeOneProgress = 6;
+                    moneys = moneys - 1725;
                     ProjectOdyssey.upgradeOneSix = true;
                 }
-                else if (upgradeOneProgress == 6 && moneys > 99999){
+                else if (upgradeOneProgress == 6 && moneys > 2239){
                     upgradeOneProgress = 7;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 2240;
                     ProjectOdyssey.upgradeOneSeven = true;
                 }
-                else if (upgradeOneProgress == 7 && moneys > 99999){
+                else if (upgradeOneProgress == 7 && moneys > 2794){
                     upgradeOneProgress = 8;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 2795;
                     ProjectOdyssey.upgradeOneEight = true;
                 }
-                else if (upgradeOneProgress == 8 && moneys > 99999){
+                else if (upgradeOneProgress == 8 && moneys > 3719){
                     upgradeOneProgress = 9;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 3720;
                     ProjectOdyssey.upgradeOneNine = true;
                 }
-                else if (upgradeOneProgress == 9 && moneys > 99999){
+                else if (upgradeOneProgress == 9 && moneys > 13199){
                     upgradeOneProgress = 10;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 13200;
                     ProjectOdyssey.upgradeOneTen = true;
                 }
             }
@@ -205,49 +205,49 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 500;
                     ProjectOdyssey.upgradeTwoOne = true;
                 }
-                else if (upgradeTwoProgress == 1 && moneys > 1749){
+                else if (upgradeTwoProgress == 1 && moneys > 949){
                     upgradeTwoProgress = 2;
-                    moneys = moneys - 1750;
+                    moneys = moneys - 950;
                     ProjectOdyssey.upgradeTwoTwo = true;
                 }
-                else if (upgradeTwoProgress == 2 && moneys > 4999){
+                else if (upgradeTwoProgress == 2 && moneys > 1799){
                     upgradeTwoProgress = 3;
-                    moneys = moneys - 5000;
+                    moneys = moneys - 1800;
                     ProjectOdyssey.upgradeTwoThree = true;
                 }
-                else if (upgradeTwoProgress == 3 && moneys > 99999){
+                else if (upgradeTwoProgress == 3 && moneys > 2974){
                     upgradeTwoProgress = 4;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 2975;
                     ProjectOdyssey.upgradeTwoFour = true;
                 }
-                else if (upgradeTwoProgress == 4 && moneys > 99999){
+                else if (upgradeTwoProgress == 4 && moneys > 5199){
                     upgradeTwoProgress = 5;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 5200;
                     ProjectOdyssey.upgradeTwoFive = true;
                 }
-                else if (upgradeTwoProgress == 5 && moneys > 99999){
+                else if (upgradeTwoProgress == 5 && moneys > 7124){
                     upgradeTwoProgress = 6;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 7125;
                     ProjectOdyssey.upgradeTwoSix = true;
                 }
-                else if (upgradeTwoProgress == 6 && moneys > 99999){
+                else if (upgradeTwoProgress == 6 && moneys > 8399){
                     upgradeTwoProgress = 7;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 8400;
                     ProjectOdyssey.upgradeTwoSeven = true;
                 }
-                else if (upgradeTwoProgress == 7 && moneys > 99999){
+                else if (upgradeTwoProgress == 7 && moneys > 10399){
                     upgradeTwoProgress = 8;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 10400;
                     ProjectOdyssey.upgradeTwoEight = true;
                 }
-                else if (upgradeTwoProgress == 8 && moneys > 99999){
+                else if (upgradeTwoProgress == 8 && moneys > 12599){
                     upgradeTwoProgress = 9;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 12600;
                     ProjectOdyssey.upgradeTwoNine = true;
                 }
-                else if (upgradeTwoProgress == 9 && moneys > 99999){
+                else if (upgradeTwoProgress == 9 && moneys > 49499){
                     upgradeTwoProgress = 10;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 49500;
                     ProjectOdyssey.upgradeTwoTen = true;
                 }
             }
@@ -283,49 +283,49 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 2000;
                     ProjectOdyssey.upgradeThreeOne = true;
                 }
-                else if (upgradeThreeProgress == 1 && moneys > 6999){
+                else if (upgradeThreeProgress == 1 && moneys > 3799){
                     upgradeThreeProgress = 2;
-                    moneys = moneys - 7000;
+                    moneys = moneys - 3800;
                     ProjectOdyssey.upgradeThreeTwo = true;
                 }
-                else if (upgradeThreeProgress == 2 && moneys > 13999){
+                else if (upgradeThreeProgress == 2 && moneys > 5399){
                     upgradeThreeProgress = 3;
-                    moneys = moneys - 14000;
+                    moneys = moneys - 5400;
                     ProjectOdyssey.upgradeThreeThree = true;
                 }
-                else if (upgradeThreeProgress == 3 && moneys > 99999){
+                else if (upgradeThreeProgress == 3 && moneys > 10199){
                     upgradeThreeProgress = 4;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 10200;
                     ProjectOdyssey.upgradeThreeFour = true;
                 }
-                else if (upgradeThreeProgress == 4 && moneys > 99999){
+                else if (upgradeThreeProgress == 4 && moneys > 17599){
                     upgradeThreeProgress = 5;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 17600;
                     ProjectOdyssey.upgradeThreeFive = true;
                 }
-                else if (upgradeThreeProgress == 5 && moneys > 99999){
+                else if (upgradeThreeProgress == 5 && moneys > 23999){
                     upgradeThreeProgress = 6;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 24000;
                     ProjectOdyssey.upgradeThreeSix = true;
                 }
-                else if (upgradeThreeProgress == 6 && moneys > 99999){
+                else if (upgradeThreeProgress == 6 && moneys > 32199){
                     upgradeThreeProgress = 7;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 32200;
                     ProjectOdyssey.upgradeThreeSeven = true;
                 }
-                else if (upgradeThreeProgress == 7 && moneys > 99999){
+                else if (upgradeThreeProgress == 7 && moneys > 40299){
                     upgradeThreeProgress = 8;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 40300;
                     ProjectOdyssey.upgradeThreeEight = true;
                 }
-                else if (upgradeThreeProgress == 8 && moneys > 99999){
+                else if (upgradeThreeProgress == 8 && moneys > 49199){
                     upgradeThreeProgress = 9;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 49200;
                     ProjectOdyssey.upgradeThreeNine = true;
                 }
-                else if (upgradeThreeProgress == 9 && moneys > 99999){
+                else if (upgradeThreeProgress == 9 && moneys > 131999){
                     upgradeThreeProgress = 10;
-                    moneys = moneys - 99999;
+                    moneys = moneys - 132000;
                     ProjectOdyssey.upgradeThreeTen = true;
                 }
             }
@@ -416,54 +416,54 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
         //upgrade path 1
         if (upgradeOneProgress == 0){
-            moneyCounter.draw(batch, "$100: Produce one", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$100: Produce 1", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cube", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 1){
-            moneyCounter.draw(batch, "$300: Produce three", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$285: Produce 3", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 2){
-            moneyCounter.draw(batch, "$500: Produce seven", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$720: Produce 8", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 3){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$1020: Produce 12", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 4){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$1440: Produce 18", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 5){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$1725: Produce 23", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 6){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$2240: Produce 32", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 7){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$2795: Produce 43", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 8){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$3720: Produce 62", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 9){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
+            moneyCounter.draw(batch, "$13200: Produce 4", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "more ice cubes", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
-            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
+            moneyCounter.draw(batch, "every second.", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
         else if (upgradeOneProgress == 10){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
@@ -472,54 +472,54 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
         //upgrade path 2
         if (upgradeTwoProgress == 0){
-            moneyCounter.draw(batch, "$500: Produce one", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$500: Produce 1", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowball", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 1){
-            moneyCounter.draw(batch, "$1750: Produce four", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$950: Produce 2", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 2){
-            moneyCounter.draw(batch, "$5000: Produce twelve", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$1800: Produce 4", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 3){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$2975: Produce 7", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 4){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$5200: Produce 13", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 5){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$7125: Produce 19", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 6){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$8400: Produce 24", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 7){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$10400: Produce 31", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 8){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$12600: Produce 24", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 9){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
+            moneyCounter.draw(batch, "$49500: Produce 3", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "more snowballs", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
-            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
+            moneyCounter.draw(batch, "every second.", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
         else if (upgradeTwoProgress == 10){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
@@ -533,49 +533,49 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 1){
-            moneyCounter.draw(batch, "$7000: Produce four", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$3800: Produce 2", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 2){
-            moneyCounter.draw(batch, "$14000: Produce ten", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$5400: Produce 3", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 3){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$10200: Produce 6", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 4){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$17600: Produce 11", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 5){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$24000: Produce 16", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 6){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$32200: Produce 23", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 7){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$40300: Produce 31", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 8){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$49200: Produce 41", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 9){
-            moneyCounter.draw(batch, "$99999: Produce no", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
+            moneyCounter.draw(batch, "$132000: Produce 2", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "more buckets", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
-            moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
+            moneyCounter.draw(batch, "every second.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
         else if (upgradeThreeProgress == 10){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //

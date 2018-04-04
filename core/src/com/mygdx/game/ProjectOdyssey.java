@@ -191,7 +191,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  ice = ice + 7;
+										  ice = ice + 8;
 									  }
 								  },
 					0,
@@ -202,7 +202,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
+										  ice = ice + 12;
 									  }
 								  },
 					0,
@@ -213,8 +213,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  ice = ice + 18;									  }
 								  },
 					0,
 					60000);
@@ -224,8 +223,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  ice = ice + 23;									  }
 								  },
 					0,
 					60000);
@@ -235,8 +233,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  ice = ice + 32;									  }
 								  },
 					0,
 					60000);
@@ -246,8 +243,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  ice = ice + 43;									  }
 								  },
 					0,
 					60000);
@@ -257,8 +253,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  ice = ice + 62;									  }
 								  },
 					0,
 					60000);
@@ -268,11 +263,10 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  ice = ice + 4;									  }
 								  },
 					0,
-					60000);
+					1000);
 		}
 
 		//upgrade path 2
@@ -292,7 +286,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { // four snowballs a minute
-										  snowBall = snowBall + 4;
+										  snowBall = snowBall + 2;
 									  }
 								  },
 					0,
@@ -303,7 +297,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { // twelve snowballs a minute
-										  snowBall = snowBall + 12;
+										  snowBall = snowBall + 4;
 									  }
 								  },
 					0,
@@ -314,8 +308,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 7;									  }
 								  },
 					0,
 					60000);
@@ -325,8 +318,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 13;									  }
 								  },
 					0,
 					60000);
@@ -336,8 +328,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 19;									  }
 								  },
 					0,
 					60000);
@@ -347,8 +338,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 24;									  }
 								  },
 					0,
 					60000);
@@ -358,8 +348,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 31;									  }
 								  },
 					0,
 					60000);
@@ -369,8 +358,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 42;									  }
 								  },
 					0,
 					60000);
@@ -380,11 +368,10 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //upgrade here!!!!!
-									  }
+										  snowBall = snowBall + 3;									  }
 								  },
 					0,
-					60000);
+					1000);
 		}
 
 		//Upgrade path 3
@@ -404,7 +391,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  bucket = bucket + 4;
+										  bucket = bucket + 2;
 									  }
 								  },
 					0,
@@ -415,7 +402,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  bucket = bucket + 10;
+										  bucket = bucket + 3;
 									  }
 								  },
 					0,
@@ -426,8 +413,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										 //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 6;									  }
 								  },
 					0,
 					60000);
@@ -437,8 +423,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 11;									  }
 								  },
 					0,
 					60000);
@@ -448,8 +433,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 16;									  }
 								  },
 					0,
 					60000);
@@ -459,8 +443,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 23;									  }
 								  },
 					0,
 					60000);
@@ -470,8 +453,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 31;									  }
 								  },
 					0,
 					60000);
@@ -481,8 +463,7 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 41;									  }
 								  },
 					0,
 					60000);
@@ -492,11 +473,10 @@ public class ProjectOdyssey extends Game {
 			t.scheduleAtFixedRate(new TimerTask() {  //Set the schedule function and rate
 									  @Override
 									  public void run() { //
-										  //UPGRADE HERE!!!
-									  }
+										  bucket = bucket + 2;									  }
 								  },
 					0,
-					60000);
+					1000);
 		}
 
 
