@@ -95,8 +95,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         iceButton = new ImageButton(playButtonStyle);
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());
         iceButton.setSize(buttonSize, buttonSize);
-        int width = (int) ((Gdx.graphics.getWidth() - iceButton.getWidth())/2);
-        int height = (int) ((Gdx.graphics.getHeight() - iceButton.getHeight())/4);
+        int width = (int) (Gdx.graphics.getWidth() * .5 - (iceButton.getWidth()/2));
+        int height = (int) (Gdx.graphics.getHeight() * .3 - (iceButton.getHeight()/2));
         iceButton.setBounds(width, height, iceButton.getWidth(), iceButton.getHeight());
         iceButton.addListener(new InputListener() {
             @Override
@@ -127,8 +127,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         lobbyButton = new ImageButton(lobbyButtonStyle);
         int buttonSize2 = (int) (75 * Gdx.graphics.getDensity());
         lobbyButton.setSize(buttonSize2, buttonSize2);
-        int width2 = (int) (((Gdx.graphics.getWidth() - lobbyButton.getWidth())/4)*3);
-        int height2 = (int) ((Gdx.graphics.getHeight() - lobbyButton.getHeight())/20);
+        int width2 = (int) (Gdx.graphics.getWidth() *.7 - (lobbyButton.getWidth()/2));
+        int height2 = (int) (Gdx.graphics.getHeight() *.1 - (lobbyButton.getHeight()/2));
         lobbyButton.setBounds(width2, height2, lobbyButton.getWidth(), lobbyButton.getHeight());
         lobbyButton.addListener(new InputListener() {
             @Override
@@ -156,8 +156,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         marketButton = new ImageButton(marketButtonStyle);
         int buttonSize3 = (int) (75 * Gdx.graphics.getDensity());
         marketButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (((Gdx.graphics.getWidth() - marketButton.getWidth())/4));
-        int height3 = (int) (((Gdx.graphics.getHeight() - marketButton.getHeight())/20));
+        int width3 = (int) (Gdx.graphics.getWidth() *.3 - (marketButton.getWidth()/2));
+        int height3 = (int) (Gdx.graphics.getHeight() *.1 - (marketButton.getHeight()/2));
         marketButton.setBounds(width3, height3, marketButton.getWidth(), marketButton.getHeight());
         marketButton.addListener(new InputListener() {
             @Override
@@ -187,8 +187,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         onePersonNoRing = new ImageButton(onePersonNoRingStyle);
         int buttonSize4 = (int) (300 * Gdx.graphics.getDensity());
         onePersonNoRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
-        int width4 = (int) (((Gdx.graphics.getWidth() - onePersonNoRing.getWidth())/2));
-        int height4 = (int) (((Gdx.graphics.getHeight() - onePersonNoRing.getHeight())/1.1));
+        int width4 = (int) (Gdx.graphics.getWidth() * .5 - (onePersonNoRing.getWidth()/2));
+        int height4 = (int) (Gdx.graphics.getHeight() * .8 - (onePersonNoRing.getHeight()/2));
         onePersonNoRing.setBounds(width4, height4, onePersonNoRing.getWidth(), onePersonNoRing.getHeight());
         onePersonNoRing.addListener(new InputListener() {
             @Override

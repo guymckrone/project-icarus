@@ -91,8 +91,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         iceCreamButton = new ImageButton(iceCreamButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         iceCreamButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize3/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
-        int height3 = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize3/2));//Finding height of button for later use
+        int width3 = (int) ((Gdx.graphics.getWidth() * .3) - (iceCreamButton.getWidth()/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height3 = (int) ((Gdx.graphics.getHeight() * .7) - (iceCreamButton.getWidth()/2));//Finding height of button for later use
         iceCreamButton.setBounds(width3, height3, iceCreamButton.getWidth(), iceCreamButton.getHeight());
         iceCreamButton.addListener(new InputListener() {
             @Override
@@ -131,8 +131,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         snowFlakeButton = new ImageButton(snowFlakeButtonStyle);
         int buttonSize4 = (int) (100 * Gdx.graphics.getDensity());
         snowFlakeButton.setSize(buttonSize4, buttonSize4);
-        final int width4 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize4/2));
-        final int height4 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize4/2));
+        final int width4 = (int) (((Gdx.graphics.getWidth() * .7)) - (snowFlakeButton.getWidth()/2));
+        final int height4 = (int) (((Gdx.graphics.getHeight() * .7)) - (snowFlakeButton.getWidth()/2));
         snowFlakeButton.setBounds(width4, height4, snowFlakeButton.getWidth(), snowFlakeButton.getHeight());
 
         snowFlakeButton.addListener(new InputListener() {
@@ -176,8 +176,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         icicleButton = new ImageButton(icicleButtonStyle);
         int buttonSize5 = (int) (100 * Gdx.graphics.getDensity());
         icicleButton.setSize(buttonSize5, buttonSize5);
-        int width5 = (int) (((Gdx.graphics.getWidth() *.3)) - (buttonSize5/2));
-        int height5 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize5/2));
+        int width5 = (int) (((Gdx.graphics.getWidth() *.3)) - (icicleButton.getWidth()/2));
+        int height5 = (int) (((Gdx.graphics.getHeight() * .35)) - (icicleButton.getWidth()/2));
         icicleButton.setBounds(width5, height5, icicleButton.getWidth(), icicleButton.getHeight());
         icicleButton.addListener(new InputListener() {
             @Override
@@ -215,8 +215,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         buyModeButton = new ImageButton(buyModeButtonStyle);
         int buttonSize7 = (int) (120 * Gdx.graphics.getDensity());
         buyModeButton.setSize(buttonSize7, buttonSize7);
-        int width7 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize7/2));
-        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize7/2));
+        int width7 = (int) ((Gdx.graphics.getWidth() *.2) - (buyModeButton.getWidth()/2));
+        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buyModeButton.getWidth()/2));
         buyModeButton.setBounds(width7, height7, buyModeButton.getWidth(), buyModeButton.getHeight());
         buyModeButton.addListener(new InputListener() {
             @Override
@@ -251,8 +251,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         sellModeButton.setSize(buttonSize6, buttonSize6);
         /*int width6 = (int) ((Gdx.graphics.getWidth() - sellModeButton.getWidth())/2);
         int height6 = (int) (((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4)); */
-        int width6 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize6/2));
-        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize6/2));
+        int width6 = (int) ((Gdx.graphics.getWidth() *.2) - (sellModeButton.getWidth()/2));
+        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (sellModeButton.getWidth()/2));
         sellModeButton.setBounds(width6, height6, sellModeButton.getWidth(), sellModeButton.getHeight());
         sellModeButton.addListener(new InputListener() {
             @Override
@@ -285,8 +285,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         marketButton = new ImageButton(gameButtonStyle);
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         marketButton.setSize(buttonSize8, buttonSize8);
-        int width8 = (int) (((Gdx.graphics.getWidth() - marketButton.getWidth())/4)*3);
-        int height8 = (int) ((Gdx.graphics.getHeight() - marketButton.getHeight())/10);
+        int width8 = (int) (Gdx.graphics.getWidth() *.7 - (marketButton.getWidth()/2));
+        int height8 = (int) (Gdx.graphics.getHeight() *.1 - (marketButton.getHeight()/2));
         marketButton.setBounds(width8, height8, marketButton.getWidth(), marketButton.getHeight());
         marketButton.addListener(new InputListener() {
             @Override
@@ -317,8 +317,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         snowManButton = new ImageButton(snowManButtonStyle);
         int buttonSize9 = (int) (75 * Gdx.graphics.getDensity());
         snowManButton.setSize(buttonSize9, buttonSize9);
-        int width9 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize9/2));
-        int height9 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize9/2));
+        int width9 = (int) ((Gdx.graphics.getWidth() * .7) - (snowManButton.getWidth()/2));
+        int height9 = (int) ((Gdx.graphics.getHeight() * .35) - (snowManButton.getWidth()/2));
         snowManButton.setBounds(width9, height9, snowManButton.getWidth(), snowManButton.getHeight());
         snowManButton.addListener(new InputListener() {
             @Override
@@ -360,8 +360,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockIceCreamButton = new ImageButton(unlockIceCreamButtonStyle);
         int buttonSize12 = (int) (100 * Gdx.graphics.getDensity());
         unlockIceCreamButton.setSize(buttonSize12, buttonSize12);
-        int width12 = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize12/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
-        int height12 = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize12/2));//Finding height of button for later use
+        int width12 = (int) ((Gdx.graphics.getWidth() * .3) - (unlockIceCreamButton.getWidth()/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height12 = (int) ((Gdx.graphics.getHeight() * .7) - (unlockIceCreamButton.getWidth()/2));//Finding height of button for later use
         unlockIceCreamButton.setBounds(width12, height12, unlockIceCreamButton.getWidth(), unlockIceCreamButton.getHeight());
         unlockIceCreamButton.addListener(new InputListener() {
             @Override
@@ -394,8 +394,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockSnowFlakeButton = new ImageButton(unlockSnowFlakeButtonStyle);
         int buttonSize13 = (int) (100 * Gdx.graphics.getDensity());
         unlockSnowFlakeButton.setSize(buttonSize13, buttonSize13);
-        final int width13 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize13/2));
-        final int height13 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize13/2));
+        final int width13 = (int) (((Gdx.graphics.getWidth() * .7)) - (unlockSnowFlakeButton.getWidth()/2));
+        final int height13 = (int) (((Gdx.graphics.getHeight() * .7)) - (unlockSnowFlakeButton.getWidth()/2));
         unlockSnowFlakeButton.setBounds(width13, height13, unlockSnowFlakeButton.getWidth(), unlockSnowFlakeButton.getHeight());
         unlockSnowFlakeButton.addListener(new InputListener() {
             @Override
@@ -428,8 +428,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockIcicleButton = new ImageButton(unlockIcicleButtonStyle);
         int buttonSize14 = (int) (100 * Gdx.graphics.getDensity());
         unlockIcicleButton.setSize(buttonSize14, buttonSize14);
-        int width14 = (int) (((Gdx.graphics.getWidth() *.3)) - (buttonSize14/2));
-        int height14 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize14/2));
+        int width14 = (int) (((Gdx.graphics.getWidth() *.3)) - (unlockIcicleButton.getWidth()/2));
+        int height14 = (int) (((Gdx.graphics.getHeight() * .35)) - (unlockIcicleButton.getWidth()/2));
         unlockIcicleButton.setBounds(width14, height14, unlockIcicleButton.getWidth(), unlockIcicleButton.getHeight());
         unlockIcicleButton.addListener(new InputListener() {
             @Override
@@ -462,8 +462,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockSnowManButton = new ImageButton(unlockSnowManButtonStyle);
         int buttonSize15 = (int) (100 * Gdx.graphics.getDensity());
         unlockSnowManButton.setSize(buttonSize15, buttonSize15);
-        int width15 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize15/2));
-        int height15 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize15/2));
+        int width15 = (int) ((Gdx.graphics.getWidth() * .7) - (unlockSnowManButton.getWidth()/2));
+        int height15 = (int) ((Gdx.graphics.getHeight() * .35) - (unlockSnowManButton.getWidth()/2));
         unlockSnowManButton.setBounds(width15, height15, unlockSnowManButton.getWidth(), unlockSnowManButton.getHeight());
         unlockSnowManButton.addListener(new InputListener() {
             @Override
