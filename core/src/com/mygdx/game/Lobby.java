@@ -74,7 +74,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
 
 
-              // onePersonNoRing
+        //onePersonNoRing
         Skin conTableOneSkin = new Skin();
         conTableOneSkin.add("conTableOne", new Texture("LobbyingScreen/ConferenceTableOne.png"));
 
@@ -264,8 +264,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new Dialogue(game));
             }
         });
         stage.addActor(phoneButton);

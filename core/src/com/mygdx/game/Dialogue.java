@@ -1,0 +1,220 @@
+package com.mygdx.game;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.input.GestureDetector;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+
+
+/**
+ * Created by guymckrone on 4/10/18.
+ */
+
+public class Dialogue implements Screen, GestureDetector.GestureListener{
+
+    final ProjectOdyssey game;
+    private Stage stage;
+    private SpriteBatch batch;
+    private BitmapFont moneyCounter = new BitmapFont();
+    OrthographicCamera camera;
+
+    private ImageButton optionOneButton;
+    private ImageButton optionTwoButton;
+    private ImageButton optionThreeButton;
+
+    public Dialogue(final ProjectOdyssey game){
+        this.game = game;
+        stage = new Stage();
+        batch = new SpriteBatch();
+
+        camera = new OrthographicCamera();//creates camera
+        camera.setToOrtho(false, 800, 480);//creates viewport
+
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 70;
+        parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
+        moneyCounter = generator.generateFont(parameter); // font size 80 pixels
+        generator.dispose(); // don't forget to dispose to avoid memory leaks!
+        System.out.println("Hiiiiii");
+
+        // Button skin
+        Skin optionOneButtonSkin = new Skin();
+        optionOneButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle optionOneButtonStyle = new ImageButton.ImageButtonStyle();
+        optionOneButtonStyle.imageUp = optionOneButtonSkin.getDrawable("lobbySignButton"); // Unpressed
+        optionOneButtonStyle.imageDown = optionOneButtonSkin.getDrawable("lobbySignButton"); // Pressed
+
+        // Market button
+        optionOneButton = new ImageButton(optionOneButtonStyle);
+        int optionOneButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        optionOneButton.setSize(optionOneButtonSize, optionOneButtonSize);
+        int optionOneWidth = (int) (((Gdx.graphics.getWidth() - optionOneButton.getWidth())/10));
+        int optionOneHeight = (int) ((Gdx.graphics.getHeight() - optionOneButton.getHeight())/.95);
+        optionOneButton.setBounds(optionOneWidth, optionOneHeight, optionOneButton.getWidth(), optionOneButton.getHeight());
+        optionOneButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+        });
+        stage.addActor(optionOneButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin optionTwoButtonSkin = new Skin();
+        optionTwoButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle optionTwoButtonStyle = new ImageButton.ImageButtonStyle();
+        optionTwoButtonStyle.imageUp = optionTwoButtonSkin.getDrawable("lobbySignButton"); // Unpressed
+        optionTwoButtonStyle.imageDown = optionTwoButtonSkin.getDrawable("lobbySignButton"); // Pressed
+
+        // Market button
+        optionTwoButton = new ImageButton(optionTwoButtonStyle);
+        int lobbySignButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        optionTwoButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
+        int optionTwoWidth = (int) (((Gdx.graphics.getWidth() - optionTwoButton.getWidth())/10));
+        int optionTwoHeight = (int) ((Gdx.graphics.getHeight() - optionTwoButton.getHeight())/.95);
+        optionTwoButton.setBounds(optionTwoWidth, optionTwoHeight, optionTwoButton.getWidth(), optionTwoButton.getHeight());
+        optionTwoButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+        });
+        stage.addActor(optionTwoButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin optionThreeButtonSkin = new Skin();
+        optionThreeButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle optionThreeButtonStyle = new ImageButton.ImageButtonStyle();
+        optionThreeButtonStyle.imageUp = optionThreeButtonSkin.getDrawable("lobbySignButton"); // Unpressed
+        optionThreeButtonStyle.imageDown = optionThreeButtonSkin.getDrawable("lobbySignButton"); // Pressed
+
+        // Market button
+        optionThreeButton = new ImageButton(optionThreeButtonStyle);
+        int optionThreeButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        optionThreeButton.setSize(optionThreeButtonSize, optionThreeButtonSize);
+        int lobbySignWidth = (int) (((Gdx.graphics.getWidth() - optionThreeButton.getWidth())/10));
+        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() - optionThreeButton.getHeight())/.95);
+        optionThreeButton.setBounds(lobbySignWidth, lobbySignHeight, optionThreeButton.getWidth(), optionThreeButton.getHeight());
+        optionThreeButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+        });
+        stage.addActor(optionThreeButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void render(float delta) {
+
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void hide() {
+
+    }
+
+    @Override
+    public void dispose() {
+
+    }
+
+    @Override
+    public boolean touchDown(float x, float y, int pointer, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean tap(float x, float y, int count, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean longPress(float x, float y) {
+        return false;
+    }
+
+    @Override
+    public boolean fling(float velocityX, float velocityY, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean pan(float x, float y, float deltaX, float deltaY) {
+        return false;
+    }
+
+    @Override
+    public boolean panStop(float x, float y, int pointer, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean zoom(float initialDistance, float distance) {
+        return false;
+    }
+
+    @Override
+    public boolean pinch(Vector2 initialPointer1, Vector2 initialPointer2, Vector2 pointer1, Vector2 pointer2) {
+        return false;
+    }
+
+    @Override
+    public void pinchStop() {
+
+    }
+}
