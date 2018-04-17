@@ -358,7 +358,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockIceCreamButton = new ImageButton(unlockIceCreamButtonStyle);
-        int buttonSize12 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize12 = (int) (120 * Gdx.graphics.getDensity());
         unlockIceCreamButton.setSize(buttonSize12, buttonSize12);
         int width12 = (int) ((Gdx.graphics.getWidth() * .3) - (unlockIceCreamButton.getWidth()/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
         int height12 = (int) ((Gdx.graphics.getHeight() * .7) - (unlockIceCreamButton.getWidth()/2));//Finding height of button for later use
@@ -371,7 +371,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 5000;
                     ProjectOdyssey.unlocksTwo++;
                 }
 
@@ -392,7 +392,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockSnowFlakeButton = new ImageButton(unlockSnowFlakeButtonStyle);
-        int buttonSize13 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize13 = (int) (120 * Gdx.graphics.getDensity());
         unlockSnowFlakeButton.setSize(buttonSize13, buttonSize13);
         final int width13 = (int) (((Gdx.graphics.getWidth() * .7)) - (unlockSnowFlakeButton.getWidth()/2));
         final int height13 = (int) (((Gdx.graphics.getHeight() * .7)) - (unlockSnowFlakeButton.getWidth()/2));
@@ -405,7 +405,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 10000;
                     ProjectOdyssey.unlocksTwo++;
                 }
 
@@ -426,7 +426,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockIcicleButton = new ImageButton(unlockIcicleButtonStyle);
-        int buttonSize14 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize14 = (int) (120 * Gdx.graphics.getDensity());
         unlockIcicleButton.setSize(buttonSize14, buttonSize14);
         int width14 = (int) (((Gdx.graphics.getWidth() *.3)) - (unlockIcicleButton.getWidth()/2));
         int height14 = (int) (((Gdx.graphics.getHeight() * .35)) - (unlockIcicleButton.getWidth()/2));
@@ -439,7 +439,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 25000;
                     ProjectOdyssey.unlocksTwo++;
                 }
 
@@ -460,7 +460,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockSnowManButton = new ImageButton(unlockSnowManButtonStyle);
-        int buttonSize15 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize15 = (int) (120 * Gdx.graphics.getDensity());
         unlockSnowManButton.setSize(buttonSize15, buttonSize15);
         int width15 = (int) ((Gdx.graphics.getWidth() * .7) - (unlockSnowManButton.getWidth()/2));
         int height15 = (int) ((Gdx.graphics.getHeight() * .35) - (unlockSnowManButton.getWidth()/2));
@@ -473,7 +473,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 99999;
                     ProjectOdyssey.unlocksTwo++;
                 }
 
@@ -662,6 +662,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         }
         if(ProjectOdyssey.unlocksTwo == 0){
             unlockIceCreamButton.draw(batch, 1);
+            moneyCounter.draw(batch, "$" + 5000, ((int) (.3 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.71 * screenHeight )));
         }
         if(ProjectOdyssey.unlocksTwo >= 1){
             iceCreamButton.draw(batch, 1);
@@ -669,6 +670,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         }
         if(ProjectOdyssey.unlocksTwo == 1){
             unlockSnowFlakeButton.draw(batch, 1);
+            moneyCounter.draw(batch, "$" + 10000, ((int) (.7 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.71 * screenHeight )));
         }
         if(ProjectOdyssey.unlocksTwo >= 2){
             snowFlakeButton.draw(batch, 1);
@@ -676,6 +678,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         }
         if(ProjectOdyssey.unlocksTwo == 2){
             unlockIcicleButton.draw(batch, 1);
+            moneyCounter.draw(batch, "$" + 25000, ((int) (.3 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.36 * screenHeight )));
         }
         if(ProjectOdyssey.unlocksTwo >= 3){
             icicleButton.draw(batch, 1);
@@ -683,6 +686,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         }
         if(ProjectOdyssey.unlocksTwo == 3){
             unlockSnowManButton.draw(batch, 1);
+            moneyCounter.draw(batch, "$" + 99999, ((int) (.7 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.36 * screenHeight )));
         }
         if(ProjectOdyssey.unlocksTwo >= 4){
             snowManButton.draw(batch, 1);

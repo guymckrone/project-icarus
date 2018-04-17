@@ -392,38 +392,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         //marketTwoButton.setTouchable(Touchable.disabled);
         stage.addActor(marketTwoButton);
 
-        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
-        // Button skin
-        Skin unlockButtonSkin = new Skin();
-        unlockButtonSkin.add("unlockButton", new Texture("buttons/Upgrade.png"));
-
-        // Create button style
-        ImageButton.ImageButtonStyle unlockButtonStyle = new ImageButton.ImageButtonStyle();
-        unlockButtonStyle.imageUp = unlockButtonSkin.getDrawable("unlockButton"); // Unpressed
-        unlockButtonStyle.imageDown = unlockButtonSkin.getDrawable("unlockButton"); // Pressed
-
-        // Play button
-        unlockButton = new ImageButton(unlockButtonStyle);
-        int buttonSize10 = (int) (100 * Gdx.graphics.getDensity());
-        unlockButton.setSize(buttonSize10, buttonSize10);
-        int width10 = (int) (((Gdx.graphics.getWidth() *.3)) - (buttonSize10/2));
-        int height10 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize10/2));
-        unlockButton.setBounds(width10, height10, unlockButton.getWidth(), unlockButton.getHeight());
-        unlockButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-            @Override
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-
-
-            }
-        });
-        stage.addActor(unlockButton);
-
-        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
         // Button skin
         final Skin unlockSellBuyButtonSkin = new Skin();
@@ -436,7 +405,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockSellBuyButton = new ImageButton(unlockSellBuyButtonStyle);
-        int buttonSize11 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize11 = (int) (120 * Gdx.graphics.getDensity());
         unlockSellBuyButton.setSize(buttonSize11, buttonSize11);
         int width11 = (int) ((Gdx.graphics.getWidth() *.2) - (buttonSize11/2));
         int height11 = (int) (((Gdx.graphics.getHeight() * .92)) - (buttonSize11/2));
@@ -449,7 +418,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 100;
                     ProjectOdyssey.sellBuyBought = true;
                     sellModeButton.setTouchable(Touchable.enabled);
                     unlockSellBuyButton.setTouchable(Touchable.disabled);
@@ -472,7 +441,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockSnowBallButton = new ImageButton(unlockSnowBallButtonStyle);
-        int buttonSize12 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize12 = (int) (120 * Gdx.graphics.getDensity());
         unlockSnowBallButton.setSize(buttonSize12, buttonSize12);
         final int width12 = (int) (((Gdx.graphics.getWidth() * .7)) - (unlockSnowBallButton.getWidth()/2));
         final int height12 = (int) (((Gdx.graphics.getHeight() * .7)) - (unlockSnowBallButton.getWidth()/2));
@@ -485,7 +454,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice && ProjectOdyssey.sellBuyBought == true){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 200;
                     ProjectOdyssey.sbBought = true;
                 }
 
@@ -506,7 +475,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockBucketButton = new ImageButton(unlockBucketButtonStyle);
-        int buttonSize13 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize13 = (int) (120 * Gdx.graphics.getDensity());
         unlockBucketButton.setSize(buttonSize13, buttonSize13);
         int width13 = (int) (((Gdx.graphics.getWidth() *.3)) - (unlockBucketButton.getWidth()/2));
         int height13 = (int) (((Gdx.graphics.getHeight() * .35)) - (unlockBucketButton.getWidth()/2));
@@ -519,7 +488,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice && ProjectOdyssey.sbBought == true){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 500;
                     ProjectOdyssey.bucketBought = true;
                 }
 
@@ -540,7 +509,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockShovelButton = new ImageButton(unlockShovelButtonStyle);
-        int buttonSize14 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize14 = (int) (120 * Gdx.graphics.getDensity());
         unlockShovelButton.setSize(buttonSize14, buttonSize14);
         int width14 = (int) ((Gdx.graphics.getWidth() * .7) - (unlockShovelButton.getWidth()/2));
         int height14 = (int) ((Gdx.graphics.getHeight() * .35) - (unlockShovelButton.getWidth()/2));
@@ -553,7 +522,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice && ProjectOdyssey.bucketBought == true){
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 1000;
                     ProjectOdyssey.shovelBought = true;
                 }
 
@@ -574,7 +543,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
         // Play button
         unlockMarketTwoButton = new ImageButton(unlockMarketTwoButtonStyle);
-        int buttonSize15 = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize15 = (int) (120 * Gdx.graphics.getDensity());
         unlockMarketTwoButton.setSize(buttonSize15, buttonSize15);
         int width15 = (int) ((Gdx.graphics.getWidth() * .3) - (unlockMarketTwoButton.getWidth()/2));
         int height15 = (int) ((Gdx.graphics.getHeight() * .1) - (unlockMarketTwoButton.getWidth()/2));
@@ -588,7 +557,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice && ProjectOdyssey.shovelBought == true && ProjectOdyssey.marketTwoBought == false){
                     unlockMarketTwoButton.setTouchable(Touchable.disabled);
-                    moneys = moneys - unlockPrice;
+                    moneys = moneys - 3000;
                     ProjectOdyssey.marketTwoBought = true;
                 }
 
@@ -761,6 +730,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         batch.end();
         batch.begin();
         sellIce.draw(batch, 1);//draw button, opacity
+        moneyCounter.setColor(Color.BLACK); //money counter text color
         if(ProjectOdyssey.sellBuyBought == true) {
             unlockSellBuyButton.setTouchable(Touchable.disabled);
             unlockSellBuyButton.setTouchable(Touchable.disabled);
@@ -775,6 +745,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             unlockSellBuyButton.draw(batch, 1);
             buyModeButton.setTouchable(Touchable.disabled);
             sellModeButton.setTouchable(Touchable.disabled);
+            moneyCounter.draw(batch, "$" + 100, ((int) (.2 * screenWidth - (unlockSellBuyButton.getWidth()/2))), ((int) (.93 * screenHeight )));
         }
         if(ProjectOdyssey.sbBought == true && ProjectOdyssey.sellBuyBought == true){
             sbButton.draw(batch, 1);
@@ -785,6 +756,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
             unlockSnowBallButton.draw(batch, 1);
             unlockSnowBallButton.setTouchable(Touchable.enabled);
             sbButton.setTouchable(Touchable.disabled);
+            moneyCounter.draw(batch, "$" + 200, ((int) (.7 * screenWidth - (unlockSellBuyButton.getWidth()/2))), ((int) (.71 * screenHeight )));
         }
         if(ProjectOdyssey.shovelBought == true && ProjectOdyssey.bucketBought == true){
             shovelButton.draw(batch, 1);
@@ -795,6 +767,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
             unlockShovelButton.draw(batch, 1);
             unlockShovelButton.setTouchable(Touchable.enabled);
             shovelButton.setTouchable(Touchable.disabled);
+            moneyCounter.draw(batch, "$" + 1000, ((int) (.7 * screenWidth - (unlockSellBuyButton.getWidth()/2))), ((int) (.36 * screenHeight )));
+
         }
         if(ProjectOdyssey.marketTwoBought == true && ProjectOdyssey.shovelBought == true){
             marketTwoButton.draw(batch, 1);
@@ -804,6 +778,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         if(ProjectOdyssey.marketTwoBought == false && ProjectOdyssey.shovelBought == true){
             unlockMarketTwoButton.draw(batch, 1);
             unlockMarketTwoButton.setTouchable(Touchable.enabled);
+            moneyCounter.draw(batch, "$" + 3000, ((int) (.3 * screenWidth - (unlockSellBuyButton.getWidth()/2))), ((int) (.11 * screenHeight )));
         }
         if(ProjectOdyssey.bucketBought == true && ProjectOdyssey.sbBought == true){
             bucketButton.draw(batch, 1);
@@ -814,6 +789,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
             unlockBucketButton.draw(batch, 1);
             unlockBucketButton.setTouchable(Touchable.enabled);
             bucketButton.setTouchable(Touchable.enabled);
+            moneyCounter.draw(batch, "$" + 500, ((int) (.3 * screenWidth - (unlockSellBuyButton.getWidth()/2))), ((int) (.36 * screenHeight )));
+
         }
 
         //unlockButton.draw(batch, 1);
