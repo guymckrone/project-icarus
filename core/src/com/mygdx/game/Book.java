@@ -65,7 +65,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 70;
+        parameter.size = (int)(Gdx.graphics.getWidth()/15.4285714286);
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$% ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -112,8 +112,8 @@ public class Book implements Screen, GestureDetector.GestureListener {
         upgradeOne= new ImageButton(upgradeOneStyle);
         int buttonSize3 = (int) (125 * Gdx.graphics.getDensity());
         upgradeOne.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) (Gdx.graphics.getWidth() * .6  - (upgradeOne.getWidth()/2));
-        int height3 = (int) (Gdx.graphics.getHeight() *.6 - (upgradeOne.getHeight()/2));
+        int width3 = (int) (Gdx.graphics.getWidth() * .75  - (upgradeOne.getWidth()/2));
+        int height3 = (int) (Gdx.graphics.getHeight() *.72 - (upgradeOne.getHeight()/2));
         upgradeOne.setBounds(width3, height3, upgradeOne.getWidth(), upgradeOne.getHeight());
         upgradeOne.addListener(new InputListener() {
             @Override
@@ -207,8 +207,8 @@ public class Book implements Screen, GestureDetector.GestureListener {
         upgradeTwo = new ImageButton(upgradeTwoStyle);
         int buttonSize4 = (int) (125 * Gdx.graphics.getDensity());
         upgradeTwo.setSize(buttonSize4, buttonSize4);
-        int width4 = (int) (Gdx.graphics.getWidth() - (upgradeTwo.getWidth()/2));
-        int height4 = (int) (Gdx.graphics.getHeight() - (upgradeTwo.getHeight()/2));
+        int width4 = (int) (Gdx.graphics.getWidth() *.75 - (upgradeTwo.getWidth()/2));
+        int height4 = (int) (Gdx.graphics.getHeight() * .47 - (upgradeTwo.getHeight()/2));
         upgradeTwo.setBounds(width4, height4, upgradeTwo.getWidth(), upgradeTwo.getHeight());
         upgradeTwo.addListener(new InputListener() {
             @Override
@@ -300,8 +300,8 @@ public class Book implements Screen, GestureDetector.GestureListener {
         upgradeThree = new ImageButton(upgradeThreeStyle);
         int buttonSize5 = (int) (125 * Gdx.graphics.getDensity());
         upgradeThree.setSize(buttonSize5, buttonSize5);
-        int width5 = (int) (Gdx.graphics.getWidth() - (upgradeThree.getWidth()/2));
-        int height5 = (int) (Gdx.graphics.getHeight() - (upgradeThree.getHeight()/2));
+        int width5 = (int) (Gdx.graphics.getWidth() *.75 - (upgradeThree.getWidth()/2));
+        int height5 = (int) (Gdx.graphics.getHeight() *.21 - (upgradeThree.getHeight()/2));
         upgradeThree.setBounds(width5, height5, upgradeThree.getWidth(), upgradeThree.getHeight());
         upgradeThree.addListener(new InputListener() {
             @Override

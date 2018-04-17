@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -544,7 +545,6 @@ public class ProjectOdyssey extends Game {
 		snowFlakeChange();
 		icicleChange();
 		snowManChange();
-
 		checkForEvent();
 
         System.out.println(" --------------- Price "); //Break line to read the market easier

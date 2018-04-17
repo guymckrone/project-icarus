@@ -70,7 +70,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         //This is for creating the text on the screen
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 80;
+        parameter.size = (int)(Gdx.graphics.getWidth()/15.4285714286);
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
