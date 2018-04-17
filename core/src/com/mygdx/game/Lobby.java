@@ -66,7 +66,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 70;
+        parameter.size = (int)(Gdx.graphics.getWidth()/15.4285714286);
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -85,8 +85,8 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         conTableOne = new ImageButton(conTableOneStyle);
         int conTableSize = (int) (300 * Gdx.graphics.getDensity());
         conTableOne.setSize( conTableSize, (conTableSize *(float)1.14) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
-        int conTableWidth = (int) (((Gdx.graphics.getWidth() - conTableOne.getWidth())/2));
-        int conTableHeight = (int) (((Gdx.graphics.getHeight() - conTableOne.getHeight())/1.5));
+        int conTableWidth = (int) ((Gdx.graphics.getWidth() * .5 - (conTableOne.getWidth()/2)));
+        int conTableHeight = (int) ((Gdx.graphics.getHeight() * .6 - (conTableOne.getHeight()/2)));
         conTableOne.setBounds(conTableWidth, conTableHeight, conTableOne.getWidth(), conTableOne.getHeight());
         conTableOne.addListener(new InputListener() {
             @Override
@@ -194,8 +194,8 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         gameScreenButton = new ImageButton(gameScreenButtonStyle);
         int buttonSize2 = (int) (75 * Gdx.graphics.getDensity());
         gameScreenButton.setSize(buttonSize2, buttonSize2);
-        int width2 = (int) (((Gdx.graphics.getWidth() - gameScreenButton.getWidth())/4));
-        int height2 = (int) ((Gdx.graphics.getHeight() - gameScreenButton.getHeight())/20);
+        int width2 = (int) ((Gdx.graphics.getWidth() * .3 - (gameScreenButton.getWidth()/2)));
+        int height2 = (int) ((Gdx.graphics.getHeight() * .1 - (gameScreenButton.getHeight()/2)));
         gameScreenButton.setBounds(width2, height2, gameScreenButton.getWidth(), gameScreenButton.getHeight());
         gameScreenButton.addListener(new InputListener() {
             @Override
@@ -224,8 +224,8 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         lobbySignButton = new ImageButton(lobbySignButtonStyle);
         int lobbySignButtonSize = (int) (130 * Gdx.graphics.getDensity());
         lobbySignButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
-        int lobbySignWidth = (int) (((Gdx.graphics.getWidth() - lobbySignButton.getWidth())/10));
-        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() - lobbySignButton.getHeight())/.95);
+        int lobbySignWidth = (int) ((Gdx.graphics.getWidth() * .2 - (lobbySignButton.getWidth()/2)));
+        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() * .93 - (lobbySignButton.getHeight()/2)));
         lobbySignButton.setBounds(lobbySignWidth, lobbySignHeight, lobbySignButton.getWidth(), lobbySignButton.getHeight());
         lobbySignButton.addListener(new InputListener() {
             @Override
@@ -254,8 +254,9 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         phoneButton = new ImageButton(phoneButtonStyle);
         int phoneButtonSize = (int) (80 * Gdx.graphics.getDensity());
         phoneButton.setSize(phoneButtonSize, phoneButtonSize);
-        int phoneButtonWidth = (int) (((Gdx.graphics.getWidth() - phoneButton.getWidth())/5));
-        int phoneButtonHeight = (int) ((Gdx.graphics.getHeight() - phoneButton.getHeight())/2.5);
+        //int phoneButtonWidth = (int) (((Gdx.graphics.getWidth() *.25) - phoneButton.getWidth())/2);
+        int phoneButtonWidth = (int) ((Gdx.graphics.getWidth() *.33)- (phoneButton.getWidth()/2));
+        int phoneButtonHeight = (int) ((Gdx.graphics.getHeight()*.5)- (phoneButton.getWidth()/2));
         phoneButton.setBounds(phoneButtonWidth, phoneButtonHeight, phoneButton.getWidth(), phoneButton.getHeight());
         phoneButton.addListener(new InputListener() {
             @Override
@@ -283,8 +284,8 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         bookNoMarkButton = new ImageButton(bookNoMarkButtonStyle);
         int bookSize = (int) (80 * Gdx.graphics.getDensity());
         bookNoMarkButton.setSize(bookSize, bookSize);
-        int bookWidth = (int) (((Gdx.graphics.getWidth() - bookNoMarkButton.getWidth())/1.5));
-        int bookHeight = (int) ((Gdx.graphics.getHeight() - bookNoMarkButton.getHeight())/2.5);
+        int bookWidth = (int) ((Gdx.graphics.getWidth() * .66 - (bookNoMarkButton.getWidth()/2)));
+        int bookHeight = (int) ((Gdx.graphics.getHeight() * .5 - (bookNoMarkButton.getHeight()/2)));
         bookNoMarkButton.setBounds(bookWidth, bookHeight, bookNoMarkButton.getWidth(), bookNoMarkButton.getHeight());
         bookNoMarkButton.addListener(new InputListener() {
             @Override

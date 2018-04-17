@@ -74,7 +74,7 @@ public class Market implements Screen, GestureDetector.GestureListener {
         //This is for creating the text on the screen
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 70;
+        parameter.size = (int)(Gdx.graphics.getWidth()/15.4285714286);
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         moneyCounter = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -95,8 +95,8 @@ public class Market implements Screen, GestureDetector.GestureListener {
         sellIce = new ImageButton(sellIceStyle);//creates button
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());//sets variables for future button size
         sellIce.setSize(buttonSize, buttonSize);//uses variables to set size
-        int width = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize / 2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
-        int height = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize / 2));//Finding height of button for later use
+        int width = (int) ((Gdx.graphics.getWidth() * .3) - (sellIce.getWidth()/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height = (int) ((Gdx.graphics.getHeight() * .7) - (sellIce.getWidth()/2));//Finding height of button for later use
         sellIce.setBounds(width, height, sellIce.getWidth(), sellIce.getHeight());//
         //Next few lines set the function of the bot
         sellIce.addListener(new InputListener() {
