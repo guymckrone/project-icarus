@@ -24,7 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 //Main menu Obviously
 
-public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
+public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
 
 
     final ProjectOdyssey game;
@@ -33,6 +33,8 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
     private BitmapFont font = new BitmapFont();
     private SpriteBatch batch;
     private ImageButton playButton;
+    private ImageButton creditButton;
+
     private Texture logo;
     public static int width;
     public static int height;
@@ -51,7 +53,7 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
 
         // Button skin
         Skin playButtonSkin = new Skin();
-        playButtonSkin.add("playButton", new Texture("buttons/play_button.png"));
+        playButtonSkin.add("playButton", new Texture("buttons/Welcome.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle playButtonStyle = new ImageButton.ImageButtonStyle();
@@ -60,10 +62,10 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
 
         // Play button
         playButton = new ImageButton(playButtonStyle);
-        int buttonSize = (int) (100 * Gdx.graphics.getDensity());
+        int buttonSize = (int) (300 * Gdx.graphics.getDensity());
         playButton.setSize(buttonSize, buttonSize);
-        int width = (int) ((Gdx.graphics.getWidth() - playButton.getWidth()) / 2);
-        int height = (int) ((Gdx.graphics.getHeight() - playButton.getHeight()) / 4);
+        int width = (int) (Gdx.graphics.getWidth()*.5 - (playButton.getWidth()/2));
+        int height = (int) (Gdx.graphics.getHeight()*.8 - (playButton.getHeight()/2));
         playButton.setBounds(width, height, playButton.getWidth(), playButton.getHeight());
         playButton.addListener(new InputListener() {
             @Override
@@ -81,6 +83,41 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
         stage.addActor(playButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin creditButtonSkin = new Skin();
+        creditButtonSkin.add("playButton", new Texture("buttons/ByUs.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle creditButtonStyle = new ImageButton.ImageButtonStyle();
+        creditButtonStyle.imageUp = creditButtonSkin.getDrawable("playButton"); // Unpressed
+        creditButtonStyle.imageDown = creditButtonSkin.getDrawable("playButton"); // Pressed
+
+        // Play button
+        creditButton = new ImageButton(creditButtonStyle);
+        int buttonSize1 = (int) (200 * Gdx.graphics.getDensity());
+        creditButton.setSize(buttonSize1, buttonSize1);
+        int width1 = (int) (Gdx.graphics.getWidth()*.5 - (creditButton.getWidth()/2));
+        int height1 = (int) (Gdx.graphics.getHeight()*.3 - (creditButton.getHeight()/2));
+        creditButton.setBounds(width1, height1, creditButton.getWidth(), creditButton.getHeight());
+        creditButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+               //nothing
+                creditButton.setDisabled(true);
+
+            }
+        });
+        stage.addActor(creditButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+
+
     }
 
     @Override
@@ -93,17 +130,15 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
 
 
         //game.assets.update();
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         game.batch.setProjectionMatrix(camera.combined);
 
-        game.batch.begin();
-        game.font.draw(game.batch, "Welcome to your Odyssey", 150, 100);
-        game.batch.end();
 
         batch.begin();
         playButton.draw(batch, 1);
+        creditButton.draw(batch,1);
         batch.end();
 
         if (Gdx.input.isTouched()) {
