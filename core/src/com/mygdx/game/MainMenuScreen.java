@@ -72,6 +72,7 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new GameScreen(game)); // Switch screen to game state

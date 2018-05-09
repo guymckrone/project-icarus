@@ -31,7 +31,7 @@ import static com.mygdx.game.ProjectOdyssey.unlocksOne;
 
 //Sell and Buy
 
-public class MarketTwo implements Screen, GestureDetector.GestureListener{
+public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
     final ProjectOdyssey game;
     private Stage stage;
@@ -61,7 +61,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
 
     private Texture logo;
     OrthographicCamera camera;
-    public MarketTwo(final ProjectOdyssey game){
+
+    public MarketTwo(final ProjectOdyssey game) {
         System.out.println(sellMode + "MarketTwo");
         this.game = game;
         stage = new Stage();
@@ -91,14 +92,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         iceCreamButton = new ImageButton(iceCreamButtonStyle);
         int buttonSize3 = (int) (100 * Gdx.graphics.getDensity());
         iceCreamButton.setSize(buttonSize3, buttonSize3);
-        int width3 = (int) ((Gdx.graphics.getWidth() * .3) - (iceCreamButton.getWidth()/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
-        int height3 = (int) ((Gdx.graphics.getHeight() * .7) - (iceCreamButton.getWidth()/2));//Finding height of button for later use
+        int width3 = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize3 / 2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height3 = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize3 / 2));//Finding height of button for later use
         iceCreamButton.setBounds(width3, height3, iceCreamButton.getWidth(), iceCreamButton.getHeight());
         iceCreamButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if (ProjectOdyssey.sellMode == true && ProjectOdyssey.iceCream > 0) {//prevents from selling into negatives
@@ -131,8 +133,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         snowFlakeButton = new ImageButton(snowFlakeButtonStyle);
         int buttonSize4 = (int) (100 * Gdx.graphics.getDensity());
         snowFlakeButton.setSize(buttonSize4, buttonSize4);
-        final int width4 = (int) (((Gdx.graphics.getWidth() * .7)) - (snowFlakeButton.getWidth()/2));
-        final int height4 = (int) (((Gdx.graphics.getHeight() * .7)) - (snowFlakeButton.getWidth()/2));
+        final int width4 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize4 / 2));
+        final int height4 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize4 / 2));
         snowFlakeButton.setBounds(width4, height4, snowFlakeButton.getWidth(), snowFlakeButton.getHeight());
 
         snowFlakeButton.addListener(new InputListener() {
@@ -140,15 +142,16 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowFlake > 0){//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowFlake > 0) {//prevents from selling into negatives
                     ProjectOdyssey.snowFlake--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.snowFlakePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.snowFlakePrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowFlakePrice ){//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowFlakePrice) {//prevents from selling into negatives
                     ProjectOdyssey.snowFlake++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.snowFlakePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.snowFlakePrice;//adds iceprice amount of moneys each time you click button
                 }
                 //ProjectOdyssey.bucket++;
                 //game.setScreen(new MainMenuScreen(game));
@@ -176,23 +179,24 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         icicleButton = new ImageButton(icicleButtonStyle);
         int buttonSize5 = (int) (100 * Gdx.graphics.getDensity());
         icicleButton.setSize(buttonSize5, buttonSize5);
-        int width5 = (int) (((Gdx.graphics.getWidth() *.3)) - (icicleButton.getWidth()/2));
-        int height5 = (int) (((Gdx.graphics.getHeight() * .35)) - (icicleButton.getWidth()/2));
+        int width5 = (int) (((Gdx.graphics.getWidth() * .3)) - (buttonSize5 / 2));
+        int height5 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize5 / 2));
         icicleButton.setBounds(width5, height5, icicleButton.getWidth(), icicleButton.getHeight());
         icicleButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.icicle > 0){//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.icicle > 0) {//prevents from selling into negatives
                     ProjectOdyssey.icicle--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.iciclePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iciclePrice;//adds iceprice amount of moneys each time you click button
                 }
-                if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iciclePrice){//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iciclePrice) {//prevents from selling into negatives
                     ProjectOdyssey.icicle++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.iciclePrice;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.iciclePrice;//adds iceprice amount of moneys each time you click button
                 }
 
 
@@ -215,14 +219,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         buyModeButton = new ImageButton(buyModeButtonStyle);
         int buttonSize7 = (int) (120 * Gdx.graphics.getDensity());
         buyModeButton.setSize(buttonSize7, buttonSize7);
-        int width7 = (int) ((Gdx.graphics.getWidth() *.2) - (buyModeButton.getWidth()/2));
-        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buyModeButton.getWidth()/2));
+        int width7 = (int) ((Gdx.graphics.getWidth() * .2) - (buttonSize7 / 2));
+        int height7 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize7 / 2));
         buyModeButton.setBounds(width7, height7, buyModeButton.getWidth(), buyModeButton.getHeight());
         buyModeButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 ProjectOdyssey.sellMode = true;
@@ -251,14 +256,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         sellModeButton.setSize(buttonSize6, buttonSize6);
         /*int width6 = (int) ((Gdx.graphics.getWidth() - sellModeButton.getWidth())/2);
         int height6 = (int) (((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4)); */
-        int width6 = (int) ((Gdx.graphics.getWidth() *.2) - (sellModeButton.getWidth()/2));
-        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (sellModeButton.getWidth()/2));
+        int width6 = (int) ((Gdx.graphics.getWidth() * .2) - (buttonSize6 / 2));
+        int height6 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize6 / 2));
         sellModeButton.setBounds(width6, height6, sellModeButton.getWidth(), sellModeButton.getHeight());
         sellModeButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 ProjectOdyssey.sellMode = false;
@@ -285,14 +291,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         marketButton = new ImageButton(gameButtonStyle);
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         marketButton.setSize(buttonSize8, buttonSize8);
-        int width8 = (int) (Gdx.graphics.getWidth() *.7 - (marketButton.getWidth()/2));
-        int height8 = (int) (Gdx.graphics.getHeight() *.1 - (marketButton.getHeight()/2));
+        int width8 = (int) (((Gdx.graphics.getWidth() - marketButton.getWidth()) / 4) * 3);
+        int height8 = (int) ((Gdx.graphics.getHeight() - marketButton.getHeight()) / 20);
         marketButton.setBounds(width8, height8, marketButton.getWidth(), marketButton.getHeight());
         marketButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 game.setScreen(new Market(game));
@@ -317,25 +324,25 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         snowManButton = new ImageButton(snowManButtonStyle);
         int buttonSize9 = (int) (75 * Gdx.graphics.getDensity());
         snowManButton.setSize(buttonSize9, buttonSize9);
-        int width9 = (int) ((Gdx.graphics.getWidth() * .7) - (snowManButton.getWidth()/2));
-        int height9 = (int) ((Gdx.graphics.getHeight() * .35) - (snowManButton.getWidth()/2));
+        int width9 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize9 / 2));
+        int height9 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize9 / 2));
         snowManButton.setBounds(width9, height9, snowManButton.getWidth(), snowManButton.getHeight());
         snowManButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowMan > 0){//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowMan > 0) {//prevents from selling into negatives
                     ProjectOdyssey.snowMan--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys + ProjectOdyssey.iceCream;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iceCream;//adds iceprice amount of moneys each time you click button
                 }
-                if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowManPrice){//prevents from selling into negatives
-                    ProjectOdyssey.snowMan ++;
-                    ProjectOdyssey.moneys =  ProjectOdyssey.moneys - ProjectOdyssey.snowManPrice;//adds iceprice amount of moneys each time you click button
+                if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowManPrice) {//prevents from selling into negatives
+                    ProjectOdyssey.snowMan++;
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys - ProjectOdyssey.snowManPrice;//adds iceprice amount of moneys each time you click button
                 }
-
 
 
             }
@@ -344,7 +351,6 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         stage.addActor(snowManButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
-
 
 
         // Button skin
@@ -360,14 +366,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockIceCreamButton = new ImageButton(unlockIceCreamButtonStyle);
         int buttonSize12 = (int) (120 * Gdx.graphics.getDensity());
         unlockIceCreamButton.setSize(buttonSize12, buttonSize12);
-        int width12 = (int) ((Gdx.graphics.getWidth() * .3) - (unlockIceCreamButton.getWidth()/2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
-        int height12 = (int) ((Gdx.graphics.getHeight() * .7) - (unlockIceCreamButton.getWidth()/2));//Finding height of button for later use
+        int width12 = (int) ((Gdx.graphics.getWidth() * .3) - (buttonSize12 / 2));//Finding width of button for later use. We do buttonSize/2 to make sure the button is being moved by its center location, not its corner, as to assure for similar sizing on different size screens
+        int height12 = (int) ((Gdx.graphics.getHeight() * .7) - (buttonSize12 / 2));//Finding height of button for later use
         unlockIceCreamButton.setBounds(width12, height12, unlockIceCreamButton.getWidth(), unlockIceCreamButton.getHeight());
         unlockIceCreamButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
@@ -394,14 +401,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockSnowFlakeButton = new ImageButton(unlockSnowFlakeButtonStyle);
         int buttonSize13 = (int) (120 * Gdx.graphics.getDensity());
         unlockSnowFlakeButton.setSize(buttonSize13, buttonSize13);
-        final int width13 = (int) (((Gdx.graphics.getWidth() * .7)) - (unlockSnowFlakeButton.getWidth()/2));
-        final int height13 = (int) (((Gdx.graphics.getHeight() * .7)) - (unlockSnowFlakeButton.getWidth()/2));
+        final int width13 = (int) (((Gdx.graphics.getWidth() * .7)) - (buttonSize13 / 2));
+        final int height13 = (int) (((Gdx.graphics.getHeight() * .7)) - (buttonSize13 / 2));
         unlockSnowFlakeButton.setBounds(width13, height13, unlockSnowFlakeButton.getWidth(), unlockSnowFlakeButton.getHeight());
         unlockSnowFlakeButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
@@ -428,14 +436,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockIcicleButton = new ImageButton(unlockIcicleButtonStyle);
         int buttonSize14 = (int) (120 * Gdx.graphics.getDensity());
         unlockIcicleButton.setSize(buttonSize14, buttonSize14);
-        int width14 = (int) (((Gdx.graphics.getWidth() *.3)) - (unlockIcicleButton.getWidth()/2));
-        int height14 = (int) (((Gdx.graphics.getHeight() * .35)) - (unlockIcicleButton.getWidth()/2));
+        int width14 = (int) (((Gdx.graphics.getWidth() * .3)) - (buttonSize14 / 2));
+        int height14 = (int) (((Gdx.graphics.getHeight() * .35)) - (buttonSize14 / 2));
         unlockIcicleButton.setBounds(width14, height14, unlockIcicleButton.getWidth(), unlockIcicleButton.getHeight());
         unlockIcicleButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
@@ -462,14 +471,15 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         unlockSnowManButton = new ImageButton(unlockSnowManButtonStyle);
         int buttonSize15 = (int) (120 * Gdx.graphics.getDensity());
         unlockSnowManButton.setSize(buttonSize15, buttonSize15);
-        int width15 = (int) ((Gdx.graphics.getWidth() * .7) - (unlockSnowManButton.getWidth()/2));
-        int height15 = (int) ((Gdx.graphics.getHeight() * .35) - (unlockSnowManButton.getWidth()/2));
+        int width15 = (int) ((Gdx.graphics.getWidth() * .7) - (buttonSize15 / 2));
+        int height15 = (int) ((Gdx.graphics.getHeight() * .35) - (buttonSize15 / 2));
         unlockSnowManButton.setBounds(width15, height15, unlockSnowManButton.getWidth(), unlockSnowManButton.getHeight());
         unlockSnowManButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 if(moneys > unlockPrice){
@@ -507,27 +517,21 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) { //position money counter
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.88 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.88 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x<10
+        } else if (moneys > 999999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.58 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>999999
+        } else if (moneys > 99999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.63 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>99999
+        } else if (moneys > 9999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.68 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>9999
+        } else if (moneys > 999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.73 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>999
+        } else if (moneys > 99) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.78 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>99
+        } else if (moneys > 9) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.83 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>9
         }
-        else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.58 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
-        }
-        else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.63 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
-        }
-        else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.68 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
-        }
-        else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.73 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
-        }
-        else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.78 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
-        }
-        else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
-        }
-        if(ProjectOdyssey.unlocksTwo >= 1) {
+        if (ProjectOdyssey.unlocksTwo >= 1) {
             //Placing # of iceCubes based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
             if (ProjectOdyssey.iceCream < 10) {
                 moneyCounter.draw(batch, "" + ProjectOdyssey.iceCream, ((int) (.275 * screenWidth)), ((int) (.835 * screenHeight))); //# of ice cubes/
@@ -557,7 +561,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
                 moneyCounter.draw(batch, "$" + ProjectOdyssey.iceCreamPrice, ((int) (.225 * screenWidth)), ((int) (.6 * screenHeight))); //# of ice cubes/
             }
         }
-        if(ProjectOdyssey.unlocksTwo >= 2) {
+        if (ProjectOdyssey.unlocksTwo >= 2) {
             //Placing # of snowballs based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
             if (ProjectOdyssey.snowFlake < 10) {
                 moneyCounter.draw(batch, "" + ProjectOdyssey.snowFlake, ((int) (.675 * screenWidth)), ((int) (.835 * screenHeight))); //# of snowBalls
@@ -586,7 +590,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
                 moneyCounter.draw(batch, "$" + ProjectOdyssey.snowFlakePrice, ((int) (.625 * screenWidth)), ((int) (.6 * screenHeight)));
             }
         }
-        if(ProjectOdyssey.unlocksTwo >= 3) {
+        if (ProjectOdyssey.unlocksTwo >= 3) {
             //Placing # of buckets based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
             if (ProjectOdyssey.icicle < 10) {
                 moneyCounter.draw(batch, "" + ProjectOdyssey.icicle, ((int) (.275 * screenWidth)), ((int) (.485 * screenHeight))); //# of buckets
@@ -618,7 +622,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             }
         }
 
-        if(ProjectOdyssey.unlocksTwo >= 4) {
+        if (ProjectOdyssey.unlocksTwo >= 4) {
             //Placing # of shovels based off the number of digits to ensure the number is centered over the Ice Cube Sprite.
             if (ProjectOdyssey.snowMan < 10) {
                 moneyCounter.draw(batch, "" + ProjectOdyssey.snowMan, ((int) (.675 * screenWidth)), ((int) (.485 * screenHeight))); //# of ice cubes/
@@ -660,35 +664,35 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener{
             buyModeButton.draw(batch, 1);
 
         }
-        if(ProjectOdyssey.unlocksTwo == 0){
+        if (ProjectOdyssey.unlocksTwo == 0) {
             unlockIceCreamButton.draw(batch, 1);
             moneyCounter.draw(batch, "$" + 5000, ((int) (.3 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.71 * screenHeight )));
         }
-        if(ProjectOdyssey.unlocksTwo >= 1){
+        if (ProjectOdyssey.unlocksTwo >= 1) {
             iceCreamButton.draw(batch, 1);
             unlockIceCreamButton.setTouchable(Touchable.disabled);
         }
-        if(ProjectOdyssey.unlocksTwo == 1){
+        if (ProjectOdyssey.unlocksTwo == 1) {
             unlockSnowFlakeButton.draw(batch, 1);
             moneyCounter.draw(batch, "$" + 10000, ((int) (.7 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.71 * screenHeight )));
         }
-        if(ProjectOdyssey.unlocksTwo >= 2){
+        if (ProjectOdyssey.unlocksTwo >= 2) {
             snowFlakeButton.draw(batch, 1);
             unlockSnowFlakeButton.setTouchable(Touchable.disabled);
         }
-        if(ProjectOdyssey.unlocksTwo == 2){
+        if (ProjectOdyssey.unlocksTwo == 2) {
             unlockIcicleButton.draw(batch, 1);
             moneyCounter.draw(batch, "$" + 25000, ((int) (.3 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.36 * screenHeight )));
         }
-        if(ProjectOdyssey.unlocksTwo >= 3){
+        if (ProjectOdyssey.unlocksTwo >= 3) {
             icicleButton.draw(batch, 1);
             unlockIcicleButton.setTouchable(Touchable.disabled);
         }
-        if(ProjectOdyssey.unlocksTwo == 3){
+        if (ProjectOdyssey.unlocksTwo == 3) {
             unlockSnowManButton.draw(batch, 1);
             moneyCounter.draw(batch, "$" + 99999, ((int) (.7 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.36 * screenHeight )));
         }
-        if(ProjectOdyssey.unlocksTwo >= 4){
+        if (ProjectOdyssey.unlocksTwo >= 4) {
             snowManButton.draw(batch, 1);
             unlockSnowManButton.setTouchable(Touchable.disabled);
         }

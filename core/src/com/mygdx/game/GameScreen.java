@@ -92,7 +92,6 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         playButtonStyle.imageDown = iceButtonSkin.getDrawable("iceButton"); // Pressed
 
 
-
         // Play button
         iceButton = new ImageButton(playButtonStyle);
         int buttonSize = (int) (100 * Gdx.graphics.getDensity());
@@ -225,6 +224,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 moneys++;
@@ -252,6 +252,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 moneys++;
@@ -272,13 +273,14 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         twoPersonRingStyle.imageDown = twoPersonRingSkin.getDrawable("twoPersonRing"); // Pressed
 
         twoPersonRing = new ImageButton(twoPersonRingStyle);
-        twoPersonRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        twoPersonRing.setSize(buttonSize4, (buttonSize4 * (float) .386)); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
         twoPersonRing.setBounds(width4, height4, twoPersonRing.getWidth(), twoPersonRing.getHeight());
         twoPersonRing.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 moneys++;
@@ -299,13 +301,14 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         threePersonNoRingStyle.imageDown = threePersonNoRingSkin.getDrawable("threePersonNoRing"); // Pressed
 
         threePersonNoRing = new ImageButton(threePersonNoRingStyle);
-        threePersonNoRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        threePersonNoRing.setSize(buttonSize4, (buttonSize4 * (float) .386)); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
         threePersonNoRing.setBounds(width4, height4, threePersonNoRing.getWidth(), threePersonNoRing.getHeight());
         threePersonNoRing.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 moneys++;
@@ -326,13 +329,14 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         threePersonRingStyle.imageDown = threePersonRingSkin.getDrawable("threePersonRing"); // Pressed
 
         threePersonRing = new ImageButton(threePersonRingStyle);
-        threePersonRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
+        threePersonRing.setSize(buttonSize4, (buttonSize4 * (float) .386)); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
         threePersonRing.setBounds(width4, height4, threePersonRing.getWidth(), threePersonRing.getHeight());
         threePersonRing.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 moneys++;
@@ -382,7 +386,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     public void render(float delta) {
         System.out.println("marketshow" + ProjectOdyssey.marketShow);
         playTime = playTime + Gdx.graphics.getDeltaTime();
-        playIntSec = (int)playTime;
+        playIntSec = (int) playTime;
         /*if(playIntSec == 60){
             playIntSec = 0;
             playIntHour++;
@@ -395,25 +399,19 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         batch.begin(); //Begin printing money counter
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) { //position money counter
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.88 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x<10
-        }
-        else if (moneys > 999999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.58 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999999
-        }
-        else if (moneys > 99999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.63 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99999
-        }
-        else if (moneys > 9999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.68 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9999
-        }
-        else if (moneys > 999) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.73 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>999
-        }
-        else if (moneys > 99) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.78 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>99
-        }
-        else if (moneys > 9) {
-            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.88 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x<10
+        } else if (moneys > 999999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.58 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>999999
+        } else if (moneys > 99999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.63 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>99999
+        } else if (moneys > 9999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.68 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>9999
+        } else if (moneys > 999) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.73 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>999
+        } else if (moneys > 99) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.78 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>99
+        } else if (moneys > 9) {
+            moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int) (.83 * screenWidth)), ((int) (.98 * screenHeight))); //Position of money counter when x>9
         }
 
         batch.end();
@@ -445,51 +443,36 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         if (ProjectOdyssey.ice == 4) {
             whichTableGameScreen = 1;
-        }
-        else if (ProjectOdyssey.ice == 5) {
+        } else if (ProjectOdyssey.ice == 5) {
             whichTableGameScreen = 2;
-        }
-        else if (ProjectOdyssey.ice == 6) {
+        } else if (ProjectOdyssey.ice == 6) {
             whichTableGameScreen = 3;
-        }
-        else if (ProjectOdyssey.ice == 7) {
+        } else if (ProjectOdyssey.ice == 7) {
             whichTableGameScreen = 4;
-        }
-        else if (ProjectOdyssey.ice == 8) { //thsi one doesnt work idk why
+        } else if (ProjectOdyssey.ice == 8) { //thsi one doesnt work idk why
             whichTableGameScreen = 5;
-        }
-        else { //for testing
+        } else { //for testing
             whichTableGameScreen = 0;
         }
 
-        if (whichTableGameScreen == 0){ //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
+        if (whichTableGameScreen == 0) { //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
             onePersonNoRing.draw(batch, 1);
-        }
-        else if (whichTableGameScreen == 1){
+        } else if (whichTableGameScreen == 1) {
             onePersonRing.draw(batch, 1);
-        }
-        else if (whichTableGameScreen == 2){
+        } else if (whichTableGameScreen == 2) {
             twoPersonNoRing.draw(batch, 1);
-        }
-        else if (whichTableGameScreen == 3){
+        } else if (whichTableGameScreen == 3) {
             twoPersonRing.draw(batch, 1);
-        }
-        else if (whichTableGameScreen == 4){
+        } else if (whichTableGameScreen == 4) {
             threePersonNoRing.draw(batch, 1);
-        }
-        else if (whichTableGameScreen == 5){
+        } else if (whichTableGameScreen == 5) {
             threePersonRing.draw(batch, 1);
         }
         batch.end();
         camera.update();
 
 
-
-
-
-
-
-        if(ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
+        if (ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
             batch.begin();
             marketButton.draw(batch, 1);batch.end();
@@ -497,10 +480,9 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         }
 
 
-
     }
 
-    public void inventory(){
+    public void inventory() {
 
     }
 
