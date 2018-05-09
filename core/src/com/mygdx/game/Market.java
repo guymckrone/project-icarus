@@ -22,6 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
+import static com.mygdx.game.ProjectOdyssey.story;
 
 /**
  * Created by guymc on 11/30/2017.
@@ -524,6 +525,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
                 if(moneys > unlockPrice && ProjectOdyssey.bucketBought == true){
                     moneys = moneys - 1000;
                     ProjectOdyssey.shovelBought = true;
+                    story = 1;
                 }
 
             }

@@ -14,6 +14,7 @@ import java.util.TimerTask;
 
 public class ProjectOdyssey extends Game {
 
+	public static int story = 0; //Ok, so this variable tracks the players progress it the game.
 
 	public static int ice = 0;//ice variable used in every class
 	public static int snowBall = 0;
