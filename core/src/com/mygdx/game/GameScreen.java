@@ -59,7 +59,6 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     public static int whichTableGameScreen = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
 
     public GameScreen(final ProjectOdyssey game) {
-        System.out.println(screenWidth + "HERE");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = (int)(Gdx.graphics.getWidth()/15.4285714286);
