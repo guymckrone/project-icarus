@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -30,6 +32,13 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
     private BitmapFont moneyCounter = new BitmapFont();
     OrthographicCamera camera;
 
+    private BitmapFont dialogueOne = new BitmapFont();
+    private BitmapFont dialogueTwo = new BitmapFont();
+    private BitmapFont dialogueThree = new BitmapFont();
+
+    private String example = "Hello World"; //Use this line to add all the text, can be copied infinite times
+    private String nameOfTextOption = "What the text should be"; //example of what to change, keep the variable name short, i have to type these out 4 times each after!!!
+
     private ImageButton optionOneButton;
     private ImageButton optionTwoButton;
     private ImageButton optionThreeButton;
@@ -42,17 +51,31 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
         camera = new OrthographicCamera();//creates camera
         camera.setToOrtho(false, 800, 480);//creates viewport
 
+
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 70;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
-        moneyCounter = generator.generateFont(parameter); // font size 80 pixels
+        dialogueOne = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
-        System.out.println("Hiiiiii");
+
+        FreeTypeFontGenerator generator2 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter2 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter2.size = 70;
+        parameter2.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
+        dialogueTwo = generator.generateFont(parameter2); // font size 80 pixels
+        generator2.dispose(); // don't forget to dispose to avoid memory leaks!
+
+        FreeTypeFontGenerator generator3 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter3 = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter3.size = 70;
+        parameter3.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
+        dialogueThree = generator.generateFont(parameter3); // font size 80 pixels
+        generator3.dispose(); // don't forget to dispose to avoid memory leaks!
 
         // Button skin
         Skin optionOneButtonSkin = new Skin();
-        optionOneButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+        optionOneButtonSkin.add("lobbySignButton", new Texture("buttons/Choose.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle optionOneButtonStyle = new ImageButton.ImageButtonStyle();
@@ -61,10 +84,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Market button
         optionOneButton = new ImageButton(optionOneButtonStyle);
-        int optionOneButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        int optionOneButtonSize = (int) (90 * Gdx.graphics.getDensity());
         optionOneButton.setSize(optionOneButtonSize, optionOneButtonSize);
-        int optionOneWidth = (int) (((Gdx.graphics.getWidth() - optionOneButton.getWidth())/10));
-        int optionOneHeight = (int) ((Gdx.graphics.getHeight() - optionOneButton.getHeight())/.95);
+        int optionOneWidth = (int) (((Gdx.graphics.getWidth() - optionOneButton.getWidth()))/8);
+        int optionOneHeight = (int) ((Gdx.graphics.getHeight() - optionOneButton.getHeight())/16*13);
         optionOneButton.setBounds(optionOneWidth, optionOneHeight, optionOneButton.getWidth(), optionOneButton.getHeight());
         optionOneButton.addListener(new InputListener() {
             @Override
@@ -81,7 +104,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin optionTwoButtonSkin = new Skin();
-        optionTwoButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+        optionTwoButtonSkin.add("lobbySignButton", new Texture("buttons/Choose.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle optionTwoButtonStyle = new ImageButton.ImageButtonStyle();
@@ -90,10 +113,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Market button
         optionTwoButton = new ImageButton(optionTwoButtonStyle);
-        int lobbySignButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        int lobbySignButtonSize = (int) (90 * Gdx.graphics.getDensity());
         optionTwoButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
-        int optionTwoWidth = (int) (((Gdx.graphics.getWidth() - optionTwoButton.getWidth())/10));
-        int optionTwoHeight = (int) ((Gdx.graphics.getHeight() - optionTwoButton.getHeight())/.95);
+        int optionTwoWidth = (int) (((Gdx.graphics.getWidth() - optionTwoButton.getWidth()))/8);
+        int optionTwoHeight = (int) ((Gdx.graphics.getHeight() - optionTwoButton.getHeight())/16*7);
         optionTwoButton.setBounds(optionTwoWidth, optionTwoHeight, optionTwoButton.getWidth(), optionTwoButton.getHeight());
         optionTwoButton.addListener(new InputListener() {
             @Override
@@ -110,7 +133,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Button skin
         Skin optionThreeButtonSkin = new Skin();
-        optionThreeButtonSkin.add("lobbySignButton", new Texture("LobbyingScreen/LobbyingSign.png"));
+        optionThreeButtonSkin.add("lobbySignButton", new Texture("buttons/Choose.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle optionThreeButtonStyle = new ImageButton.ImageButtonStyle();
@@ -119,10 +142,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Market button
         optionThreeButton = new ImageButton(optionThreeButtonStyle);
-        int optionThreeButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        int optionThreeButtonSize = (int) (90 * Gdx.graphics.getDensity());
         optionThreeButton.setSize(optionThreeButtonSize, optionThreeButtonSize);
-        int lobbySignWidth = (int) (((Gdx.graphics.getWidth() - optionThreeButton.getWidth())/10));
-        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() - optionThreeButton.getHeight())/.95);
+        int lobbySignWidth = (int) (((Gdx.graphics.getWidth() - optionThreeButton.getWidth()))/8);
+        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() - optionThreeButton.getHeight())/16);
         optionThreeButton.setBounds(lobbySignWidth, lobbySignHeight, optionThreeButton.getWidth(), optionThreeButton.getHeight());
         optionThreeButton.addListener(new InputListener() {
             @Override
@@ -145,7 +168,19 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void render(float delta) {
-
+        dialogueOne.setColor(Color.BLACK);
+        dialogueTwo.setColor(Color.BLACK);
+        dialogueThree.setColor(Color.BLACK);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.begin();
+        optionOneButton.draw(batch, 1);
+        optionTwoButton.draw(batch, 1);
+        optionThreeButton.draw(batch, 1);
+        dialogueOne.draw(batch, "Hello world", Gdx.graphics.getWidth()/10, Gdx.graphics.getHeight()/16*14); //Position of money counter when x<10
+        dialogueTwo.draw(batch, "Hello world", Gdx.graphics.getWidth()/10, Gdx.graphics.getHeight()/16*9); //Position of money counter when x<10
+        dialogueThree.draw(batch, "Hello world", Gdx.graphics.getWidth()/10, Gdx.graphics.getHeight()/16*3); //Position of money counter when x<10
+        batch.end();
     }
 
     @Override
