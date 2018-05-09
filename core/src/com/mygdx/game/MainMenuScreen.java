@@ -105,12 +105,6 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener {
         batch.begin();
         playButton.draw(batch, 1);
         batch.end();
-
-        if (Gdx.input.isTouched()) {
-            //game.setScreen(new GameScreen(game));
-            dispose();
-        }
-
         camera.update();
     }
 
