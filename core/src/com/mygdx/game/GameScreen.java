@@ -59,6 +59,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     int playIntHour;
     String gameClock;
 
+    boolean showMarketButton=false;
     public static int whichTableGameScreen = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
 
     public GameScreen(final ProjectOdyssey game) {
@@ -475,10 +476,16 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         if (ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
             batch.begin();
-            marketButton.draw(batch, 1);batch.end();
+            showMarketButton = true;
             ProjectOdyssey.marketShow = true;
+            batch.end();
         }
 
+        if (showMarketButton ==true){
+            batch.begin();
+            marketButton.draw(batch,1);
+            batch.end();
+        }
 
     }
 
