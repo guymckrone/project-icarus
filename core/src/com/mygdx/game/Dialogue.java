@@ -27,6 +27,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class Dialogue implements Screen, GestureDetector.GestureListener{
 
     public static int dialougeStatus = 0;
+    boolean showResponses = false;
 
     final ProjectOdyssey game;
     private Stage stage;
@@ -87,6 +88,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
     private ImageButton optionOneButton;
     private ImageButton optionTwoButton;
     private ImageButton optionThreeButton;
+    private ImageButton nextButton;
+
+    private String npcText = "HERE IS SOME TEST TEXT FOR WHEN YOU LOAD ON THIS SCREEN. LIKE HEY PLAYER I HOPE YOU ARE READY TO CORRUPT SOME LITTLE POLITICIANSS!!!! THEN THE PLAYER HITS NEXT AND IT CHANGES TO THE RESPONSE SCREEN, AND THEN YOU CAN CHANGE THIS TEXT SO IT CHANGES WHEN THEY CLICK A CHOICE, OR SOMETHING";
+
 
     public Dialogue(final ProjectOdyssey game){
         this.game = game;
@@ -129,10 +134,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Market button
         optionOneButton = new ImageButton(optionOneButtonStyle);
-        int optionOneButtonSize = (int) (90 * Gdx.graphics.getDensity());
+        int optionOneButtonSize = (int) (120 * Gdx.graphics.getDensity());
         optionOneButton.setSize(optionOneButtonSize, optionOneButtonSize);
-        int optionOneWidth = (int) (Gdx.graphics.getWidth() * .2 - (optionOneButton.getWidth()/2));
-        int optionOneHeight = (int) (Gdx.graphics.getHeight() * .8 - (optionOneButton.getHeight()/2));
+        int optionOneWidth = (int) (Gdx.graphics.getWidth() * .25 - (optionOneButton.getWidth()/2));
+        int optionOneHeight = (int) (Gdx.graphics.getHeight() * .95 - (optionOneButton.getHeight()/2));
         optionOneButton.setBounds(optionOneWidth, optionOneHeight, optionOneButton.getWidth(), optionOneButton.getHeight());
         optionOneButton.addListener(new InputListener() {
             @Override
@@ -141,6 +146,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                showResponses = false;
 
             }
         });
@@ -158,10 +164,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Market button
         optionTwoButton = new ImageButton(optionTwoButtonStyle);
-        int lobbySignButtonSize = (int) (90 * Gdx.graphics.getDensity());
+        int lobbySignButtonSize = (int) (120 * Gdx.graphics.getDensity());
         optionTwoButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
-        int optionTwoWidth = (int) (((Gdx.graphics.getWidth() * .2 - (optionTwoButton.getWidth()/2))));
-        int optionTwoHeight = (int) ((Gdx.graphics.getHeight() * .5 - (optionTwoButton.getHeight()/2)));
+        int optionTwoWidth = (int) (((Gdx.graphics.getWidth() * .25 - (optionTwoButton.getWidth()/2))));
+        int optionTwoHeight = (int) ((Gdx.graphics.getHeight() * .65 - (optionTwoButton.getHeight()/2)));
         optionTwoButton.setBounds(optionTwoWidth, optionTwoHeight, optionTwoButton.getWidth(), optionTwoButton.getHeight());
         optionTwoButton.addListener(new InputListener() {
             @Override
@@ -170,6 +176,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                showResponses = false;
 
             }
         });
@@ -187,10 +194,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         // Market button
         optionThreeButton = new ImageButton(optionThreeButtonStyle);
-        int optionThreeButtonSize = (int) (90 * Gdx.graphics.getDensity());
+        int optionThreeButtonSize = (int) (120 * Gdx.graphics.getDensity());
         optionThreeButton.setSize(optionThreeButtonSize, optionThreeButtonSize);
-        int lobbySignWidth = (int) (Gdx.graphics.getWidth() * .2 - (optionThreeButton.getWidth()/2));
-        int lobbySignHeight = (int) (Gdx.graphics.getHeight() * .3 - (optionThreeButton.getHeight()/2));
+        int lobbySignWidth = (int) (Gdx.graphics.getWidth() * .25 - (optionThreeButton.getWidth()/2));
+        int lobbySignHeight = (int) (Gdx.graphics.getHeight() * .35 - (optionThreeButton.getHeight()/2));
         optionThreeButton.setBounds(lobbySignWidth, lobbySignHeight, optionThreeButton.getWidth(), optionThreeButton.getHeight());
         optionThreeButton.addListener(new InputListener() {
             @Override
@@ -199,10 +206,40 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                showResponses = false;
 
             }
         });
         stage.addActor(optionThreeButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        // Button skin
+        Skin nextButtonSkin = new Skin();
+        nextButtonSkin.add("nextButton", new Texture("buttons/Next.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle nextButtonStyle = new ImageButton.ImageButtonStyle();
+        nextButtonStyle.imageUp = nextButtonSkin.getDrawable("nextButton"); // Unpressed
+        nextButtonStyle.imageDown = nextButtonSkin.getDrawable("nextButton"); // Pressed
+
+        // Market button
+        nextButton = new ImageButton(nextButtonStyle);
+        int nextButtonSize = (int) (120 * Gdx.graphics.getDensity());
+        nextButton.setSize(nextButtonSize, nextButtonSize);
+        int nextButtonWidth = (int) (Gdx.graphics.getWidth() * .5 - (nextButton.getWidth()/2));
+        int nextButtonHeight = (int) (Gdx.graphics.getHeight() * .1 - (nextButton.getHeight()/2));
+        nextButton.setBounds(nextButtonWidth, nextButtonHeight, nextButton.getWidth(), nextButton.getHeight());
+        nextButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                showResponses = true;
+            }
+        });
+        stage.addActor(nextButton);
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
 
@@ -219,16 +256,23 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        optionOneButton.draw(batch, 1);
-        optionTwoButton.draw(batch, 1);
-        optionThreeButton.draw(batch, 1);
+        if (showResponses == true) {
+            optionOneButton.draw(batch, 1);
+            optionTwoButton.draw(batch, 1);
+            optionThreeButton.draw(batch, 1);
 
-        if (dialougeStatus == 0){
-            dialogueOne.draw(batch, "Hello world", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .8));
-            dialogueOne.draw(batch, "Hello world", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .5));
-            dialogueOne.draw(batch, "Hello world", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .2));
+            if (dialougeStatus == 0) {
+                dialogueOne.draw(batch, "Hello world", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .9));
+                dialogueOne.draw(batch, "Hello world", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .6));
+                dialogueOne.draw(batch, "Hello world", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .3));
+            }
         }
+        else{
+            nextButton.draw(batch,1);
+            dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .95));
 
+
+        }
 
         batch.end();
     }
