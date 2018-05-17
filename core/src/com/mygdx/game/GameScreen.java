@@ -20,6 +20,7 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 
 import static com.mygdx.game.ProjectOdyssey.moneys;
+import static com.mygdx.game.ProjectOdyssey.story;
 
 /**
  * Created by guymc on 11/29/2017.
@@ -35,6 +36,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
     private SpriteBatch batch;
     private ImageButton iceButton;
     private ImageButton marketButton;
+
+    private ImageButton unlockLobbyButton;
     private ImageButton lobbyButton;
 
     private ImageButton onePersonNoRing;
@@ -344,6 +347,38 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         stage.addActor(threePersonRing);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        Skin unlockLobbyButtonSkin = new Skin();
+        unlockLobbyButtonSkin.add("unlockLobbyButton", new Texture("buttons/Upgrade.png"));
+
+        ImageButton.ImageButtonStyle unlockLobbyButtonStyle = new ImageButton.ImageButtonStyle();
+        unlockLobbyButtonStyle.imageUp = unlockLobbyButtonSkin.getDrawable("unlockLobbyButton"); // Unpressed
+        unlockLobbyButtonStyle.imageDown = unlockLobbyButtonSkin.getDrawable("unlockLobbyButton"); // Pressed
+
+        unlockLobbyButton = new ImageButton(unlockLobbyButtonStyle);
+        int buttonSize5 = (int) (100 * Gdx.graphics.getDensity());
+        unlockLobbyButton.setSize(buttonSize5, buttonSize5);
+        int width5 = (int) ((Gdx.graphics.getWidth() * .7) - (unlockLobbyButton.getWidth()/2));
+        int height5 = (int) ((Gdx.graphics.getHeight() * .1) - (unlockLobbyButton.getWidth()/2));
+        unlockLobbyButton.setBounds(width5, height5, unlockLobbyButton.getWidth(), unlockLobbyButton.getHeight());
+        unlockLobbyButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                if (moneys > 4999){
+                    moneys = moneys - 5000;
+                    story = 2;
+                }
+
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(unlockLobbyButton);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
 
 
@@ -384,6 +419,27 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         iceButton.draw(batch, 1);
 
+        if ( story == 0){
+            unlockLobbyButton.setTouchable(Touchable.disabled);
+            lobbyButton.setTouchable(Touchable.disabled);
+        }
+        else if (story == 1){
+            unlockLobbyButton.setTouchable(Touchable.enabled);
+            lobbyButton.setTouchable(Touchable.disabled);
+            unlockLobbyButton.draw(batch, 1);
+            moneyCounter.draw(batch, "$" + 5000, ((int) (.7 * screenWidth - (unlockLobbyButton.getWidth()/2))), ((int) (.11 * screenHeight )));
+
+        }
+        else if (story > 1){
+            unlockLobbyButton.setTouchable(Touchable.disabled);
+            lobbyButton.setTouchable(Touchable.enabled);
+            lobbyButton.draw(batch, 1);
+
+        }
+
+
+
+
 
         if (ProjectOdyssey.ice == 4) {
             whichTableGameScreen = 1;
@@ -418,17 +474,10 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         if (ProjectOdyssey.ice >= 5 || ProjectOdyssey.marketShow == true) {
             marketButton.setTouchable(Touchable.enabled);
-            lobbyButton.setTouchable(Touchable.enabled);
-
             batch.begin();
-            marketButton.draw(batch, 1);
-            lobbyButton.draw(batch, 1);
-            batch.end();
+            marketButton.draw(batch, 1);batch.end();
             ProjectOdyssey.marketShow = true;
         }
-       /* if(ProjectOdyssey.lobbyUnlock == true){
-            lobbyButton.draw(batch, 1);
-        }*/
 
 
     }
