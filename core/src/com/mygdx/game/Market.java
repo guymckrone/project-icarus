@@ -411,7 +411,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice){
+                if(moneys > 99){
                     moneys = moneys - 100;
                     ProjectOdyssey.sellBuyBought = true;
                     sellModeButton.setTouchable(Touchable.enabled);
@@ -448,7 +448,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice && ProjectOdyssey.sellBuyBought == true){
+                if(moneys > 199 && ProjectOdyssey.sellBuyBought == true){
                     moneys = moneys - 200;
                     ProjectOdyssey.sbBought = true;
                 }
@@ -483,7 +483,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice && ProjectOdyssey.sbBought == true){
+                if(moneys > 499 && ProjectOdyssey.sbBought == true){
                     moneys = moneys - 500;
                     ProjectOdyssey.bucketBought = true;
                 }
@@ -518,7 +518,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice && ProjectOdyssey.bucketBought == true){
+                if(moneys > 999 && ProjectOdyssey.bucketBought == true){
                     moneys = moneys - 1000;
                     ProjectOdyssey.shovelBought = true;
                     story = 1;
@@ -554,7 +554,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (moneys > unlockPrice && ProjectOdyssey.shovelBought == true && ProjectOdyssey.marketTwoBought == false) {
+                if (moneys > 2999 && ProjectOdyssey.shovelBought == true && ProjectOdyssey.marketTwoBought == false) {
                     unlockMarketTwoButton.setTouchable(Touchable.disabled);
                     moneys = moneys - 3000;
                     ProjectOdyssey.marketTwoBought = true;
