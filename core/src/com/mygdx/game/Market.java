@@ -335,8 +335,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         gameButton = new ImageButton(gameButtonStyle);
         int buttonSize8 = (int) (75 * Gdx.graphics.getDensity());
         gameButton.setSize(buttonSize8, buttonSize8);
-        int width8 = (int) (((Gdx.graphics.getWidth() - gameButton.getWidth()) / 4) * 3);
-        int height8 = (int) ((Gdx.graphics.getHeight() - gameButton.getHeight()) / 20);
+        int width8 = (int) (Gdx.graphics.getWidth()*.7 - (gameButton.getWidth()/2));
+        int height8 = (int) (Gdx.graphics.getHeight() *.1 - (gameButton.getHeight()/2));
         gameButton.setBounds(width8, height8, gameButton.getWidth(), gameButton.getHeight());
         gameButton.addListener(new InputListener() {
             @Override
@@ -401,7 +401,7 @@ public class Market implements Screen, GestureDetector.GestureListener{
         int buttonSize11 = (int) (120 * Gdx.graphics.getDensity());
         unlockSellBuyButton.setSize(buttonSize11, buttonSize11);
         int width11 = (int) ((Gdx.graphics.getWidth() * .2) - (buttonSize11 / 2));
-        int height11 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize11 / 2));
+        int height11 = (int) (((Gdx.graphics.getHeight() * .92)) - (buttonSize11 / 2));
         unlockSellBuyButton.setBounds(width11, height11, unlockSellBuyButton.getWidth(), unlockSellBuyButton.getHeight());
         unlockSellBuyButton.addListener(new InputListener() {
             @Override
@@ -543,8 +543,8 @@ public class Market implements Screen, GestureDetector.GestureListener{
         unlockMarketTwoButton = new ImageButton(unlockMarketTwoButtonStyle);
         int buttonSize15 = (int) (120 * Gdx.graphics.getDensity());
         unlockMarketTwoButton.setSize(buttonSize15, buttonSize15);
-        int width15 = (int) (((Gdx.graphics.getWidth() - unlockMarketTwoButton.getWidth()) / 4));
-        int height15 = (int) (((Gdx.graphics.getHeight() - unlockMarketTwoButton.getHeight()) / 20));
+        int width15 = (int) (Gdx.graphics.getWidth()*.3 - (unlockMarketTwoButton.getWidth() / 2));
+        int height15 = (int) (Gdx.graphics.getHeight() *.1 - (unlockMarketTwoButton.getHeight() /2));
         unlockMarketTwoButton.setBounds(width15, height15, unlockMarketTwoButton.getWidth(), unlockMarketTwoButton.getHeight());
         unlockMarketTwoButton.addListener(new InputListener() {
             @Override
