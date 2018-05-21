@@ -227,8 +227,8 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         lobbySignButton = new ImageButton(lobbySignButtonStyle);
         int lobbySignButtonSize = (int) (100 * Gdx.graphics.getDensity());
         lobbySignButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
-        int lobbySignWidth = (int) ((Gdx.graphics.getWidth() * .2 - (lobbySignButton.getWidth()/2)));
-        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() * .93 - (lobbySignButton.getHeight()/2)));
+        int lobbySignWidth = (int) ((Gdx.graphics.getWidth() * .15 - (lobbySignButton.getWidth()/2)));
+        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() * .95 - (lobbySignButton.getHeight()/2)));
         lobbySignButton.setBounds(lobbySignWidth, lobbySignHeight, lobbySignButton.getWidth(), lobbySignButton.getHeight());
         lobbySignButton.addListener(new InputListener() {
             @Override
@@ -238,7 +238,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
-                game.setScreen(new GameScreen(game));
+                moneys++;
             }
         });
         stage.addActor(lobbySignButton);
@@ -366,7 +366,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         conTableOne.draw(batch, 1);
         gameScreenButton.draw(batch,1);
 
-    
+
 
         if ( upgradeThreeProgress == 8){
             whichTableLobbyScreen = 3;
