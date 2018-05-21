@@ -183,12 +183,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     ProjectOdyssey.upgradeOneTwelve = true;
 
                 }
-                else if (upgradeOneProgress == 12 && moneys > 399999){
-                    upgradeOneProgress = 13;
-                    moneys = moneys - 400000;
-                    ProjectOdyssey.upgradeOneThirteen = true;
 
-                }
             }
         });
         stage.addActor(upgradeOne);
@@ -277,11 +272,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 360000;
                     ProjectOdyssey.upgradeTwoTwelve = true;
                 }
-                else if (upgradeTwoProgress == 12 && moneys > 999999){
-                    upgradeTwoProgress = 13;
-                    moneys = moneys - 1000000;
-                    ProjectOdyssey.upgradeTwoThirteen = true;
-                }
+
             }
         });
         stage.addActor(upgradeTwo);
@@ -350,31 +341,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     moneys = moneys - 1200000;
                     ProjectOdyssey.upgradeThreeEight = true;
                 }
-                else if (upgradeThreeProgress == 8 && moneys > 49199){
-                    upgradeThreeProgress = 9;
-                    moneys = moneys - 9999999;
-                    ProjectOdyssey.upgradeThreeNine = true;
-                }
-                else if (upgradeThreeProgress == 9 && moneys > 131999){
-                    upgradeThreeProgress = 10;
-                    moneys = moneys - 9999999;
-                    ProjectOdyssey.upgradeThreeTen = true;
-                }
-                else if (upgradeThreeProgress == 10 && moneys > 699999){
-                    upgradeThreeProgress = 11;
-                    moneys = moneys - 9999999;
-                    ProjectOdyssey.upgradeThreeEleven = true;
-                }
-                else if (upgradeThreeProgress == 11 && moneys > 1499999){
-                    upgradeThreeProgress = 12;
-                    moneys = moneys - 9999999;
-                    ProjectOdyssey.upgradeThreeTwelve = true;
-                }
-                else if (upgradeThreeProgress == 12 && moneys > 2699999){
-                    upgradeThreeProgress = 13;
-                    moneys = moneys - 9999999;
-                    ProjectOdyssey.upgradeThreeThirteen = true;
-                }
+
             }
         });
         stage.addActor(upgradeThree);
@@ -522,12 +489,12 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
         }
-        else if (upgradeOneProgress == 12){
+/*        else if (upgradeOneProgress == 12){
             moneyCounter.draw(batch, "$120000: Increase", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "PLACEHOLDER", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
             moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.8 * screenHeight))); //
-        }
-        else if (upgradeOneProgress == 13){
+        }*/
+        else if (upgradeOneProgress == 12){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.90 * screenHeight))); //
             moneyCounter.draw(batch, "purchased.", ((int)(.05 * screenWidth)), ((int)(.85 * screenHeight))); //
         }
@@ -593,12 +560,12 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "snowflakes: 50%", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
         }
-        else if (upgradeTwoProgress == 12){
+/*        else if (upgradeTwoProgress == 12){
             moneyCounter.draw(batch, "$1300000: Increase", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "PLACEHOLDER", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
             moneyCounter.draw(batch, "Snowballs: 50%", ((int)(.05 * screenWidth)), ((int)(.55 * screenHeight))); //
-        }
-        else if (upgradeTwoProgress == 13){
+        }*/
+        else if (upgradeTwoProgress == 12){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.65 * screenHeight))); //
             moneyCounter.draw(batch, "purchased.", ((int)(.05 * screenWidth)), ((int)(.6 * screenHeight))); //
         }
@@ -644,7 +611,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "max value of", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "snowmen: 50%", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
         }
-        else if (upgradeThreeProgress == 8){
+/*        else if (upgradeThreeProgress == 8){
             moneyCounter.draw(batch, "$9999999: Produce 41", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "PLACEHOLDER", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "every minute.", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
@@ -663,13 +630,13 @@ public class Book implements Screen, GestureDetector.GestureListener {
             moneyCounter.draw(batch, "$9999999: Increase", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "PLACEHOLDER", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
-        }
-        else if (upgradeThreeProgress == 12){
+        }*/
+/*        else if (upgradeThreeProgress == 12){
             moneyCounter.draw(batch, "$9999999: Increase", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "PLACEHOLDER", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
             moneyCounter.draw(batch, "buckets: 50%", ((int)(.05 * screenWidth)), ((int)(.3 * screenHeight))); //
-        }
-        else if (upgradeThreeProgress == 13){
+        }*/
+        else if (upgradeThreeProgress == 8){
             moneyCounter.draw(batch, "All upgrades", ((int)(.05 * screenWidth)), ((int)(.4 * screenHeight))); //
             moneyCounter.draw(batch, "purchased.", ((int)(.05 * screenWidth)), ((int)(.35 * screenHeight))); //
         }
@@ -679,21 +646,21 @@ public class Book implements Screen, GestureDetector.GestureListener {
 
         lobbyButton.draw(batch,1);
 
-        if (upgradeOneProgress != 13){//If we have bought all of the upgrades, dont show an upgrade button.
+        if (upgradeOneProgress != 12){//If we have bought all of the upgrades, dont show an upgrade button.
             upgradeOne.draw(batch,1);
         }
         else{
             upgradeOne.setTouchable(Touchable.disabled);
         }
 
-        if (upgradeTwoProgress != 13){
+        if (upgradeTwoProgress != 12){
             upgradeTwo.draw(batch,1);
         }
         else{
             upgradeTwo.setTouchable(Touchable.disabled);
         }
 
-        if (upgradeThreeProgress != 13){
+        if (upgradeThreeProgress != 8){
             upgradeThree.draw(batch,1);
 
         }

@@ -442,18 +442,12 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
 
 
-        if (ProjectOdyssey.ice == 4) {
-            whichTableGameScreen = 1;
-        } else if (ProjectOdyssey.ice == 5) {
-            whichTableGameScreen = 2;
-        } else if (ProjectOdyssey.ice == 6) {
-            whichTableGameScreen = 3;
-        } else if (ProjectOdyssey.ice == 7) {
-            whichTableGameScreen = 4;
-        } else if (ProjectOdyssey.ice == 8) { //thsi one doesnt work idk why
-            whichTableGameScreen = 5;
-        } else { //for testing
+        if (story == 0) {
             whichTableGameScreen = 0;
+        } else if (story == 1) {
+            whichTableGameScreen = 2;
+        } else if (story == 2) {
+            whichTableGameScreen = 4;
         }
 
         if (whichTableGameScreen == 0) { //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
