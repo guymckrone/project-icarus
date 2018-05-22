@@ -37,17 +37,17 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
     //All dialogue
     //Contact Senator Mandell
-    private String lobbying1 = "Senator Mandell, how are you doing today?";
-    private String mandell1 = "I’m doing fine, thank you, but I’d like to know who this is and how you got this number.";
-    private String lobbying2 = "I am a representative of MQLC, a company that works with prospective clients looking to get involved in political donations. We serve clientele who wish to see their hard-earned dollars go towards a good cause, including your campaign.";
-    private String mandell2 = "Thanks, but I’m not interested. It’s nothing personal, you have to understand, but I like to keep a certain moral compass that stay’s pointed towards people’s hearts and minds, not some billionaire’s pockets.";
-    private String lobbying3 = "Quite the contrary, Senator, our clientele would be in your pocket rather than the other way around. Anytime you need funding, our clients would be there to serve it up to you right on a silver platter. But I understand your reservations, and you’re right! There are plenty of dishonest men and women out there, but that’s not us. Tell ya what, why don’t you meet one of our clients, get to know them, look em’ up if you want, and then decide if you want our services. What have you got to lose?";
-    private String mandell3 = "Hmmm, I suppose it would be rude of me to refuse to meet one of your clients.";
+    private String lobbying1 = "Hello Senator Mandell how \nare you doing today?";
+    private String mandell1 = "I’m doing fine, thank you, but \nI’d like to know who this is \nand how you got this number.";
+    private String lobbying2 = "I am a representative of MQLC, \na company that works with \nprospective clients looking \nto get involved in political \ndonations. We serve clientele \nwho wish to see their hard \nearned dollars go towards \na good cause, including your \ncampaign.";
+    private String mandell2 = "Thanks, but I’m not interested. \nIt’s nothing personal, you \nhave to understand, but I like \nto keep a certain moral \ncompass that stay’s pointed \ntowards people’s hearts and \nminds, not some billionaire’s \npockets.";
+    private String lobbying3 = "Quite the contrary, Senator, \nour clientele would be in \nyour pocket rather than the \nother way around. Anytime \nyou need funding, our clients \nwould be there to serve it up \nto you right on a silver \nplatter. But I understand \nyour reservations. Why don’t \nyou meet one of our clients, \nget to know them. Then decide \nif you want our services. \nWhat have you got to lose?";
+    private String mandell3 = "Hmmm, I suppose it would be \nrude of me to refuse to meet \none of your clients.";
 
     //Offer to Fund Mandell's Campaign
-    private String player1 = "Hello, Senator Mandell, my name is [BLANK]. I understand that MQLC recently contacted you about offering its services and I wanted to personally take a moment to cordially offer my support.";
-    private String yesMandell = "Thank you, [Player], as a matter of fact they did! I am happy to finally meet one of their clients, and even more happy to accept your support. I hope that this will prove to be a mutually beneficial relationship.";
-    private String noMandell = "Thank you, [Player], I appreciate the offer and the time you and MQLC took to make it. However, I do not feel at this time that it is in my best interests, or even necessary, for me to accept donations from third parties. Thank you again for the offer.";
+    private String player1 = "Hello, Senator Mandell, my \nname is [BLANK]. I understand \nthat MQLC recently contacted \nyou about offering its \nservices and I wanted to \npersonally take a moment to \ncordially offer my support.";
+    private String yesMandell = "Thank you, [Player], as a \nmatter of fact they did! I am \nhappy to finally meet one of \ntheir clients, and even more \nhappy to accept your \nsupport. I hope that this will \nprove to be a mutually \nbeneficial relationship.";
+    private String noMandell = "Thank you, [Player], I appreciate \nthe offer and the time you \nand MQLC took to make it. \nHowever, I do not feel at this \ntime that it is in my best \ninterests, or even necessary, \nfor me to accept donations \nfrom third parties. Thank you \nagain for the offer.";
 
     //Attempt to Bribe Mandell
     private String lobbying4 = "Senator Mandell, how are you on this fine day?";
@@ -90,7 +90,9 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
     private ImageButton optionThreeButton;
     private ImageButton nextButton;
 
-    private String npcText = "HERE IS SOME TEST TEXT FOR WHEN YOU LOAD ON THIS SCREEN. LIKE HEY PLAYER I HOPE YOU ARE READY TO CORRUPT SOME LITTLE POLITICIANSS!!!! THEN THE PLAYER HITS NEXT AND IT CHANGES TO THE RESPONSE SCREEN, AND THEN YOU CAN CHANGE THIS TEXT SO IT CHANGES WHEN THEY CLICK A CHOICE, OR SOMETHING";
+    private String npcText = lobbying1;
+
+    private int dialogueProgress = 1;
 
 
     public Dialogue(final ProjectOdyssey game){
@@ -236,7 +238,9 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                showResponses = true;
+                dialogueProgress++;
+                System.out.println(dialogueProgress);
+                //showResponses = true;
             }
         });
         stage.addActor(nextButton);
@@ -250,6 +254,47 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void render(float delta) {
+        if(dialogueProgress == 1){
+            npcText = yesMandell;
+        }
+        if(dialogueProgress == 2){
+            npcText = noMandell;
+        }
+        if(dialogueProgress == 3){
+            npcText = lobbying2;
+        }
+        if(dialogueProgress == 4){
+            npcText = mandell2;
+        }
+        if(dialogueProgress == 5){
+            npcText = lobbying3;
+        }
+        if(dialogueProgress == 6){
+            npcText = mandell3;
+        }
+        /*if(dialogueProgress == 1){
+            npcText = lobbying1;
+        }
+        if(dialogueProgress == 2){
+            npcText = mandell1;
+        }
+        if(dialogueProgress == 3){
+            npcText = lobbying2;
+        }
+        if(dialogueProgress == 4){
+            npcText = mandell2;
+        }
+        if(dialogueProgress == 5){
+            npcText = lobbying3;
+        }
+        if(dialogueProgress == 6){
+            npcText = mandell3;
+        }*/
+
+
+
+
+
         dialogueOne.setColor(Color.BLACK);
         dialogueTwo.setColor(Color.BLACK);
         dialogueThree.setColor(Color.BLACK);
@@ -269,7 +314,8 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
         }
         else{
             nextButton.draw(batch,1);
-            dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .95));
+            //dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .1), (float) (Gdx.graphics.getHeight() * .95));
+            dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .08), (float) (Gdx.graphics.getHeight() * .8));
 
 
         }
