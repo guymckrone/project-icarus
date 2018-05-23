@@ -44,6 +44,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
     private ImageButton gameScreenButton;
 
     private ImageButton phoneButton;
+    private ImageButton phoneOffButton;
     private ImageButton bookNoMarkButton;
     private ImageButton bookMarkButton;
 
@@ -241,6 +242,37 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         stage.addActor(lobbySignButton);
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
+       /* // Button skin
+        Skin phoneOffButtonSkin = new Skin();
+        phoneOffButtonSkin.add("phoneButton", new Texture("LobbyingScreen/Telephone.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle phoneOffButtonStyle = new ImageButton.ImageButtonStyle();
+        phoneOffButtonStyle.imageUp = phoneOffButtonSkin.getDrawable("phoneButton"); // Unpressed
+        phoneOffButtonStyle.imageDown = phoneOffButtonSkin.getDrawable("phoneButton"); // Pressed
+
+        // Market button
+        phoneOffButton = new ImageButton(phoneOffButtonStyle);
+        int phoneOffButtonSize = (int) (80 * Gdx.graphics.getDensity());
+        phoneOffButton.setSize(phoneOffButtonSize, phoneOffButtonSize);
+        //int phoneButtonWidth = (int) (((Gdx.graphics.getWidth() *.25) - phoneButton.getWidth())/2);
+        int phoneOffButtonWidth = (int) ((Gdx.graphics.getWidth() *.33)- (phoneOffButton.getWidth()/2));
+        int phoneOffButtonHeight = (int) ((Gdx.graphics.getHeight()*.5)- (phoneOffButton.getWidth()/2));
+        phoneOffButton.setBounds(phoneOffButtonWidth, phoneOffButtonHeight, phoneOffButton.getWidth(), phoneOffButton.getHeight());
+        phoneOffButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+
+            }
+        });
+        stage.addActor(phoneOffButton);
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));*/
+
+
         // Button skin
         Skin phoneButtonSkin = new Skin();
         phoneButtonSkin.add("phoneButton", new Texture("LobbyingScreen/Telephone.png"));
@@ -408,12 +440,6 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         batch.end();
         camera.update();
         batch.begin();
-
-
-
-
-
-
 
         moneyCounter.setColor(Color.BLACK); //money counter text color
         if (moneys < 10) { //position money counter

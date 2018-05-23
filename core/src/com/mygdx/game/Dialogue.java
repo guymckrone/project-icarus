@@ -70,7 +70,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
     private String lobbying11 = "She and the kids must be \nloving Grenada right now, \nwhat with the weather and \nsuch, but I’m sure they would \nbe enjoying it a lot more if \nnot for their-well, how should \nI say...condition.";
     private String mandell10 = "....How do you know about \nSheryl?";
     private String lobbying12 = "I asked you a question before \nSenator, and your answer may \ndecide whether this \nconversation continues or I \nhang up and call the New Ice \nTimes.";
-    private String mandell11 = ". . . .";
+    private String mandell11 = " . . . .";
     private String mandell12 = "What do you want";
 
     //Outcome Possibilities
@@ -259,9 +259,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
     public void render(float delta) {
 
 
-
-
-        /*if(dialogueProgress == 1){
+        if(dialogueProgress == 1){
             npcText = lobbying1;
         }
         if(dialogueProgress == 2){
@@ -288,7 +286,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
         }
         if(dialogueProgress == 9){
             npcText = noMandell;
-        }*/
+        }
 
         if(dialogueProgress == 10){
             npcText = lobbying4;
