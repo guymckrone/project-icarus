@@ -19,6 +19,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
+import static com.mygdx.game.Book.upgradeOneProgress;
+import static com.mygdx.game.Book.upgradeThreeProgress;
+import static com.mygdx.game.Book.upgradeTwoProgress;
 import static com.mygdx.game.ProjectOdyssey.ice;
 import static com.mygdx.game.ProjectOdyssey.moneys;
 
@@ -223,10 +226,10 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
         // Market button
         lobbySignButton = new ImageButton(lobbySignButtonStyle);
-        int lobbySignButtonSize = (int) (130 * Gdx.graphics.getDensity());
+        int lobbySignButtonSize = (int) (100 * Gdx.graphics.getDensity());
         lobbySignButton.setSize(lobbySignButtonSize, lobbySignButtonSize);
-        int lobbySignWidth = (int) ((Gdx.graphics.getWidth() * .2 - (lobbySignButton.getWidth()/2)));
-        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() * .93 - (lobbySignButton.getHeight()/2)));
+        int lobbySignWidth = (int) ((Gdx.graphics.getWidth() * .15 - (lobbySignButton.getWidth()/2)));
+        int lobbySignHeight = (int) ((Gdx.graphics.getHeight() * .95 - (lobbySignButton.getHeight()/2)));
         lobbySignButton.setBounds(lobbySignWidth, lobbySignHeight, lobbySignButton.getWidth(), lobbySignButton.getHeight());
         lobbySignButton.addListener(new InputListener() {
             @Override
@@ -236,7 +239,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
 
-                game.setScreen(new GameScreen(game));
+                moneys++;
             }
         });
         stage.addActor(lobbySignButton);
@@ -395,19 +398,26 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         conTableOne.draw(batch, 1);
         gameScreenButton.draw(batch,1);
 
-        //Determine which table to show
-        if (ProjectOdyssey.ice == 4) {
-            whichTableLobbyScreen = 1;
-        }
-        else if (ProjectOdyssey.ice == 5) {
-            whichTableLobbyScreen = 2;
-        }
-        else if (ProjectOdyssey.ice == 6) {
+
+
+        if ( upgradeThreeProgress == 8){
             whichTableLobbyScreen = 3;
+
         }
-        else { //for testing
+        else if (upgradeTwoProgress == 12){
+            whichTableLobbyScreen = 2;
+
+        }
+        else if (upgradeOneProgress == 12){
+            whichTableLobbyScreen = 1;
+
+        }
+        else{
             whichTableLobbyScreen = 0;
         }
+
+
+
 
         if (whichTableLobbyScreen == 0){ //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
             conTableOne.draw(batch, 1);

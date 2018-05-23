@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.InputMultiplexer;
@@ -48,6 +49,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
     private ImageButton threePersonNoRing;
     private ImageButton threePersonRing;
+
+    private ImageButton iceSign;
 
 
     private int screenWidth = Gdx.graphics.getWidth();
@@ -190,7 +193,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         int buttonSize4 = (int) (300 * Gdx.graphics.getDensity());
         onePersonNoRing.setSize( buttonSize4, (buttonSize4 *(float).386) ); //.386 is the ratio of the sprites height/width to ensure accurate hit detection
         int width4 = (int) (Gdx.graphics.getWidth() * .5 - (onePersonNoRing.getWidth()/2));
-        int height4 = (int) (Gdx.graphics.getHeight() * .8 - (onePersonNoRing.getHeight()/2));
+        int height4 = (int) (Gdx.graphics.getHeight() * .6 - (onePersonNoRing.getHeight()/2));
         onePersonNoRing.setBounds(width4, height4, onePersonNoRing.getWidth(), onePersonNoRing.getHeight());
         onePersonNoRing.addListener(new InputListener() {
             @Override
@@ -380,6 +383,34 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
         stage.addActor(unlockLobbyButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        Skin iceSignSkin = new Skin();
+        iceSignSkin.add("iceSign", new Texture("MainScreen/IceAssociationSign.png"));
+
+        ImageButton.ImageButtonStyle iceSignStyle = new ImageButton.ImageButtonStyle();
+        iceSignStyle.imageUp = iceSignSkin.getDrawable("iceSign"); // Unpressed
+        iceSignStyle.imageDown = iceSignSkin.getDrawable("iceSign"); // Pressed
+
+        iceSign = new ImageButton(iceSignStyle);
+        int buttonSize6 = (int) (150 * Gdx.graphics.getDensity());
+        iceSign.setSize(buttonSize6, buttonSize6);
+        int width6 = (int) ((Gdx.graphics.getWidth() * .25) - (iceSign.getWidth()/2));
+        int height6 = (int) ((Gdx.graphics.getHeight() * .92) - (iceSign.getWidth()/2));
+        iceSign.setBounds(width6, height6, iceSign.getWidth(), iceSign.getHeight());
+        iceSign.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                    moneys++;
+            }
+        });
+        //onePersonNoRing.setTouchable(Touchable.disabled);
+        stage.addActor(iceSign);
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
     }
 
 
@@ -417,7 +448,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         batch.end();
         batch.begin();
-
+        iceSign.draw(batch,1);
         iceButton.draw(batch, 1);
 
         if ( story == 0){
@@ -442,18 +473,12 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
 
 
-        if (ProjectOdyssey.ice == 4) {
-            whichTableGameScreen = 1;
-        } else if (ProjectOdyssey.ice == 5) {
-            whichTableGameScreen = 2;
-        } else if (ProjectOdyssey.ice == 6) {
-            whichTableGameScreen = 3;
-        } else if (ProjectOdyssey.ice == 7) {
-            whichTableGameScreen = 4;
-        } else if (ProjectOdyssey.ice == 8) { //thsi one doesnt work idk why
-            whichTableGameScreen = 5;
-        } else { //for testing
+        if (story == 0) {
             whichTableGameScreen = 0;
+        } else if (story == 1) {
+            whichTableGameScreen = 2;
+        } else if (story == 2) {
+            whichTableGameScreen = 4;
         }
 
         if (whichTableGameScreen == 0) { //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.

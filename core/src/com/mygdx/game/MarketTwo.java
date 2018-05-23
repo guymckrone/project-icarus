@@ -377,7 +377,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice){
+                if(moneys > 4999){
                     moneys = moneys - 5000;
                     ProjectOdyssey.unlocksTwo++;
                 }
@@ -412,7 +412,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice){
+                if(moneys > 9999){
                     moneys = moneys - 10000;
                     ProjectOdyssey.unlocksTwo++;
                 }
@@ -447,7 +447,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice){
+                if(moneys > 24999){
                     moneys = moneys - 25000;
                     ProjectOdyssey.unlocksTwo++;
                 }
@@ -482,7 +482,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > unlockPrice){
+                if(moneys > 99999){
                     moneys = moneys - 99999;
                     ProjectOdyssey.unlocksTwo++;
                 }
