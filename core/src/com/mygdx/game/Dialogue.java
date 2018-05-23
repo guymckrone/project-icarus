@@ -18,7 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-
+import java.util.Random;
 
 /**
  * Created by guymckrone on 4/10/18.
@@ -50,27 +50,27 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
     private String noMandell = "Thank you, [Player], I appreciate \nthe offer and the time you \nand MQLC took to make it. \nHowever, I do not feel at this \ntime that it is in my best \ninterests, or even necessary, \nfor me to accept donations \nfrom third parties. Thank you \nagain for the offer.";
 
     //Attempt to Bribe Mandell
-    private String lobbying4 = "Senator Mandell, how are you on this fine day?";
-    private String mandell4 = "I am doing well, thank you for asking, I hope you are as well. It is pleasant hearing from MQLC again.";
-    private String lobbying5 = "I am happy to hear it sir, we strive to cultivate a close relationship with all of our customers. Anyways, let's get down to brass tacks shall we? I hear there’s an ice sanctions bill on the floor today isn’t that right?";
-    private String mandell5 = "That’s right, it’s a bill intended to help protect American ice workers from having their jobs outsourced to Antarctica and the North Pole. I have to say I’m very impressed with it, I plan on giving my full support later this afternoon.";
-    private String lobbying6 = "Yes, that is very noble and all isn’t it. But on a related note, I also hear you’re up for reelection soon, correct?";
-    private String mandell6 = "Yes, that I am, but I fail to see how that’s related.";
-    private String lobbying7 = "Well, you see, one of our clients is very concerned about the effect this bill might have on domestic ice markets. I mean, sure, it’ll save a few jobs, but how will poor Americans get their ice after this bill is passed? Our client was hoping to maybe sway you to get you and your constituents to vote down this bill and in exchange our client could provide monetary support in the next election.";
-    private String yesMandell2 = "Hmm, well there I do believe there would be no point in me trying to protect American workers if I’m not even in office to do so. You have yourself a deal.";
-    private String noMandell2 = "A very interesting proposal. However, I feel that we are entering into a moral and ethical grey area here, and in any case I feel that this bill is the right thing for America. I’m afraid I’m going to have turn you down on this one, but thank you for your time.";
+    private String lobbying4 = "Senator Mandell, how are you \non this fine day?";
+    private String mandell4 = "I am doing well, thank you for \nasking. I hope you are as well. \nIt is pleasant hearing from \nMQLC again.";
+    private String lobbying5 = "I am happy to hear it sir, we \nstrive to cultivate a close \nrelationship with all of our \ncustomers. Anyways, let's get \ndown to brass tacks shall \nwe? I hear there’s an ice \nsanctions bill on the floor \ntoday isn’t that right?";
+    private String mandell5 = "That’s right, it’s a bill intended \nto help protect American ice \nworkers from having their \njobs outsourced to Russia \nand the North Pole. I have to \nsay I’m very impressed with it. \nI plan on giving my full \nsupport later this afternoon.";
+    private String lobbying6 = "Yes, that is very noble and \nall isn’t it. But on a related \nnote, I also hear you’re up for \nreelection soon, correct?";
+    private String mandell6 = "Yes, that I am, but I fail to see \nhow that’s related.";
+    private String lobbying7 = "Well, you see, one of our \nclients is very concerned \nabout the effect this bill \nmight have on domestic ice \nmarkets. I mean, sure, it’ll save \na few jobs, but how will poor \nAmericans get their ice after \nthis bill is passed? Our client \nwas hoping to maybe sway \nyou to get you and your \nconstituents to vote down \nthis bill and in exchange our \nclient could provide monetary \nsupport in the next election.";
+    private String yesMandell2 = "Hmm, well there I do believe \nthere would be no point in me \ntrying to protect American \nworkers if I’m not even in \noffice to do so. You have \nyourself a deal.";
+    private String noMandell2 = "A very interesting proposal. \nHowever, I feel that we are \nentering into a moral and \nethical grey area here, and in \nany case I feel that this bill \nis the right thing for America. \nI’m afraid I’m going to have \nturn you down on this one, \nbut thank you for your time.";
 
     //Attempt to Blackmail
-    private String lobbying8 = "Hello, Senator, I think it’s time me and you had a chat.";
+    private String lobbying8 = "Hello, Senator, I think it’s time \nme and you had a chat.";
     private String mandell7 = "Uhh to whom am I speaking?";
-    private String lobbying9 = "I’d prefer to keep our relationship to a no-name basis if you don’t mind. Besides, I already plenty enough about you to keep us talking for a good, long while.";
-    private String mandell8 = "Listen, I am a United States Senator, and if this is a prank call-";
+    private String lobbying9 = "I’d prefer to keep our \nrelationship to a no-name \nbasis if you don’t mind. \nBesides, I already plenty \nenough about you to keep us \ntalking for a good, long while.";
+    private String mandell8 = "Listen, I am a United States \nSenator, and if this is a prank \ncall...";
     private String lobbying10 = "How’s Sheryl, Senator?";
     private String mandell9 = "...I beg your pardon?";
-    private String lobbying11 = "She and the kids must be loving Grenada right now, what with the weather and such, but I’m sure they would be enjoying it a lot more if not for their-well, how should I say-condition.";
-    private String mandell10 = "....How do you know about Sheryl?";
-    private String lobbying12 = "I asked you a question before Senator, and your answer may decide whether this conversation continues or I hang up and call the New Ice Times.";
-    private String mandell11 = "....";
+    private String lobbying11 = "She and the kids must be \nloving Grenada right now, \nwhat with the weather and \nsuch, but I’m sure they would \nbe enjoying it a lot more if \nnot for their-well, how should \nI say...condition.";
+    private String mandell10 = "....How do you know about \nSheryl?";
+    private String lobbying12 = "I asked you a question before \nSenator, and your answer may \ndecide whether this \nconversation continues or I \nhang up and call the New Ice \nTimes.";
+    private String mandell11 = ". . . .";
     private String mandell12 = "What do you want";
 
     //Outcome Possibilities
@@ -92,14 +92,17 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
     private String npcText = lobbying1;
 
-    private int dialogueProgress = 1;
+    private int dialogueProgress = 26;
+    private int randomOne;
 
 
     public Dialogue(final ProjectOdyssey game){
         this.game = game;
         stage = new Stage();
         batch = new SpriteBatch();
-
+        Random random = new Random();
+        randomOne = random.nextInt(2);
+        System.out.println(randomOne+ "squeeep");
         camera = new OrthographicCamera();//creates camera
         camera.setToOrtho(false, 800, 480);//creates viewport
 
@@ -254,24 +257,10 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
     @Override
     public void render(float delta) {
-        if(dialogueProgress == 1){
-            npcText = yesMandell;
-        }
-        if(dialogueProgress == 2){
-            npcText = noMandell;
-        }
-        if(dialogueProgress == 3){
-            npcText = lobbying2;
-        }
-        if(dialogueProgress == 4){
-            npcText = mandell2;
-        }
-        if(dialogueProgress == 5){
-            npcText = lobbying3;
-        }
-        if(dialogueProgress == 6){
-            npcText = mandell3;
-        }
+
+
+
+
         /*if(dialogueProgress == 1){
             npcText = lobbying1;
         }
@@ -289,9 +278,81 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
         }
         if(dialogueProgress == 6){
             npcText = mandell3;
+        }
+
+        if(dialogueProgress == 7){
+            npcText = player1;
+        }
+        if(dialogueProgress == 8){
+            npcText = yesMandell;
+        }
+        if(dialogueProgress == 9){
+            npcText = noMandell;
         }*/
 
+        if(dialogueProgress == 10){
+            npcText = lobbying4;
+        }
+        if(dialogueProgress == 11){
+            npcText = mandell4;
+        }
+        if(dialogueProgress == 12){
+            npcText = lobbying5;
+        }
+        if(dialogueProgress == 13){
+            npcText = mandell5;
+        }
+        if(dialogueProgress == 14){
+            npcText = lobbying6;
+        }
+        if(dialogueProgress == 15){
+            npcText = mandell6;
+        }
+        if(dialogueProgress == 16){
+            npcText = lobbying7;
+        }
 
+        if(randomOne == 0 && dialogueProgress == 17) {
+            npcText = yesMandell2;
+        }
+        if(randomOne == 1 && dialogueProgress == 17) {
+            npcText = noMandell2;
+        }
+
+
+        if(dialogueProgress == 18){
+            npcText = lobbying8;
+        }
+        if(dialogueProgress == 19){
+            npcText = mandell7;
+        }
+        if(dialogueProgress == 20){
+            npcText = lobbying9;
+        }
+        if(dialogueProgress == 21){
+            npcText = mandell8;
+        }
+        if(dialogueProgress == 22){
+            npcText = lobbying10;
+        }
+        if(dialogueProgress == 23){
+            npcText = mandell9;
+        }
+        if(dialogueProgress == 24){
+            npcText = lobbying11;
+        }
+        if(dialogueProgress == 25){
+            npcText = mandell10;
+        }
+        if(dialogueProgress == 26){
+            npcText = lobbying12;
+        }
+        if(dialogueProgress == 27){
+            npcText = mandell11;
+        }
+        if(dialogueProgress == 28){
+            npcText = mandell12;
+        }
 
 
 
