@@ -752,7 +752,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
             icicleButton.draw(batch, 1);
             unlockIcicleButton.setTouchable(Touchable.disabled);
         }
-        if (ProjectOdyssey.unlocksTwo == 3) {
+        if (ProjectOdyssey.unlocksTwo == 3 && Dialogue.cuando == false) {
             unlockSnowManButton.draw(batch, 1);
             moneyCounter.draw(batch, "$" + 99999, ((int) (.7 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.36 * screenHeight )));
         }

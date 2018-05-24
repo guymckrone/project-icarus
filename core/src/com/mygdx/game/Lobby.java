@@ -61,7 +61,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
     public static int whichTableLobbyScreen = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
     public static boolean whichBook = false; //false = no bookmark, true = bookmark
-    public static boolean phoneDisabled = false;
+    public static boolean phoneDisabled;
 
     public Lobby(final ProjectOdyssey game){
         this.game = game;

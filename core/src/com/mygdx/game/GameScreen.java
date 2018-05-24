@@ -204,7 +204,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                moneys++;
+                moneys = moneys +100;
 
             }
         });
@@ -233,7 +233,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                moneys++;
+                moneys = moneys +100;
 
             }
         });
@@ -261,7 +261,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                moneys++;
+                moneys = moneys +100;
 
             }
         });
@@ -289,7 +289,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                moneys++;
+                moneys = moneys +100;
 
             }
         });
@@ -317,7 +317,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                moneys++;
+                moneys = moneys +100;
 
             }
         });
@@ -345,7 +345,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                moneys++;
+                moneys = moneys +100;
 
             }
         });

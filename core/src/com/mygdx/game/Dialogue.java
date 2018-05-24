@@ -118,21 +118,21 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
 
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 70;
+        parameter.size = 50;
         parameter.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         dialogueOne = generator.generateFont(parameter); // font size 80 pixels
         generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
         FreeTypeFontGenerator generator2 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter2 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter2.size = 70;
+        parameter2.size = 50;
         parameter2.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         dialogueTwo = generator.generateFont(parameter2); // font size 80 pixels
         generator2.dispose(); // don't forget to dispose to avoid memory leaks!
 
         FreeTypeFontGenerator generator3 = new FreeTypeFontGenerator(Gdx.files.internal("fonts/slkscr.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter3 = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter3.size = 70;
+        parameter3.size = 50;
         parameter3.characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!'()>?:$ ";
         dialogueThree = generator.generateFont(parameter3); // font size 80 pixels
         generator3.dispose(); // don't forget to dispose to avoid memory leaks!
@@ -169,6 +169,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
                 }
                 if(dialogueStatus == 3){
                     dialogueStatus = 5;
+                    Lobby.phoneDisabled = true;
                 }
                 dialogueProgress = 7;
             }
@@ -208,6 +209,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
                 }
                 if(dialogueStatus == 3){
                     dialogueStatus = 4;
+                    Lobby.phoneDisabled = true;
                 }
                 dialogueProgress = 9;
 
@@ -248,6 +250,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
                 }
                 if(dialogueStatus == 2){
                     dialogueStatus = 4;
+                    Lobby.phoneDisabled = true;
                 }
                 dialogueProgress = 17;
             }
@@ -374,174 +377,181 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        if(dialogueProgress == 1){
-            npcText = lobbying1;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 2){
-            npcText = mandell1;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 3){
-            npcText = lobbying2;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 4){
-            npcText = mandell2;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 5){
-            npcText = lobbying3;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 6){
-            npcText = mandell3;
-            lobbyButtonTwo.draw(batch, 1);
-        }
+        if(showResponses == false) {
+            if (dialogueProgress == 1) {
+                npcText = lobbying1;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 2) {
+                npcText = mandell1;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 3) {
+                npcText = lobbying2;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 4) {
+                npcText = mandell2;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 5) {
+                npcText = lobbying3;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 6) {
+                npcText = mandell3;
+                lobbyButtonTwo.draw(batch, 1);
+            }
 
 
+            if (dialogueProgress == 7) {
+                npcText = player1;
+            }
+            if (randomOne == 0 && dialogueProgress == 8) {
+                npcText = yesMandell;
+                lobbyButtonTwo.draw(batch, 1);
+            }
 
-        if(dialogueProgress == 7){
-            npcText = player1;
-        }
-        if(randomOne == 0 && dialogueProgress == 8) {
-            npcText = yesMandell;
-            lobbyButtonTwo.draw(batch, 1);
-        }
+            if (randomOne == 1 && dialogueProgress == 8) {
+                npcText = noMandell;
+                lobbyButtonTwo.draw(batch, 1);
+            }
 
-        if(randomOne == 1 && dialogueProgress == 8) {
-            npcText = noMandell;
-            lobbyButtonTwo.draw(batch, 1);
-        }
+            if (dialogueProgress == 9) {
+                npcText = lobbying4;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 10) {
+                npcText = mandell4;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 11) {
+                npcText = lobbying5;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 12) {
+                npcText = mandell5;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 13) {
+                npcText = lobbying6;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 14) {
+                npcText = mandell6;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 15) {
+                npcText = lobbying7;
+                marketTwoButton.draw(batch, 1);
+            }
 
-        if(dialogueProgress == 9){
-            npcText = lobbying4;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 10){
-            npcText = mandell4;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 11){
-            npcText = lobbying5;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 12){
-            npcText = mandell5;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 13){
-            npcText = lobbying6;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 14){
-            npcText = mandell6;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 15){
-            npcText = lobbying7;
-            marketTwoButton.draw(batch, 1);
-        }
-
-        if(randomTwo == 0 && dialogueProgress == 16) {
-            npcText = yesMandell2;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(randomTwo == 1 && dialogueProgress == 16) {
-            npcText = noMandell2;
-            lobbyButtonTwo.draw(batch, 1);
-        }
+            if (randomTwo == 0 && dialogueProgress == 16) {
+                npcText = yesMandell2;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (randomTwo == 1 && dialogueProgress == 16) {
+                npcText = noMandell2;
+                lobbyButtonTwo.draw(batch, 1);
+            }
 
 
-        if(dialogueProgress == 17){
-            npcText = lobbying8;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 18){
-            npcText = mandell7;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 19){
-            npcText = lobbying9;
-        }
-        if(dialogueProgress == 20){
-            npcText = mandell8;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 21){
-            npcText = lobbying10;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 22){
-            npcText = mandell9;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 23){
-            npcText = lobbying11;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 24){
-            npcText = mandell10;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 25){
-            npcText = lobbying12;
-            marketTwoButton.draw(batch, 1);
-        }
-        if(dialogueProgress == 26){
-            npcText = mandell11;
-            lobbyButtonTwo.draw(batch, 1);
-        }
-        if(dialogueProgress == 27){
-            npcText = mandell12;
-            lobbyButtonTwo.draw(batch, 1);
+            if (dialogueProgress == 17) {
+                npcText = lobbying8;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 18) {
+                npcText = mandell7;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 19) {
+                npcText = lobbying9;
+            }
+            if (dialogueProgress == 20) {
+                npcText = mandell8;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 21) {
+                npcText = lobbying10;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 22) {
+                npcText = mandell9;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 23) {
+                npcText = lobbying11;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 24) {
+                npcText = mandell10;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 25) {
+                npcText = lobbying12;
+                marketTwoButton.draw(batch, 1);
+            }
+            if (dialogueProgress == 26) {
+                npcText = mandell11;
+                lobbyButtonTwo.draw(batch, 1);
+            }
+            if (dialogueProgress == 27) {
+                npcText = mandell12;
+                lobbyButtonTwo.draw(batch, 1);
+            }
         }
         if (showResponses == true) {
             Lobby.phoneDisabled = false;
             if (dialogueStatus == 0) {
-                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .9));
-                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .6));
-                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .3));
+                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .9));
+                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .6));
+                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .3));
                 optionOneButton.draw(batch, 1);
                 optionTwoButton.draw(batch, 1);
                 optionThreeButton.draw(batch, 1);
 
             }
             if (dialogueStatus == 1) {
-                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .6));
-                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .3));
+                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .6));
+                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .3));
                 optionTwoButton.draw(batch, 1);
                 optionThreeButton.draw(batch, 1);
                 Lobby.phoneDisabled = true;
 
             }
             if (dialogueStatus == 2) {
-                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .9));
-                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .3));
+                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .9));
+                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .3));
                 optionOneButton.draw(batch, 1);
                 optionThreeButton.draw(batch, 1);
                 Lobby.phoneDisabled = true;
 
             }
             if (dialogueStatus == 3) {
-                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .9));
-                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .6));
+                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .9));
+                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .6));
                 optionOneButton.draw(batch, 1);
                 optionTwoButton.draw(batch, 1);
                 Lobby.phoneDisabled = true;
 
             }
             if (dialogueStatus == 4) {
-                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .9));
+                dialogueOne.draw(batch, "Offer to Fund Senator \nMandell's Campaign", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .9));
                 optionOneButton.draw(batch, 1);
+                dialogueStatus = 7;
             }
             if (dialogueStatus == 5) {
-                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .6));
+                dialogueOne.draw(batch, "Leverage Campaign \nFunding to gain Senator \nMandell's vote", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .6));
                 optionTwoButton.draw(batch, 1);
+                dialogueStatus = 7;
             }
             if (dialogueStatus == 6) {
-                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .3));
+                dialogueOne.draw(batch, "Attempt to Blackmail \nSenator Mandell", (float) (Gdx.graphics.getWidth() * .03), (float) (Gdx.graphics.getHeight() * .3));
                 optionThreeButton.draw(batch, 1);
+                dialogueStatus = 7;
+            }
+            if(dialogueStatus == 7 && ProjectOdyssey.moneys == 100000000){
+                dialogueOne.draw(batch, "Congrats! Your cunning and ruthlessness have won you supremacy over the global ice market and you now have a puppet in the White House. You reign as the unchallenged ice mogul of the earth, and the whole world now watches in terror and trepidation as you plan your next move.", (float) (Gdx.graphics.getWidth() * .2), (float) (Gdx.graphics.getHeight() * .3));
             }
         }
         else{
@@ -556,7 +566,7 @@ public class Dialogue implements Screen, GestureDetector.GestureListener{
                 //lobbyButtonTwo.draw(batch, 1);
             }*/
             //dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .1), (float) (Gdx.graphics.getHeight() * .95));
-            dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .08), (float) (Gdx.graphics.getHeight() * .8));
+            dialogueOne.draw(batch, npcText, (float) (Gdx.graphics.getWidth() * .05), (float) (Gdx.graphics.getHeight() * .8));
 
 
         }
