@@ -93,6 +93,7 @@ public class ProjectOdyssey extends Game {
 	public static boolean upgradeThreeEleven = false;
 	public static boolean upgradeThreeTwelve = false;
 	public static boolean upgradeThreeThirteen = false;
+	public static boolean sellAll;
 
     String marketEvent = ""; //Text of market event
 
@@ -134,7 +135,7 @@ public class ProjectOdyssey extends Game {
     public void create() {
         batch = new SpriteBatch();
         font = new BitmapFont();
-        this.setScreen(new Dialogue(this));
+        this.setScreen(new MainMenuScreen(this));
     }
 
 

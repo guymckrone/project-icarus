@@ -52,6 +52,8 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
     private ImageButton iceSign;
 
+    private ImageButton sellAllButton;
+
 
     private int screenWidth = Gdx.graphics.getWidth();
     private int screenHeight = Gdx.graphics.getHeight(); //Variable for screen height
@@ -483,7 +485,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
 
         if (whichTableGameScreen == 0) { //draw the table sprite depending on the whichTableGameScreen variable. IDK if this will work well with clicking the tables because maybe they will be stacking.
             onePersonNoRing.draw(batch, 1);
-        } else if (whichTableGameScreen == 1) {
+        } else if (whichTableGameScreen == 1 ) {
             onePersonRing.draw(batch, 1);
         } else if (whichTableGameScreen == 2) {
             twoPersonNoRing.draw(batch, 1);

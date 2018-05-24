@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
@@ -115,7 +116,6 @@ public class MainMenuScreen implements Screen, GestureDetector.GestureListener{
         stage.addActor(creditButton);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
-
 
 
     }

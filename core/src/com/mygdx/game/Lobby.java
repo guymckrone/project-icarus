@@ -16,6 +16,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
@@ -59,6 +61,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
 
     public static int whichTableLobbyScreen = 0; //0 = onePersonNoRing, 1 = onePersonRing, 2 = twoPersonNoRing, 3 = twoPersonRing, 4 = threePersonNoRing, 5 = threePersonRing
     public static boolean whichBook = false; //false = no bookmark, true = bookmark
+    public static boolean phoneDisabled = false;
 
     public Lobby(final ProjectOdyssey game){
         this.game = game;
@@ -300,9 +303,20 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
             }
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new Dialogue(game));
-
+                System.out.println(Dialogue.cuando);
+                if(Dialogue.cuando = true) {
+                    Dialogue.showResponses = true;
+                    Dialogue.cuando = false;
+                    game.setScreen(new Dialogue(game));
+                }
+                else{
+                }
+                System.out.println(Dialogue.cuando);
+                if(phoneDisabled = true){
+                    phoneButton.setTouchable(Touchable.disabled);
+                }
             }
+
         });
         stage.addActor(phoneButton);
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
@@ -473,6 +487,7 @@ public class Lobby implements Screen, GestureDetector.GestureListener{
         else if (moneys > 9) {
             moneyCounter.draw(batch, "$" + ProjectOdyssey.moneys, ((int)(.83 * screenWidth)), ((int)(.98 * screenHeight))); //Position of money counter when x>9
         }
+
 
 
 

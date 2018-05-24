@@ -51,6 +51,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
     private ImageButton unlockIcicleButton;
     private ImageButton unlockSnowManButton;
     private ImageButton unlockMarketTwoButton;
+    private ImageButton sellAllButton;
 
     private Table marketTable;
 
@@ -103,9 +104,13 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.iceCream > 0) {//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.iceCream > 0 && ProjectOdyssey.sellAll == false) {//prevents from selling into negatives
                     ProjectOdyssey.iceCream--;//subtracts one ice each touchup
                     ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iceCreamPrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.iceCream > 0 && ProjectOdyssey.sellAll == true) {//prevents from selling into negatives
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iceCreamPrice*ProjectOdyssey.iceCream;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.iceCream = 0;
                 }
                 if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iceCreamPrice) {//prevents from selling into negatives
                     ProjectOdyssey.iceCream++;
@@ -145,9 +150,13 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowFlake > 0) {//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowFlake > 0 && ProjectOdyssey.sellAll == false) {//prevents from selling into negatives
                     ProjectOdyssey.snowFlake--;//subtracts one ice each touchup
                     ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.snowFlakePrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowFlake > 0 && ProjectOdyssey.sellAll == true) {//prevents from selling into negatives
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.snowFlakePrice*ProjectOdyssey.snowFlake;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.snowFlake = 0;
                 }
                 if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowFlakePrice) {//prevents from selling into negatives
                     ProjectOdyssey.snowFlake++;
@@ -190,9 +199,13 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.icicle > 0) {//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.icicle > 0 && ProjectOdyssey.sellAll == false) {//prevents from selling into negatives
                     ProjectOdyssey.icicle--;//subtracts one ice each touchup
                     ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iciclePrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.icicle > 0 && ProjectOdyssey.sellAll == true) {//prevents from selling into negatives
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iciclePrice*ProjectOdyssey.icicle;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.icicle = 0;
                 }
                 if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.iciclePrice) {//prevents from selling into negatives
                     ProjectOdyssey.icicle++;
@@ -208,7 +221,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
         // Button skin
         Skin buyModeButtonSkin = new Skin();
-        buyModeButtonSkin.add("buyModeButton", new Texture("Market/BuyOn.png"));
+        buyModeButtonSkin.add("buyModeButton", new Texture("Market/BuyOnWithAll.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle buyModeButtonStyle = new ImageButton.ImageButtonStyle();
@@ -231,6 +244,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 ProjectOdyssey.sellMode = true;
+                ProjectOdyssey.sellAll = false;
                 buyModeButton.setTouchable(Touchable.disabled);
                 sellModeButton.setTouchable((Touchable.enabled));
                 System.out.println("sell");
@@ -239,11 +253,51 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
         });
         stage.addActor(buyModeButton);
 
+        // Button skin
+        Skin sellAllButtonSkin = new Skin();
+        sellAllButtonSkin.add("sellModeButton", new Texture("Market/SellOnAllWithAll.png"));
+
+        // Create button style
+        ImageButton.ImageButtonStyle sellAllButtonStyle = new ImageButton.ImageButtonStyle();
+        sellAllButtonStyle.imageUp = sellAllButtonSkin.getDrawable("sellModeButton"); // Unpressed
+        sellAllButtonStyle.imageDown = sellAllButtonSkin.getDrawable("sellModeButton"); // Pressed
+
+        // Play button
+        sellAllButton = new ImageButton(sellAllButtonStyle);
+        int buttonSize101 = (int) (120 * Gdx.graphics.getDensity());
+        sellAllButton.setSize(buttonSize101, buttonSize101);
+        /*int width6 = (int) ((Gdx.graphics.getWidth() - sellModeButton.getWidth())/2);
+        int height6 = (int) (((Gdx.graphics.getHeight() - sellModeButton.getHeight())/4)); */
+        int width101 = (int) ((Gdx.graphics.getWidth() * .2) - (buttonSize101 / 2));
+        int height101 = (int) (((Gdx.graphics.getHeight() * .95)) - (buttonSize101 / 2));
+        sellAllButton.setBounds(width101, height101, sellAllButton.getWidth(), sellAllButton.getHeight());
+        sellAllButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                ProjectOdyssey.sellMode = false;
+                ProjectOdyssey.sellAll = false;
+                sellAllButton.setTouchable(Touchable.disabled);
+                sellModeButton.setTouchable(Touchable.disabled);
+                buyModeButton.setTouchable((Touchable.enabled));
+                System.out.println("buy");
+
+            }
+        });
+
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
+
+        stage.addActor(sellAllButton);
+
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
 
         // Button skin
         Skin sellModeButtonSkin = new Skin();
-        sellModeButtonSkin.add("sellModeButton", new Texture("Market/SellOn.png"));
+        sellModeButtonSkin.add("sellModeButton", new Texture("Market/SellOnWithAll.png"));
 
         // Create button style
         ImageButton.ImageButtonStyle sellModeButtonStyle = new ImageButton.ImageButtonStyle();
@@ -267,9 +321,11 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                ProjectOdyssey.sellMode = false;
+                ProjectOdyssey.sellMode = true;
+                ProjectOdyssey.sellAll = true;
                 sellModeButton.setTouchable(Touchable.disabled);
-                buyModeButton.setTouchable((Touchable.enabled));
+                sellAllButton.setTouchable(Touchable.enabled);
+                buyModeButton.setTouchable((Touchable.disabled));
                 System.out.println("buy");
 
             }
@@ -335,9 +391,13 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowMan > 0) {//prevents from selling into negatives
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowMan > 0 && ProjectOdyssey.sellAll == false) {//prevents from selling into negatives
                     ProjectOdyssey.snowMan--;//subtracts one ice each touchup
-                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.iceCream;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.snowManPrice;//adds iceprice amount of moneys each time you click button
+                }
+                if (ProjectOdyssey.sellMode == true && ProjectOdyssey.snowMan > 0 && ProjectOdyssey.sellAll == true) {//prevents from selling into negatives
+                    ProjectOdyssey.moneys = ProjectOdyssey.moneys + ProjectOdyssey.snowManPrice*ProjectOdyssey.snowMan;//adds iceprice amount of moneys each time you click button
+                    ProjectOdyssey.snowMan = 0;
                 }
                 if (ProjectOdyssey.sellMode == false && ProjectOdyssey.moneys >= ProjectOdyssey.snowManPrice) {//prevents from selling into negatives
                     ProjectOdyssey.snowMan++;
@@ -377,7 +437,8 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 4999){
+                System.out.println(Dialogue.cuando+"plop");
+                if(moneys > 4999 && Dialogue.cuando == false){
                     moneys = moneys - 5000;
                     ProjectOdyssey.unlocksTwo++;
                 }
@@ -450,6 +511,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
                 if(moneys > 24999){
                     moneys = moneys - 25000;
                     ProjectOdyssey.unlocksTwo++;
+                    Dialogue.cuando = true;
                 }
 
             }
@@ -482,7 +544,7 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                if(moneys > 99999){
+                if(moneys > 99999 && Dialogue.cuando == false){
                     moneys = moneys - 99999;
                     ProjectOdyssey.unlocksTwo++;
                 }
@@ -656,14 +718,16 @@ public class MarketTwo implements Screen, GestureDetector.GestureListener {
 
         batch.end();
         batch.begin();
-        if (ProjectOdyssey.sellMode == true) {
+        if (ProjectOdyssey.sellMode == true && ProjectOdyssey.sellAll == false) {
             sellModeButton.draw(batch, 1);
-
+        }
+        if (ProjectOdyssey.sellMode == true && ProjectOdyssey.sellAll == true) {
+            sellAllButton.draw(batch, 1);
         }
         if (ProjectOdyssey.sellMode == false) {
             buyModeButton.draw(batch, 1);
-
         }
+
         if (ProjectOdyssey.unlocksTwo == 0) {
             unlockIceCreamButton.draw(batch, 1);
             moneyCounter.draw(batch, "$" + 5000, ((int) (.3 * screenWidth - (unlockIceCreamButton.getWidth()/2))), ((int) (.71 * screenHeight )));

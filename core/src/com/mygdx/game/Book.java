@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -305,6 +306,7 @@ public class Book implements Screen, GestureDetector.GestureListener {
                     upgradeThreeProgress = 1;
                     moneys = moneys - 42400;
                     ProjectOdyssey.upgradeThreeOne = true;
+                    Dialogue.cuando = true;
                 }
                 else if (upgradeThreeProgress == 1 && moneys > 65999){
                     upgradeThreeProgress = 2;
