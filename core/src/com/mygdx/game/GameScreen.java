@@ -407,7 +407,7 @@ public class GameScreen implements Screen, GestureDetector.GestureListener {
                     moneys++;
             }
         });
-        //onePersonNoRing.setTouchable(Touchable.disabled);
+        //onePersonNoRing.setTouchable(Touchable.disabled);0..
         stage.addActor(iceSign);
 
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, new GestureDetector(this)));
